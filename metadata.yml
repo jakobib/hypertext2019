@@ -1,0 +1,53 @@
+---
+title: Infrastructure-Agnostic Hypertext
+author:
+- name: Jakob Voß
+  email: jakob.voss@gbv.de
+  orcid: 0000-0002-7613-4123
+  affiliation: Verbundzentrale des GBV (VZG)
+date: 2018-04-01
+
+abstract: |
+    This paper presents a novel and formal interpretation of the original vision
+    of hypertext: infrastructure-agnostic hypertext is independent from
+    specific standards such as data formats and network protocols. Its model is
+    illustrated with examples and references to existing technologies that allow
+    for implementation and integration in current information infrastructures such
+    as the Internet.
+
+keywords:
+  - Xanadu
+  - hypertext
+  - transclusion
+  - documents
+ccsdesc:
+  - relevance: 500
+    class: Information systems\ Hypertext languages
+  - relevance: 300
+    class: Information systems\ Document representation
+  - relevance: 100
+    class: Human-centered computing\ Hypertext / hypermedia
+  - relevance: 100
+    class: Software and its engineering\ Hypertext languages
+
+documentclass: acmart
+classoption:
+  - format=sigconf
+  - review=true
+  - timestamp=true
+#  - authordraft=true
+
+fontfamily: amsmath # prevent lmodern to be loaded
+header-includes: |
+  \copyrightyear{2019}
+  \acmYear{2019}
+  \setcopyright{rightsretained}
+  \acmConference[Submitted to HT 2019]{HT 2019 (submission): ACM Conference on Hypertext and Social Media}{September 17--20, 2019}{Hof}
+  \acmBooktitle{Submitted to HT 2019: ACM Conference on Hypertext and Social Media, September 17--20, 2019, Hof}
+  \acmPrice{}
+  \acmDOI{}
+  \acmISBN{}
+  \usepackage{tikz}
+  \usetikzlibrary{shapes}
+  \usetikzlibrary{positioning}
+...

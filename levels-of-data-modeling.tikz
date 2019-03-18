@@ -1,0 +1,26 @@
+\usetikzlibrary{shapes}
+\usetikzlibrary{positioning}
+\begin{tikzpicture}[font=\sffamily,node distance=4mm,label distance=1.25mm]
+\matrix[column sep=6mm] {
+  \node[draw,cloud,cloud puffs=10,cloud ignores aspect,cloud puff arc=90,
+        minimum width=8mm,minimum height=4mm,label=idea] (idea) {};
+&
+ \node[ellipse,minimum width=6mm,label=model,minimum height=4mm] (model) {};
+ \draw (30:2mm) -- (-90:2mm) -- (150:2mm) -- cycle;
+ \draw [draw,fill=white]  (-90:2mm) circle (.6mm);
+ \draw [draw,fill=white] (30:2mm) circle (.6mm);
+ \draw [draw,fill=white] (150:2mm) circle (.6mm);
+&
+ \node[rectangle,minimum width=6mm,minimum height=4mm,label=format] (schema) {};
+ \draw (schema.north west) rectangle (schema.center);
+ \draw (schema.north) rectangle (schema.east);
+ \draw (schema.west) rectangle (schema.south);
+&
+ \node[rectangle,minimum height=4mm] (data) {\texttt{01101}\ldots}; \\
+};
+\node[above=0.5mm of data] {serialization};
+\draw[->,shorten >=1mm,shorten <=2mm] (idea) to (model);
+\draw[->,shorten >=2mm,shorten <=1mm] (model) to (schema);
+\draw[->,shorten >=0mm,shorten <=2mm] (schema) to (data);
+\draw[<-,bend angle=35, bend right] (model.south east) to (data.south west);
+\end{tikzpicture}

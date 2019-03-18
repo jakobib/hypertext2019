@@ -1,0 +1,34 @@
+\usetikzlibrary{positioning}
+\begin{tikzpicture}[font=\sffamily]
+
+\node (markdown) {Markdown};
+\node [right=15mm of markdown] (tex) {\TeX};
+\node [right=15mm of tex] (pdf) {\textbf{PDF}};
+
+\node [below=6mm of markdown] (tikz) {Ti\textit{k}Z};
+\node [right=of tikz] (svg) {SVG};
+\node [below=6mm of pdf] (html) {\textbf{HTML}};
+
+\node [below=13mm of tikz] (wikidata) {Wikidata};
+\node [right=of wikidata] (csljson) {CSL JSON};
+\node [right=of csljson] (bibtex) {Bib\negthinspace\TeX};
+
+\node [above=4mm of tex] (textemplate) {Pandoc template (\TeX)};
+\node [below=4mm of svg,xshift=-6mm] (htmltemplate) {Pandoc template (HTML)};
+\node [below=5mm of html] (css) {CSS};
+
+\draw[->] (markdown) to (tex);
+\draw[->] (markdown) to (html);
+\draw[->] (tex) to (pdf);
+\draw[->] (tikz) to (svg);
+\draw[dotted,->] (svg) to (html);
+\draw[dotted,->] (css) to (html);
+\draw[dotted,->] (tikz) to (tex);
+\draw[->] (wikidata) to (csljson);
+\draw[->] (textemplate) to (tex);
+\draw[->] (htmltemplate) to (html);
+\draw[->] (csljson) to (bibtex);
+\draw[->,bend angle=90, bend right] (bibtex) to (pdf);
+\draw[->] (csljson) to (html);
+
+\end{tikzpicture}
