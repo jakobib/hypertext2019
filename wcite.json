@@ -366,9 +366,7 @@
     "issued": {
       "date-parts": [
         [
-          1980,
-          1,
-          1
+          1980
         ]
       ]
     },
@@ -745,9 +743,7 @@
     "issued": {
       "date-parts": [
         [
-          1952,
-          1,
-          1
+          1952
         ]
       ]
     },
@@ -1122,9 +1118,7 @@
     "issued": {
       "date-parts": [
         [
-          2013,
-          1,
-          1
+          2013
         ]
       ]
     },
@@ -1879,9 +1873,7 @@
     "issued": {
       "date-parts": [
         [
-          1965,
-          1,
-          1
+          1965
         ]
       ]
     },
@@ -2256,9 +2248,7 @@
     "issued": {
       "date-parts": [
         [
-          1974,
-          1,
-          1
+          1974
         ]
       ]
     },
@@ -2633,9 +2623,7 @@
     "issued": {
       "date-parts": [
         [
-          2008,
-          1,
-          1
+          2008
         ]
       ]
     },
@@ -3402,9 +3390,7 @@
     "issued": {
       "date-parts": [
         [
-          2015,
-          1,
-          1
+          2015
         ]
       ]
     },
@@ -3786,9 +3772,7 @@
     "issued": {
       "date-parts": [
         [
-          2005,
-          1,
-          1
+          2005
         ]
       ]
     },
@@ -4165,9 +4149,7 @@
     "issued": {
       "date-parts": [
         [
-          2016,
-          1,
-          1
+          2016
         ]
       ]
     },
@@ -4546,9 +4528,7 @@
     "issued": {
       "date-parts": [
         [
-          2013,
-          1,
-          1
+          2013
         ]
       ]
     },
@@ -4929,9 +4909,7 @@
     "issued": {
       "date-parts": [
         [
-          2002,
-          1,
-          1
+          2002
         ]
       ]
     },
@@ -5309,9 +5287,7 @@
     "issued": {
       "date-parts": [
         [
-          2009,
-          1,
-          1
+          2009
         ]
       ]
     },
@@ -5699,9 +5675,7 @@
     "issued": {
       "date-parts": [
         [
-          2007,
-          1,
-          1
+          2007
         ]
       ]
     },
@@ -6078,9 +6052,7 @@
     "issued": {
       "date-parts": [
         [
-          2004,
-          1,
-          1
+          2004
         ]
       ]
     },
@@ -7214,9 +7186,7 @@
     "issued": {
       "date-parts": [
         [
-          2015,
-          1,
-          1
+          2015
         ]
       ]
     },
@@ -7592,9 +7562,7 @@
     "issued": {
       "date-parts": [
         [
-          1967,
-          1,
-          1
+          1967
         ]
       ]
     },
@@ -7990,9 +7958,7 @@
     "issued": {
       "date-parts": [
         [
-          2017,
-          1,
-          1
+          2017
         ]
       ]
     },
@@ -8766,9 +8732,7 @@
     "issued": {
       "date-parts": [
         [
-          2017,
-          1,
-          1
+          2017
         ]
       ]
     },
@@ -9522,9 +9486,7 @@
     "issued": {
       "date-parts": [
         [
-          1988,
-          1,
-          1
+          1988
         ]
       ]
     },
@@ -11051,9 +11013,7 @@
     "issued": {
       "date-parts": [
         [
-          2014,
-          1,
-          1
+          2014
         ]
       ]
     },
@@ -11427,9 +11387,7 @@
     "issued": {
       "date-parts": [
         [
-          2002,
-          1,
-          1
+          2002
         ]
       ]
     },
@@ -11815,14 +11773,60 @@
     "issued": {
       "date-parts": [
         [
-          2010,
-          1,
-          1
+          2010
         ]
       ]
     },
     "page": "201-210",
     "title": "Hyperorders and transclusion: understanding dimensional hypertext",
     "type": "paper-conference"
+  },
+  {
+    "_graph": [
+      {
+        "data": [
+          "Q63197724"
+        ],
+        "type": "@wikidata/list+object"
+      },
+      {
+        "type": "@else/list+object"
+      },
+      {
+        "data": "https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q63197724&format=json&languages=en",
+        "type": "@wikidata/api"
+      },
+      {
+        "type": "@else/json"
+      },
+      {
+        "type": "@wikidata/object"
+      },
+      {
+        "type": "@csl/list+object"
+      }
+    ],
+    "_wikiId": "Q63197724",
+    "author": [
+      {
+        "_ordinal": -1,
+        "family": "Nelson",
+        "given": "Ted"
+      }
+    ],
+    "container-title": "World Wide Web Journal",
+    "id": "Q63197724",
+    "issue": "4",
+    "issued": {
+      "date-parts": [
+        [
+          1997
+        ]
+      ]
+    },
+    "page": "129-134",
+    "title": "Embedded Markup Considered Harmful",
+    "type": "article-journal",
+    "volume": "2"
   }
 ]

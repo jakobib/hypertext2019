@@ -36,6 +36,7 @@ classoption:
   - review=true
   - timestamp=true
 #  - authordraft=true
+biblio-style: ACM-Reference-Format
 
 fontfamily: amsmath # prevent lmodern to be loaded
 header-includes: |

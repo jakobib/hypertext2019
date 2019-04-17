@@ -37,7 +37,7 @@
 %%   Right brace   \}     Tilde         \~}
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{acmart}
-[2018/12/16 v1.57 Typesetting articles for the Association for
+[2019/03/29 v1.59 Typesetting articles for the Association for
 Computing Machinery]
 \def\@classname{acmart}
 \InputIfFileExists{acmart-preload-hook.tex}{%
@@ -457,6 +457,7 @@ Computing Machinery]
 \let\@footnotetext@nolink\@footnotetext
 \RequirePackage[bookmarksnumbered,unicode]{hyperref}
 \pdfstringdefDisableCommands{%
+  \def\addtocounter#1#2{}%
   \def\unskip{}%
   \def\textbullet{- }%
   \def\textrightarrow{ -> }%
@@ -694,17 +695,25 @@ Computing Machinery]
 \@Description@presenttrue
 \newif\if@undescribed@images
 \@undescribed@imagesfalse
-\newcommand\Description[2][]{\global\@Description@presenttrue}
+\newcommand\Description[2][]{\global\@Description@presenttrue\ignorespaces}
 \AtEndDocument{\if@undescribed@images
   \ClassWarningNoLine{\@classname}{Some images may lack descriptions}\fi}
-\AtBeginEnvironment{figure}{\@Description@presentfalse}
-\AtBeginEnvironment{figure*}{\@Description@presentfalse}
+\AtBeginEnvironment{figure}{\@Description@presentfalse
+  \let\@vspace\@vspace@orig
+  \let\@vspacer\@vspacer@orig}
+\AtBeginEnvironment{figure*}{\@Description@presentfalse
+  \let\@vspace\@vspace@orig
+  \let\@vspacer\@vspacer@orig}
 \AtEndEnvironment{figure}{\if@Description@present\else
   \global\@undescribed@imagestrue
   \ClassWarning{\@classname}{A possible image without description}\fi}
 \AtEndEnvironment{figure*}{\if@Description@present\else
   \global\@undescribed@imagestrue
   \ClassWarning{\@classname}{A possible image without description}\fi}
+\AtBeginEnvironment{table}{\let\@vspace\@vspace@orig
+  \let\@vspacer\@vspacer@orig}
+\AtBeginEnvironment{table*}{\let\@vspace\@vspace@orig
+  \let\@vspacer\@vspacer@orig}
 \RequirePackage{caption, float}
 \captionsetup[table]{position=top}
 \if@ACM@journal
@@ -740,10 +749,13 @@ Computing Machinery]
 \newfloat{sidebar}{}{sbar}
 \floatname{sidebar}{Sidebar}
 \renewenvironment{sidebar}{\Collect@Body\@sidebar}{}
-\long\def\@sidebar#1{\bgroup\captionsetup{type=sidebar}%
+\long\def\@sidebar#1{\bgroup\let\@vspace\@vspace@orig
+  \let\@vspacer\@vspacer@orig\captionsetup{type=sidebar}%
   \marginpar{\small#1}\egroup}
 \newenvironment{marginfigure}{\Collect@Body\@marginfigure}{}
 \long\def\@marginfigure#1{\bgroup
+  \let\@vspace\@vspace@orig
+  \let\@vspacer\@vspacer@orig
   \captionsetup{type=figure}%
   \marginpar{\@Description@presentfalse\centering
     \small#1\if@Description@present\else
@@ -752,12 +764,14 @@ Computing Machinery]
       \fi}%
   \egroup}
 \newenvironment{margintable}{\Collect@Body\@margintable}{}
-\long\def\@margintable#1{\bgroup\captionsetup{type=table}%
+\long\def\@margintable#1{\bgroup\let\@vspace\@vspace@orig
+  \let\@vspacer\@vspacer@orig\captionsetup{type=table}%
   \marginpar{\centering\small#1}\egroup}
 \newdimen\fulltextwidth
 \fulltextwidth=\dimexpr(\textwidth+\marginparwidth+\marginparsep)
 \if@ACM@sigchiamode
-\def\@dblfloat{\bgroup\columnwidth=\fulltextwidth
+\def\@dblfloat{\bgroup\let\@vspace\@vspace@orig
+  \let\@vspacer\@vspacer@orig\columnwidth=\fulltextwidth
   \let\@endfloatbox\@endwidefloatbox
   \def\@fpsadddefault{\def\@fps{tp}}%
   \@float}
@@ -843,6 +857,7 @@ Computing Machinery]
   CIE,%
   CSUR,%
   DTRAP,%
+  HEALTH,%
   IMWUT,%
   JACM,%
   JDIQ,%
@@ -861,7 +876,7 @@ Computing Machinery]
   TALLIP,%
   TAP,%
   TCPS,%
-  TDSCI,%
+  TDS,%
   TEAC,%
   TECS,%
   THRI,%
@@ -910,6 +925,10 @@ Computing Machinery]
   \def\@journalName{Digital Threats: Research and Practice}%
   \def\@journalNameShort{Digit. Threat. Res. Pract.}%
   \def\@permissionCodeOne{2576-5337}%
+\or % HEALTH
+  \def\@journalName{ACM Transactions on Computing for Healthcare}%
+  \def\@journalNameShort{ACM Trans. Comput. Healthcare}%
+  \def\@permissionCodeOne{2637-8051}%
 \or % IMWUT
   \def\@journalName{Proceedings of the ACM on Interactive, Mobile,
     Wearable and Ubiquitous Technologies}%
@@ -987,7 +1006,7 @@ Computing Machinery]
   \def\@journalName{ACM Transactions on Applied Perception}%
 \or % TCPS
   \def\@journalName{ACM Transactions on Cyber-Physical Systems}%
-\or % TDSCI
+\or % TDS
   \def\@journalName{ACM Transactions on Data Science}%
   \def\@journalNameShort{ACM Trans. Data Sci.}%
   \def\@permissionCodeOne{2577-3224}%
@@ -1645,6 +1664,8 @@ Computing Machinery]
     \ifnum\num@authorgroups=0\author{}\fi
   \fi
   \begingroup
+  \let\@vspace\@vspace@orig
+  \let\@vspacer\@vspacer@orig
   \let\@footnotemark\@footnotemark@nolink
   \let\@footnotetext\@footnotetext@nolink
   \renewcommand\thefootnote{\@fnsymbol\c@footnote}%
@@ -1729,7 +1750,7 @@ Computing Machinery]
   \setcounter{footnote}{0}%
   \@mkabstract
   \if@ACM@printccs
-    \ifx\@concepts\@empty\else\bgroup
+  \ifx\@concepts\@empty\else\bgroup
       {\@specialsection{CCS Concepts}%
          \@concepts\par}\egroup
      \fi
@@ -1785,7 +1806,7 @@ Computing Machinery]
     \section*{#1}%
   \or % sigchi-a
     \section*{#1}%
-  \fi}
+    \fi}
 \def\@printtopmatter{%
   \ifx\@startPage\@empty
      \gdef\@startPage{1}%
@@ -2218,6 +2239,8 @@ Computing Machinery]
    \ignorespaces\@abstract\par}%
   \fi\egroup}
 \def\@mkbibcitation{\bgroup
+  \let\@vspace\@vspace@orig
+  \let\@vspacer\@vspacer@orig
   \def\@pages@word{\ifnum\getrefnumber{TotPages}=1\relax page\else pages\fi}%
   \def\footnotemark{}%
   \def\\{\unskip{} \ignorespaces}%
@@ -2250,7 +2273,11 @@ Computing Machinery]
   \fi
   \ifx\@acmDOI\@empty\else\@formatdoi{\@acmDOI}\fi
 \par\egroup}
-\def\@printendtopmatter{\par\bigskip}
+\def\@printendtopmatter{\bgroup
+  \let\@vspace\@vspace@orig
+  \let\@vspacer\@vspacer@orig
+  \par\bigskip
+  \egroup}
 \def\@setthanks{\long\def\thanks##1{\par##1\@addpunct.}\thankses}
 \def\@setauthorsaddresses{\@authorsaddresses\unskip\@addpunct.}
 \RequirePackage{fancyhdr}
@@ -2756,6 +2783,8 @@ Computing Machinery]
   \ifx\@tempa\@tempb
      arXiv:\href{http://arxiv.org/abs/#2}{#2}\else arXiv:#2%
   \fi}
+\let\@vspace@orig=\@vspace
+\let\@vspacer@orig=\@vspacer
 \apptocmd{\@vspace}{\ClassWarning{\@classname}{\string\vspace\space should
     only be used to provide space above/below surrounding
     objects}}{}{}
