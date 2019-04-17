@@ -3,17 +3,17 @@
 The original vision of hypertext as proposed by Ted Nelson
 [@Nelson1965;@Nelson2007] still waits to be realized. His influence is visible
 through people who, influenced by his works, shaped the computer world of
-today, last but not least the Web.^[Tim Berners-Lee references Nelson both in
-the proposal that led to the Web [@BernersLee1990;@Nelson1967] and at the early
-W3C homepage <http://www.w3.org/Xanadu.html> (1992/93) [@Nelson1980].] Nelson's
-core idea, a network of visibly connected documents called Xanadu, goes beyond
-the Web in several aspects. In particular it promises non-breaking links and it
-uses links to documents for creation of markup, among other uses such as
-versioning, quotation, etc., instead of using markup in documents to create
-links. The concept of hypertext or more general 'hypermedia' has also been used
-differing from Nelson, both in the literary community (that focused on simple
-links), and in the hypertext research community (that focused on tools)
-[@WardripFruin2004].
+today, last but not least the Web [@Nelson2008].^[Tim Berners-Lee references
+Nelson both in the proposal that led to the Web [@BernersLee1990;@Nelson1967]
+and at the early W3C homepage <http://www.w3.org/Xanadu.html> (1992/93)
+[@Nelson1980].] Nelson's core idea, a network of visibly connected documents
+called Xanadu, goes beyond the Web in several aspects. In particular it
+promises non-breaking links and it uses links to build documents (with
+versions, quotations, overlay markup...) instead of using documents to build
+links [@Nelson1997]. The concept of hypertext or more general 'hypermedia' has
+also been used differing from Nelson, both in the literary community (that
+focused on simple links), and in the hypertext research community (that focused
+on tools) [@WardripFruin2004].
 
 This paper tries to get back to the original vision of hypertext by
 specification of a formal model that puts transcludeable documents at its
@@ -27,10 +27,9 @@ and hypertext systems beyond link-based models [@Atzenbeck2017].
 Limited by the state of document processing tools and by submission guidelines,
 this paper is not a demo of hypertext.^[See [@Capadisli2015] for a good example
 of what an actual demo paper might look like.] On a closer look however there
-are traces of transclusions that would fit into a full hypertext system. See
-figure \ref{fig:demopaper} for an overview of the document processing links and
-<https://github.com/jakobib/hypertext2019> for technical details and source
-files.
+are traces of transclusion links that have been processed to this paper. See
+figure \ref{fig:demopaper} for an overview and
+<https://github.com/jakobib/hypertext2019> for details and sources.
 
 # Outline
 
@@ -74,17 +73,17 @@ The hypertext system further consists of:
 $R$
  : is a retrieval function with $R\colon I \to D$
 
-$A$
- : is an hypertext assemble function with $A\colon E \to D$
-
 $U$
  : is a segments usage function $U\colon E \to \mathcal{P}(S)$
 
 $T$
  : is a transclusion function with $T\colon S \to D$
 
+$A$
+ : is an hypertext assemble function with $A\colon E \to D$
+
 A practical hypertext system needs executable implementations of the functions
-$R,A,U,T$ and a method to tell whether a given combination $\langle c,d \rangle
+$R,U,T,A$ and a method to tell whether a given combination $\langle c,d \rangle
 \in C \times D$ is part of $S$ to allow its use with $T$.
 
 ## Documents
@@ -117,22 +116,22 @@ hypertext systems [@Lukka2002].
 
 A content locator is a document that can be used to select parts of another
 document via transclusion. Nelsons refers to this locators as "reference
-pointers" [@Nelson1999] and exemplifies them with spans of bytes or characters
-in a document. Content locators depend on data formats and document models.
-For instance locator languages XPath, XPointer, and XQuery act on XML
-documents, which can be serialized in different forms (therefore it makes no
-sense to locate parts of an XML document with positions of bytes).  Other
-locator languages apply to tabular data (SQL, RFC\ 7111), to graphs (SPARQL,
-GraphQL), or to two-dimensional images (IIIF), to name a few.  Whether and how
-parts of a document can be selected with a content locator language depends on
-which data format the document is interpreted in. For instance an SVG image
-file can be processed at least as image, as XML document, and as Unicode
-string, each with its own methods of locating document segments.  Content
-locators can be extended to all executable programs that reproducibly process
-some documents into other documents. This generalization can be useful to track
-data processing pipelines as hyperdata such as discussed for executable papers
-and reproducible research. Restriction of content locators to less powerful
-query languages might make sense from a security point of view.
+pointers" [@Nelson1999], exemplified with spans of bytes or characters in a
+document. Content locators depend on data formats and document models.  For
+instance locator languages XPath, XPointer, and XQuery act on XML documents,
+which can be serialized in different forms (therefore it makes no sense to
+locate parts of an XML document with positions of bytes).  Other locator
+languages apply to tabular data (SQL, RFC\ 7111), to graphs (SPARQL, GraphQL),
+or to two-dimensional images (IIIF), to name a few.  Whether and how parts of a
+document can be selected with a content locator language depends on which data
+format the document is interpreted in. For instance an SVG image file can be
+processed at least as image, as XML document, or as Unicode string, each with
+its own methods of locating document segments.  Content locators can be
+extended to all executable programs that reproducibly process some documents
+into other documents. This generalization can be useful to track data
+processing pipelines as hyperdata such as discussed for executable papers and
+reproducible research. Restriction of content locators to less powerful query
+languages might make sense from a security point of view.
 
 ## Edit Lists
 
@@ -158,11 +157,11 @@ An often neglected fundamental property of digital documents is their grounding
 in data formats.  A data format is a set of documents that share a common data
 model, also known as their document model, and a common serialization (see
 fig.\ \ref{fig:datamodeling}).  Models define elements of a document in terms
-of of sets, strings, tuples, graphs or similar structures that are mathematical
-rigor in theory [@Renear2009] but descriptive patterns in practice
-[@Voss2013a].  The meaning of these elements (for instance "words",
-"sentences", and "paragraphs") is based on ideas that we assume to be
-consistent among different people.
+of sets, strings, tuples, graphs or similar structures. These structures are
+mathematically rigor in theory [@Renear2009] but more based on descriptive
+patterns in practice [@Voss2013a].  The meaning of these elements (for instance
+"words", "sentences", and "paragraphs" in a document model) is based on ideas
+that we at least assume to be consistent among different people.
 
 ~~~{=html}
 <figure>
@@ -241,10 +240,11 @@ The corresponding edit list $e_1 \in E$ with $A(e_1)=d_4$ could look like this:
 The hexademical values in $e_1$ are SHA-1 hashes of $d_3$, $c_2$, $d_1$, and
 $c_1$ respectively.^[A more practical edit list syntax $E$ could also allow to
 directly embeded small document instances which SHA-1 hashes can be computed
-from.] Retrieval function $R$ maps them back to strings. Hyperlinks are given
-by $U(e_1) = \{ \langle c_2,d_3 \rangle,  \langle c_1,d_1 \rangle \}$,
-the first link used for editing $d_3$ to $d_4$ (versioning) and the second for
-referencing of segment of $d_1$ in $d_4$ (transclusion).
+from. If implemented carefully, this could also reconcile transclusion with
+copy-and-paste.] Retrieval function $R$ maps them back to strings. Hyperlinks
+are given by $U(e_1) = \{ \langle c_2,d_3 \rangle,  \langle c_1,d_1 \rangle
+\}$, the first link used for editing $d_3$ to $d_4$ (versioning) and the second
+for referencing of segment of $d_1$ in $d_4$ (transclusion).
 
 # Implementations
 
@@ -287,10 +287,10 @@ system however requires appropriate content locator formats to select,
 transclude, and link to segments from these documents. Existing content locator
 technologies include URI Fragment Identifiers [@Tennison2011], patch file
 formats (JSON Patch, XML Patch, LD Patch...), and domain-specific query
-languages. Two projects that popularized at least a simple form of transclusion
-on the Web are hypothes.is with a combination of locator methods [@Csillag2013]
-and the IIIF Image API with focus on content locators in images
-[@IIIFImageAPI].
+languages as long as they can guarantee reproducible builds.  Two projects that
+popularized at least a simple form of transclusion on the Web are hypothes.is
+with a combination of locator methods [@Csillag2013] and the IIIF Image API
+with focus on content locators in images [@IIIFImageAPI].
 
 ## Challenges
 
@@ -386,10 +386,11 @@ application because user interfaces depend on use-cases and file formats.
 This paper presents a novel interpretation of the original vision of hypertext
 [@Nelson1965;@Nelson1967]. The infrastructure-agnostic model of hypertext does
 not require or exclude specific data formats or network protocols. Abstract
-from these ever-changing technologies its focus is on hypermedia *content*
+from these ever-changing technologies, the focus is on hypermedia *content*
 (documents) and *connections* (hyperlinks). The basic elements of a hypertext
 system are identified as documents, document identifiers, content locators, and
-edit lists with a formal model that defines their relations. It is shown which
+edit lists with a formal model that defines their relations based on knowledge
+of data formats and models. It is shown which
 technologies can be used to implement such a hypertext system integrated into
 current information infrastructures (in particular the Internet and the Web)
 and which challenges still exist (in particular support of edit lists in
@@ -401,17 +402,13 @@ hypertext system but he found standardization of hypertext too
 much focused on "the format for exchangeable media"
 document formats than on protocols so he created HTTP. [@BernersLee1990]
 -->
-<!--
-Content-based identifiers could also bring together copy-and paste and
-backlinks, if implemented carefully.
--->
 
 <!-- TODO: Image of "windowing" into documents? -->
 
 ~~~{=html}
 <figure>
 <img src="this-articles-transclusion.svg"/>
-<figcaption>Proto-transclusion links of this article</figcaption>
+<figcaption>Proto-transclusion links of this paper</figcaption>
 </figure>
 ~~~
 
@@ -419,7 +416,7 @@ backlinks, if implemented carefully.
 \begin{figure}
 \Description{Several data formats connected by arrows}
 \input{this-articles-transclusion.tikz}
-\caption{Proto-transclusion links of this article}
+\caption{Proto-transclusion links of this paper}
 \label{fig:demopaper}
 \end{figure}
 ~~~

@@ -1,4 +1,4 @@
-This git-repository contains the article **Infrastructure-Agnostic Hypertext** to be submitted to the [ACM Conference on Hypertext and Social Media](https://ht.acm.org/ht2019/) (HT' 2019).
+This git-repository contains the article **Infrastructure-Agnostic Hypertext** submitted to the [ACM Conference on Hypertext and Social Media](https://ht.acm.org/ht2019/) (HT' 2019).
 
 ## Source files
 
