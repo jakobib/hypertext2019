@@ -1,0 +1,22 @@
+---
+documentclass: acmart
+classoption:
+  - format=sigconf
+  - review=true
+  - timestamp=true
+  - authordraft=true
+biblio-style: ACM-Reference-Format
+fontfamily: amsmath # prevent lmodern to be loaded
+header-includes: |
+  \copyrightyear{2019}
+  \acmYear{2019}
+  \setcopyright{rightsretained}
+  \acmConference[Submitted to HT 2019]{HT 2019 (submission): ACM Conference on Hypertext and Social Media}{September 17--20, 2019}{Hof}
+  \acmBooktitle{Submitted to HT 2019: ACM Conference on Hypertext and Social Media, September 17--20, 2019, Hof}
+  \acmPrice{}
+  \acmDOI{}
+  \acmISBN{}
+  \usepackage{tikz}
+  \usetikzlibrary{shapes}
+  \usetikzlibrary{positioning}
+...

@@ -165,7 +165,7 @@ that we at least assume to be consistent among different people.
 
 ~~~{=html}
 <figure>
-<img src="levels-of-data-modeling.svg"/>
+<img src="levels-of-data-modeling.svg" width="60%"/>
 <figcaption>levels of data modeling</figcaption>
 </figure>
 ~~~
@@ -407,7 +407,7 @@ document formats than on protocols so he created HTTP. [@BernersLee1990]
 
 ~~~{=html}
 <figure>
-<img src="this-articles-transclusion.svg"/>
+<img src="this-articles-transclusion.svg" width="60%"/>
 <figcaption>Proto-transclusion links of this paper</figcaption>
 </figure>
 ~~~

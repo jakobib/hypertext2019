@@ -7,15 +7,16 @@ The article is written in Pandoc Markdown syntax. Bibliographic reference data h
 | filename  | format | description |
 |-----------|--------|-------------|
 | `infrastructure-agnostic-hypertext.md` | Pandoc Markdown | the article text
-| `metadata.yml` | YAML | article metadata
+| `metadata.yaml` | YAML | article metadata
 | `wcite.json` | CSL JSON | bibliographic data extracted from Wikidata
-| `wcite.yml` | YAML | mapping of citation keys to Wikidata identifiers and additional bibliographic data
+| `wcite.yaml` | YAML | mapping of citation keys to Wikidata identifiers and additional bibliographic data
 | `acm-sig-proceedings.csl` | Citation Style Language | Bibliographic citation style provided by ACM
 | `ACM-Reference-Format.bst` | BibTeX Style Document | Bibliographic citation style provided by ACM
 | `acmart.cls` | LaTeX document style  | provided by ACM
 | `Makefile` | Makefile | rules how to process files
 | `tikz2svg.sh` | Bash script | convert TikZ picture source to SVG
 | `template.tex` | Pandoc LaTeX template | LaTeX file which document content is inserted into
+| `tex.yaml` | YAML | Pandoc metadata for LaTeX conversion
 | `template.html` | Pandoc HTML template | HTML file which document content is inserted into
 
 ## Requirements

@@ -5,7 +5,7 @@ author:
   email: jakob.voss@gbv.de
   orcid: 0000-0002-7613-4123
   affiliation: Verbundzentrale des GBV (VZG)
-date: 2018-04-01
+date: 2019-04-17
 
 abstract: |
     This paper presents a novel and formal interpretation of the original vision
@@ -30,25 +30,6 @@ ccsdesc:
   - relevance: 100
     class: Software and its engineering\ Hypertext languages
 
-documentclass: acmart
-classoption:
-  - format=sigconf
-  - review=true
-  - timestamp=true
-  - authordraft=true
-biblio-style: ACM-Reference-Format
-
-fontfamily: amsmath # prevent lmodern to be loaded
-header-includes: |
-  \copyrightyear{2019}
-  \acmYear{2019}
-  \setcopyright{rightsretained}
-  \acmConference[Submitted to HT 2019]{HT 2019 (submission): ACM Conference on Hypertext and Social Media}{September 17--20, 2019}{Hof}
-  \acmBooktitle{Submitted to HT 2019: ACM Conference on Hypertext and Social Media, September 17--20, 2019, Hof}
-  \acmPrice{}
-  \acmDOI{}
-  \acmISBN{}
-  \usepackage{tikz}
-  \usetikzlibrary{shapes}
-  \usetikzlibrary{positioning}
+status: "Submitted to HT'2019: ACM Conference on Hypertext and Social Media, September 17--20, 2019, Hof"
+repository: https://github.com/jakobib/hypertext2019/
 ...
