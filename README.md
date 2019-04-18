@@ -11,24 +11,25 @@ The article is written in Pandoc Markdown syntax. Bibliographic reference data h
 | `wcite.json` | CSL JSON | bibliographic data extracted from Wikidata
 | `wcite.yml` | YAML | mapping of citation keys to Wikidata identifiers and additional bibliographic data
 | `acm-sig-proceedings.csl` | Citation Style Language | Bibliographic citation style provided by ACM
+| `ACM-Reference-Format.bst` | BibTeX Style Document | Bibliographic citation style provided by ACM
+| `acmart.cls` | LaTeX document style  | provided by ACM
 | `Makefile` | Makefile | rules how to process files
 | `tikz2svg.sh` | Bash script | convert TikZ picture source to SVG
 | `template.tex` | Pandoc LaTeX template | LaTeX file which document content is inserted into
-| `acmart.cls` | LaTeX document style  | provided by ACM
 | `template.html` | Pandoc HTML template | HTML file which document content is inserted into
 
 ## Requirements
 
-To compile the document from source:
+Required steps to process the document from sources:
 
-* pdflatex and additional TeX modules:
+* install pdflatex and additional TeX modules:
 
    `sudo apt-get install texlive-latex-base texlive-generic-extra`
 
-* wcite
+* install [wcite](http://wikicite.org/wcite/)
 
-   `npm install`
+   `npm install` (requires to [install npm](https://www.npmjs.com/get-npm))
 
-* pandoc >= 2.0
+* [install pandoc](https://pandoc.org/installing), at least version 2.0
 
 * ...
