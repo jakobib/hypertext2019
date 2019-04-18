@@ -1,0 +1,937 @@
+@media print {
+@page {
+@bottom-center {
+content: counter(page);
+}
+}
+
+body {
+font-size:10pt !important;
+line-height:1.5 !important;
+margin:0 auto !important;
+padding:0 !important;
+/*
+width:180mm !important;
+height:267mm !important;
+*/
+}
+
+h1 { font-size:16pt !important; }
+h2 { font-size:14pt !important; }
+h3 { font-size:12pt !important; }
+h4 { font-size:11pt !important; }
+h5 { font-size:10pt !important; }
+h6 { font-size:9pt !important; }
+
+h1 { margin-top:0; }
+
+a, a:visited {
+border-bottom:none !important;
+text-decoration:none !important;
+color:#000 !important;
+}
+
+} /* media print */
+
+html {
+font-family: sans-serif;
+}
+
+body {
+font-size: 1.1em;
+line-height: 1.3;
+margin: 0 auto;
+padding: 0;
+max-width: 50em;
+/*color:#333;*/
+/*width:100%;*/
+}
+
+body > header {
+text-align:center;
+}
+body > header {
+margin-top:2em;
+}
+
+header nav ul {
+text-align:center;
+}
+header nav li {
+list-style-type:none;
+display:inline;
+}
+header nav li:before {
+content:"\2022\0020";
+}
+header nav li:first-child:before {
+content:"";
+}
+
+h1 {
+font-size: 2em;
+text-align: center;
+margin:0.75em 0;
+color:#000;
+}
+h2 { font-size: 1.7em; line-height:1; margin-top: 2.5em; }
+h3 { font-size: 1.5em; line-height:1; margin-top: 2em; }
+h4 { font-size: 1.3em; margin:1.5em auto 0 auto; }
+h5 { font-size: 1.1em; margin:1.5em auto 0 auto; }
+h6 { font-size: 1em; margin:1.5em auto 0 auto; }
+
+section article h1,
+section article h2,
+section article h3 {
+margin:0;
+font-size:1em;
+font-weight:normal;
+text-align:left;
+}
+#subtitle {
+text-align:center;
+}
+
+*[typeof*="ScholarlyArticle"] section[inlist]:not([id=abstract]):not([id=document-status]):not([id=keywords]):not([id=references]):not([id=categories-and-subject-descriptors]):not([id=general-terms]):not([id=appendix]):not([id=contact-us]):not([id=declaration]):not([id=acknowledgements]) {
+counter-increment:section;
+counter-reset:sub-section;
+}
+*[typeof*="ScholarlyArticle"] section[inlist]:not([id=abstract]):not([id=document-status]):not([id=keywords]):not([id=references]):not([id=categories-and-subject-descriptors]):not([id=general-terms]):not([id=appendix]):not([id=contact-us]):not([id=declaration]):not([id=acknowledgements]) section {
+counter-increment:sub-section;
+counter-reset:sub-sub-section;
+}
+*[typeof*="ScholarlyArticle"] section[inlist]:not([id=abstract]):not([id=document-status]):not([id=keywords]):not([id=references]):not([id=categories-and-subject-descriptors]):not([id=general-terms]):not([id=appendix]):not([id=contact-us]):not([id=declaration]):not([id=acknowledgements]) section section {
+counter-increment:sub-sub-section;
+counter-reset:sub-sub-sub-section;
+}
+*[typeof*="ScholarlyArticle"] section[inlist]:not([id=abstract]):not([id=document-status]):not([id=keywords]):not([id=references]):not([id=categories-and-subject-descriptors]):not([id=general-terms]):not([id=appendix]):not([id=contact-us]):not([id=declaration]):not([id=acknowledgements]) section section section {
+counter-increment:sub-sub-sub-section;
+counter-reset:sub-sub-sub-sub-section;
+}
+*[typeof*="ScholarlyArticle"] section[inlist]:not([id=abstract]):not([id=document-status]):not([id=keywords]):not([id=references]):not([id=categories-and-subject-descriptors]):not([id=general-terms]):not([id=appendix]):not([id=contact-us]):not([id=declaration]):not([id=acknowledgements]) section section section section {
+counter-increment:sub-sub-sub-sub-section;
+counter-reset:sub-sub-sub-sub-sub-section;
+}
+
+*[typeof*="ScholarlyArticle"] section[inlist]:not([id=abstract]):not([id=document-status]):not([id=keywords]):not([id=references]):not([id=categories-and-subject-descriptors]):not([id=general-terms]):not([id=appendix]):not([id=contact-us]):not([id=declaration]):not([id=acknowledgements]):not([id^=table-of-]) > h2:before {
+content:counter(section) ".\00a0\00a0\00a0\00a0";
+}
+*[typeof*="ScholarlyArticle"] section[inlist] > h3:before {
+content:counter(section) "." counter(sub-section) "\00a0\00a0\00a0";
+}
+*[typeof*="ScholarlyArticle"] section[inlist] > h4:before {
+content:counter(section)"." counter(sub-section) "." counter(sub-sub-section) "\00a0\00a0\00a0";
+}
+*[typeof*="ScholarlyArticle"] section[inlist] > h5:before {
+content:counter(section)"." counter(sub-section) "." counter(sub-sub-section) "." counter(sub-sub-sub-section) "\00a0\00a0\00a0";
+}
+*[typeof*="ScholarlyArticle"] section[inlist] > h6:before {
+content:counter(section)"." counter(sub-section) "." counter(sub-sub-section) "." counter(sub-sub-sub-section) "." counter(sub-sub-sub-sub-section) "\00a0\00a0\00a0";
+}
+
+article > article,
+section,
+dl[id^="document-"],
+*[id^=table-of-] {
+margin: 0 0.5em;
+}
+section section {
+padding:0;
+margin:0;
+}
+
+main form {
+margin:1em 0;
+}
+main form ul,
+main form ol {
+margin:0;
+}
+main form li {
+margin-bottom:0.5em;
+list-style-type:none;
+}
+main form p {
+text-indent:0;
+}
+main form p { margin:1em 0 0 0; }
+main form p:first-child { margin-top:0; }
+
+main fieldset {
+padding:1em;
+}
+main fieldset + fieldset, main form ul + p:before  {
+margin-top:2em;
+}
+main legend { font-weight:bold; }
+main label {
+display:inline-block;
+font-weight:bold;
+width:10%;
+vertical-align:top;
+}
+main input,
+main textarea,
+main select,
+main button {
+font-family:inherit;
+font-size:inherit;
+}
+main input,
+main textarea,
+main select {
+display:inline-block;
+}
+main input,
+main textarea {
+width:65%;
+padding:0.25em;
+}
+main input[type=submit] {
+font-weight:bold;
+width:auto;
+}
+
+blockquote {
+padding-left:1em;
+border-left:0.25em solid #ccc;
+margin:0 0 1em 0;
+}
+
+dl[id^="document-"] dt,
+dl[id^="document-"] dd,
+dl[id^="author-"] dt,
+dl[id^="author-"] dd,
+dl[class~="inbox"] dt,
+dl[class~="inbox"] dd {
+display:inline;
+}
+dl[id^="document-"] dt,
+dl[id^="author-"] dt,
+dl[class~="inbox"] dt {
+font-weight:bold;
+}
+dl[id^="document-"] dt:after,
+dl[id^="author-"] dt:after,
+dl[class~="inbox"] dt:after {
+content:": ";
+}
+dl[id^="document-"] dd,
+dl[id^="author-"] dd,
+dl[class~="inbox"] dd {
+margin:0;
+}
+dl[id^="author-"] dd + dt:before,
+dl[id^="document-"] dd + dt:before {
+content:"\A";
+white-space:pre;
+}
+dl[id^="author-"] dd:after,
+dl[id^="document-"] dd:after {
+content:", ";
+}
+dl[id^="author-"] dd:last-child:after,
+dl[id^="document-"] dd:last-child:after {
+content:"";
+}
+dl[id^="author-"] ul,
+dl[id^="document-"] ul {
+margin-bottom:0;
+}
+
+h5 + *,
+h5 + div > *:first-child,
+dd > *:first-child {
+margin-top:0;
+}
+
+
+#author-name,
+#author-org,
+#author-email,
+#author-uri,
+.authors {
+margin:0;
+}
+
+#authors dd,
+#authors li,
+.authors dd {
+display:inline !important;
+margin:0;
+}
+
+#authors dd:not(:empty):after,
+#author-email li:not(:empty):after,
+#author-org li:not(:empty):after,
+#author-uri li:not(:empty):after,
+.authors dd:not(:empty):after {
+content:",\0020";
+}
+#authors dd:last-child:after,
+#author-email li:last-child:after,
+#author-org li:last-child:after,
+#author-uri li:last-child:after,
+.authors dd:last-child:after {
+content:"";
+}
+#authors sup {
+margin-left:1px;
+}
+#authors sup:after {
+content:",";
+}
+#authors sup:last-child:after,
+#authors sup:first-child:after {
+content:"" !important;
+}
+
+#authors li {
+list-style-type:none;
+}
+
+#keywords li {
+display:inline;
+}
+#keywords li:after {
+content:", ";
+}
+#keywords li:last-child:after {
+content:"";
+}
+
+ul ul,
+ol ol {
+margin-left:1em;
+}
+
+h1 + #authors,
+h1 + #document-identifier {
+margin-top:1em;
+}
+
+a {
+color: #009000;
+text-decoration: none;
+border-bottom: 2px solid #333;
+}
+a:hover {
+background-color: #fdffdd;
+border-bottom-width: 3px;
+}
+a:focus,
+a:active,
+a:focus:visited {
+color: #c00;
+border-bottom:0;
+}
+a:visited {
+/*color:#551A8B;*/
+color:#000;
+}
+
+[tabindex]:not([tabindex="-1"]), a, button, input, select, submit, textarea {
+outline: 2px solid transparent;
+outline-offset: 5px;
+transition: outline-offset .2s linear;
+}
+[tabindex]:not([tabindex="-1"]):focus, a:focus, a:focus:visited, button:focus, input:focus, select:focus, submit:focus, textarea:focus {
+outline-color: currentColor;
+outline-offset: 0;
+}
+
+a abbr { cursor:pointer; border-bottom:0; }
+
+code, samp { background-color:#f3f3f3; padding:0.1em 0; }
+code:before, code:after, samp:before, samp:after, kbd:before, kbd:after {
+content:"\00a0";
+letter-spacing:-0.2em;
+}
+
+pre code, pre samp { background-color:inherit; padding:0; white-space: pre-wrap; }
+pre code:before, pre code:after, pre samp:before, pre samp:after {
+content:"";
+padding:0;
+letter-spacing:0;
+}
+
+kbd {
+padding:0.25em 0;
+border-radius:0.25em;
+border:1px solid #ccc;
+box-shadow:inset -2px -2px 1px #eee;
+}
+
+code, samp, kbd, tt{
+/*
+font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+font-size:0.95em;
+*/
+}
+
+.rfc2119 {
+text-transform:lowercase;
+font-variant:small-caps;
+font-style:normal;
+}
+em.rfc2119 { color: #900; }
+
+ul { padding: 0; margin-bottom:1em; list-style-position: inside; }
+nav ul { list-style: none; }
+dt { font-weight: bold; }
+
+/*h3 + div section:before,*/
+section + p:before,
+section + dl:before,
+section + div:before {
+content:"\A";
+white-space:pre;
+}
+
+dd {
+margin-left:0.5em;
+}
+dd + dd {
+margin-top:1em;
+}
+dt + dd { margin-top:0; }
+dd + dt { margin-top: 1em; }
+
+p + dl { margin-top:0; }
+
+section + hr, blockquote + hr, p + hr, ul + hr, ol + hr {
+border:0;
+text-align:center;
+}
+section + hr:before, blockquote + hr:before, p + hr:before, ul + hr:before, ol + hr:before {
+content:"\2042";
+}
+
+
+body > footer {
+overflow: hidden;
+padding-top: 1em;
+padding-bottom: 1em;
+background-color: #333;
+color: #eee;
+margin-top:2em;
+}
+body > footer > * {
+max-width:50em;
+}
+body > footer a, body > footer a:hover {
+color: inherit;
+border-bottom-color: #009000;
+}
+body > footer a:hover {
+background-color:transparent;
+}
+body > footer a:visited {
+color:#fff;
+}
+body > footer h2 {
+margin-top:1em;
+}
+
+figure,
+audio,
+video,
+iframe,
+canvas {
+margin:1em auto;
+text-align:center;
+display:block;
+}
+video {
+max-width: 100%;
+height: auto;
+}
+video, audio, object {
+vertical-align: middle;
+}
+figure { position:relative; }
+figure pre {
+text-align:left;
+}
+figcaption {
+text-align:center;
+}
+figure.listing pre {
+padding-top:3.2em;
+padding-bottom:1.6em;
+/*background:linear-gradient(#fff 50%, #f3f3f3 0) 0 0/3.2em 3.2em;*/
+background-color:#fff;
+border-top:1px solid #bbb;
+border-right:1px solid #bbb;
+border-bottom:1px solid #bbb;
+counter-reset:precode;
+margin-top:0;
+margin-left:1.75em;
+line-height: 1.6;
+}
+figure.listing pre code,
+figure.listing pre samp {
+display:block;
+margin-top:-1.6em;
+margin-right:-1em;
+}
+figure.listing pre code:nth-child(odd):not([class~="highlight"]),
+figure.listing pre samp:nth-child(odd):not([class~="highlight"]),
+table tbody tr:nth-child(odd) {
+background-color:#f3f3f3;
+}
+figure.listing pre code:before,
+figure.listing pre samp:before {
+position:absolute;
+left:0;
+text-align:right;
+content:counter(precode);
+counter-increment:precode;
+}
+pre {
+overflow:auto;
+page-break-inside: avoid;
+hyphens: none;
+background-color:#fbfbfb;
+border-left:0.5em solid #bbb;
+padding:1em;
+}
+blockquote pre {
+background-color:#fff;
+border-left:0;
+padding:0;
+}
+
+aside.note.do blockquote article section {
+margin:0;
+}
+
+div.issue, div.note {
+background-color:#fbfffb;
+border-left:0.5em solid #009000;
+padding: 1em 1.2em;
+}
+div.issue > *, div.note > * {
+/*text-transform: uppercase;*/
+/*font-weight:normal;*/
+margin:0;
+}
+div.issue h4 {
+color:#ae1e1e;
+}
+div.note h4 {
+color:#009000;
+}
+div.issue *:last-child,
+div.note *:last-child {
+margin-bottom:0;
+}
+
+
+html {
+counter-reset:figcaption 0;
+}
+body {
+counter-reset:listing 0;
+}
+article {
+counter-reset:caption 0;
+}
+figure:not([class~="listing"]):not([class~="equation"]) figcaption {
+counter-increment:figcaption;
+}
+figure.listing {
+counter-increment:listing;
+}
+figure.equation {
+counter-increment:equation;
+}
+caption {
+counter-increment:caption;
+}
+figure.equation:after {
+content:"(" counter(equation) ")";
+line-height:0;
+position:absolute;
+top:45%;
+right:0;
+}
+figcaption:before {
+content:"Figure " counter(figcaption) ". ";
+}
+figure.listing figcaption:before {
+content:"Listing " counter(listing) ". ";
+}
+caption:before {
+content:"Table " counter(caption) ". ";
+}
+
+table {
+width:100%;
+margin-top:1em;
+text-align:left;
+border-collapse:collapse;
+font-variant-numeric: lining-nums tabular-nums;
+}
+table + table {
+margin-top:2em;
+}
+caption {
+text-align:left;
+border-bottom:2pt solid #000;
+padding:0 0.25em 0.25em;
+}
+thead,
+thead th[colspan] {
+border-bottom:1pt solid #000;
+}
+/*tbody th[scope="rowgroup"]:after {
+margin-left:1em;
+content:"\21F2";
+}*/
+
+[rowspan] { vertical-align: bottom; }
+
+tbody th[scope="rowgroup"] {
+border-bottom:3pt double #000;
+}
+tbody {
+border-bottom:2pt solid #000;
+}
+th, td {
+padding:0.25em;
+font-size:0.923em;
+word-wrap:normal;
+}
+table ul,
+table ol,
+table li,
+table p,
+table dd {
+margin:0;
+text-align:left;
+}
+tfoot td > * + * {
+margin-top:1em;
+}
+
+tfoot dl.abbr dt,
+tfoot dl.abbr dd {
+display:inline;
+text-transform:none;
+}
+tfoot dl.abbr dd {
+margin-left:0;
+}
+tfoot dl.abbr dd:after {
+content:"\A";
+white-space:pre;
+}
+tfoot dl.abbr dt:after {
+content:": ";
+}
+tfoot dl.abbr {
+-webkit-column-count:2;
+-moz-column-count:2;
+column-count:2;
+}
+tfoot dl.abbr dt {
+font-weight:bold;
+}
+tfoot dd:after { content: "\A"; white-space:pre; }
+tfoot dt, tfoot dd { display:inline; }
+tfoot dd { margin-left: 0.5em }
+tfoot dd + dt { margin-top:0; }
+
+[class~="earl:passed"],[resource~="earl:passed"] { background-color: #0f0; color: #000; text-align:center; vertical-align:middle; }
+[class~="earl:failed"],[resource~="earl:failed"] { background-color: #f00; color: #000; text-align:center; vertical-align:middle; }
+[class~="earl:inapplicable"],[resource~="earl:inapplicable"] { background-color: #eee; color: #000; text-align:center; vertical-align:middle; }
+[class~="earl:cantTell"],[resource~="earl:cantTell"] { background-color: #ff0; color: #000; text-align:center; vertical-align:middle; }
+[class~="earl:untested"],[resource~="earl:untested"] { background-color: #0ff; color: #000; text-align:center; vertical-align:middle; }
+
+dl [class~="earl:passed"], dl [class~="earl:failed"], dl [class~="earl:inapplicable"], dl [class~="earl:cantTell"], dl [class~="earl:untested"]{
+min-width:1em;
+display:inline-block;
+}
+
+tbody [property~="earl:outcome"] { display:block; }
+
+table[typeof~="qb:DataSet"] tbody tr:not([typeof~="earl:Assertion"]) td {
+text-align:center;
+}
+table[typeof~="qb:DataSet"] tbody tr:not([typeof~="earl:Assertion"]) th,
+table[typeof~="qb:DataSet"] tbody tr:not([typeof~="earl:Assertion"]) td {
+border: 1px solid #ccc;
+border-left-color: #eee;
+border-right-color: #eee;
+}
+
+.toc, .toc ol {
+list-style:none;
+-moz-hyphens:none;
+-webkit-hyphens:none;
+-ms-hyphens:none;
+hyphens:none;
+padding:0;
+}
+.toc ol,
+.toc li {
+margin:0;
+text-align:left !important;
+}
+
+.toc ol {
+margin-top:0.25em;
+}
+.toc ol {
+margin-left:1em;
+}
+.toc ol ol {
+margin-left:2em;
+}
+.toc ol ol ol {
+margin-left:3em;
+}
+.toc ol ol ol ol {
+margin-left:4em;
+}
+
+.toc li {
+list-style-position:outside;
+list-style-type:none;
+margin-bottom:0.25em;
+}
+.toc > li {
+margin-bottom:1em;
+}
+
+
+.toc li:not([data-id=abstract]):not([data-id=keywords]):not([data-id=references]):not([data-id=categories-and-subject-descriptors]):not([data-id=general-terms]):not([data-id=appendix]):not([data-id=contact-us]) {
+counter-increment:s;
+counter-reset:sub-s;
+}
+
+.toc li li:not([data-id=abstract]):not([id=document-status]):not([data-id=keywords]):not([data-id=references]):not([data-id=categories-and-subject-descriptors]):not([data-id=general-terms]):not([data-id=appendix]):not([data-id=contact-us]) {
+counter-increment:sub-s;
+counter-reset:sub-sub-s;
+}
+.toc li li li:not([data-id=abstract]):not([id=document-status]):not([data-id=keywords]):not([data-id=references]):not([data-id=categories-and-subject-descriptors]):not([data-id=general-terms]):not([data-id=appendix]):not([data-id=contact-us]) {
+counter-increment:sub-sub-s;
+counter-reset:sub-sub-sub-s;
+}
+.toc li li li li:not([data-id=abstract]):not([id=document-status]):not([data-id=keywords]):not([data-id=references]):not([data-id=categories-and-subject-descriptors]):not([data-id=general-terms]):not([data-id=appendix]):not([data-id=contact-us]) {
+counter-increment:sub-sub-sub-s;
+counter-reset:sub-sub-sub-sub-s;
+}
+.toc li li li li li:not([data-id=abstract]):not([id=document-status]):not([data-id=keywords]):not([data-id=references]):not([data-id=categories-and-subject-descriptors]):not([data-id=general-terms]):not([data-id=appendix]):not([data-id=contact-us]) {
+counter-increment:sub-sub-sub-sub-s;
+counter-reset:sub-sub-sub-sub-sub-s;
+}
+.toc li:not([data-id=abstract]):not([id=document-status]):not([data-id=keywords]):not([data-id=references]):not([data-id=categories-and-subject-descriptors]):not([data-id=general-terms]):not([data-id=appendix]):not([data-id=contact-us]):before {
+content:counter(s);
+margin-right:0.5em;
+}
+.toc li li:not([data-id=abstract]):not([id=document-status]):not([data-id=keywords]):not([data-id=references]):not([data-id=categories-and-subject-descriptors]):not([data-id=general-terms]):not([data-id=appendix]):not([data-id=contact-us]):before {
+content:counter(s) "." counter(sub-s);
+}
+.toc li li li:not([data-id=abstract]):not([id=document-status]):not([data-id=keywords]):not([data-id=references]):not([data-id=categories-and-subject-descriptors]):not([data-id=general-terms]):not([data-id=appendix]):not([data-id=contact-us]):before {
+content:counter(s) "." counter(sub-s) "." counter(sub-sub-s);
+}
+.toc li li li li:not([data-id=abstract]):not([id=document-status]):not([data-id=keywords]):not([data-id=references]):not([data-id=categories-and-subject-descriptors]):not([data-id=general-terms]):not([data-id=appendix]):not([data-id=contact-us]):before {
+content:counter(s) "." counter(sub-s) "." counter(sub-sub-s) "." counter(sub-sub-sub-s);
+}
+#document-items .toc li li li li li:not([data-id=abstract]):not([id=document-status]):not([data-id=keywords]):not([data-id=references]):not([data-id=categories-and-subject-descriptors]):not([data-id=general-terms]):not([data-id=appendix]):not([data-id=contact-us]):before {
+content:counter(s) "." counter(sub-s) "." counter(sub-sub-s) "." counter(sub-sub-sub-s) "." counter(sub-sub-sub-sub-s);
+}
+.toc li li li li li:not([data-id=abstract]):not([id=document-status]):not([data-id=keywords]):not([data-id=references]):not([data-id=categories-and-subject-descriptors]):not([data-id=general-terms]):not([data-id=appendix]):not([data-id=contact-us]):before {
+content:counter(s) "." counter(sub-s) "." counter(sub-sub-s) "." counter(sub-sub-sub-s) "." counter(sub-sub-sub-sub-s);
+}
+
+.toc li[data-id=abstract]:before, .toc li[data-id=document-status]:before, .toc li[data-id=keywords]:before, .toc li[data-id=references]:before, .toc li[data-id=categories-and-subject-descriptors]:before, .toc li[data-id=general-terms]:before, .toc li[data-id=appendix]:before, .toc li[data-id=contact-us]:before {
+content:"\00a0\00a0\00a0\00a0";
+}
+
+
+
+
+/* dokieli homepage styles */
+[property~="doap:shortdesc"]:first-child {
+text-align: center;
+font-size: 1.4em;
+}
+
+#dokieli-features,
+#dokieli-read-write-web,
+#figure-dokieli-overview,
+body > footer {
+max-width:99vw;
+margin-left: calc(-50vw + 50%);
+margin-right: calc(-50vw + 50%);
+}
+
+#dokieli-features,
+#dokieli-read-write-web,
+#figure-dokieli-overview {
+text-align: center;
+}
+
+#dokieli-features {
+overflow: hidden;
+padding-top: 1em;
+padding-bottom: 1em;
+background-color: #eee;
+}
+#dokieli-features a {
+background-color:inherit;
+border:0;
+}
+#dokieli-features ul {
+list-style-type: none;
+margin: 0;
+padding: 0;
+font-size: 0.6em;
+text-align: center;
+}
+
+#dokieli-features ul li {
+overflow: hidden;
+}
+#dokieli-features ul span {
+display: block;
+font-size: 2em;
+margin: 0;
+}
+#dokieli-features li span:first-child {
+display: inline-block;
+}
+#dokieli-features ul li span:first-of-type {
+font-weight:bold;
+}
+
+#dokieli-features li span:last-child {
+display: inline-block;
+color: #333;
+}
+#dokieli-features ul li a {
+display: inline-block;
+color: inherit;
+text-decoration: none;
+width: 100%;
+}
+
+#dokieli-features ul li:hover,
+#dokieli-features ul li:hover span {
+background-color: #ddd;
+}
+#dokieli-features ul i,
+#dokieli-features ul svg {
+/*
+width: 1em;
+height: 1em;
+*/
+margin: 1em;
+/*padding: 0.3em;*/
+text-align: center;
+/*border-radius: 50%;*/
+}
+#dokieli-features ul svg {
+/*font-size:3em;*/
+}
+
+#dokieli-features i img {
+width: 100%; display: block;
+}
+
+#dokieli-read-write-web,
+#figure-dokieli-overview {
+background-color: #ddd;
+}
+#dokieli-features h2,
+#figure-dokieli-overview h2 {
+display:none;
+}
+#dokieli-read-write-web {
+text-align:center;
+font-size:2em;
+padding:1em 0;
+margin-top:1em;
+}
+#dokieli-read-write-web:before {
+content:"";
+}
+
+ul#program-committee {
+column-count: 2;
+-moz-column-count: 2;
+-webkit-column-count: 2;
+}
+
+@media screen and (min-width: 980px){
+body {
+font-size: 1.2em;
+line-height: 1.6;
+}
+h1 {
+font-size: 2em;
+}
+
+article > article,
+section {
+margin: 1em auto;
+}
+
+#dokieli-features,
+#dokieli-read-write-web,
+#figure-dokieli-overview,
+body > footer {
+max-width:99.5vw;
+}
+
+dl[id^="document-"], #authors,
+*[id^=table-of-],
+body > footer > *,
+hr,
+aside {
+/*max-width: 50em;*/
+margin: 0 auto;
+}
+
+dd {
+margin-left: 1em
+}
+
+#dokieli-features ul {
+font-size: 1.2em;
+float: left;
+width: 100%;
+}
+#dokieli-features ul li {
+float: left;
+width: 50%;
+padding: 0.5em 0;
+}
+#dokieli-features ul li:nth-child(odd) {
+text-align:right;
+clear:left;
+}
+#dokieli-features ul li:nth-child(even) {
+text-align:left;
+}
+#dokieli-features ul li span {
+font-size: 1em;
+}
+#dokieli-features ul li span:first-of-type {
+margin-top: 0.5em;
+}
+#dokieli-features ul li:nth-child(odd) i,
+#dokieli-features ul li:nth-child(odd) p,
+#dokieli-features ul li:nth-child(even) svg {
+float:right;
+}
+#dokieli-features ul li:nth-child(even) i,
+#dokieli-features ul li:nth-child(even) p,
+#dokieli-features ul li:nth-child(even) svg {
+float: left;
+}
+}
+/* </dokieli homepage styles> */
