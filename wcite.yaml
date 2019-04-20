@@ -1,7 +1,5 @@
 ---
-bibliography:
-  - wcite.json
-  - additional-references.json
+bibliography: wcite.json
 csl: acm-sig-proceedings.csl
 citekeys:
   Akscyn2015: Q62071521
@@ -30,6 +28,7 @@ citekeys:
   Pam2002: Q62213482 
   Renear2009: Q62575936
   Tennison2011: Q62087940
+  Trask2016: Q63233029
   Tsay2009: Q61993572
   Viegas2003: Q62847600
   Voss2013a: Q22910779

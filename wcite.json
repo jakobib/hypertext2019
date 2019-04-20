@@ -11828,5 +11828,51 @@
     "title": "Embedded Markup Considered Harmful",
     "type": "article-journal",
     "volume": "2"
+  },
+  {
+    "_graph": [
+      {
+        "data": [
+          "Q63233029"
+        ],
+        "type": "@wikidata/list+object"
+      },
+      {
+        "type": "@else/list+object"
+      },
+      {
+        "data": "https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q63233029&format=json&languages=en",
+        "type": "@wikidata/api"
+      },
+      {
+        "type": "@else/json"
+      },
+      {
+        "type": "@wikidata/object"
+      },
+      {
+        "type": "@csl/list+object"
+      }
+    ],
+    "_wikiId": "Q63233029",
+    "author": [
+      {
+        "_ordinal": -1,
+        "family": "Trask",
+        "given": "Ben"
+      }
+    ],
+    "id": "Q63233029",
+    "issued": {
+      "date-parts": [
+        [
+          2016,
+          1,
+          1
+        ]
+      ]
+    },
+    "title": "Hash URI Specification (Initial Draft)",
+    "type": "report"
   }
 ]

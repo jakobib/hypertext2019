@@ -20,11 +20,10 @@ $(NAME).tex: metadata.yaml latex.yaml $(TEXT) $(BIB)
 	pandoc --template template.tex --natbib --bibliography $(BIB) \
 		-s -o $@ metadata.yaml latex.yaml $(TEXT)
 
-# TODO: remove following fixes once citation-js has been updated
-$(BIB): wcite.json additional-references.json
+# TODO: remove following fix once citation-js has been updated
+$(BIB): wcite.json
 	$(WCITE) wcite.yaml -f bibtex | \
 		sed 's/inproceedings/article/' > $(BIB)
-	$(WCITE) additional-references.json -f bibtex >> $(BIB)
 
 $(NAME).pdf: $(NAME).tex
 	@echo pdflatex $@
