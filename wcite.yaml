@@ -1,14 +1,11 @@
 ---
 bibliography: wcite.json
-csl: acm-sig-proceedings.csl
 citekeys:
   Akscyn2015: Q62071521
   Atzenbeck2017: Q62123282
   BernersLee1990: Q29163691
-  Borges1952: Q18209879
   Capadisli2015: Q57239536
   Codasyl1969: Q62063634
-  Codasyl1971: Q62061742
   Csillag2013: Q62820096
   DiIorio2005: Q61637727
   Furner2016: Q61793433
@@ -29,10 +26,8 @@ citekeys:
   Renear2009: Q62575936
   Tennison2011: Q62087940
   Trask2016: Q63233029
-  Tsay2009: Q61993572
   Viegas2003: Q62847600
   Voss2013a: Q22910779
   Voss2013b: Q61967951
   WardripFruin2004: Q62056726
-wikidata-links: true
 ...

@@ -30,7 +30,7 @@ $(NAME).pdf: $(NAME).tex
 	pdflatex $< && bibtex $(basename $<) && pdflatex $<
 
 html/index.html: metadata.yaml $(TEXT) wcite.yaml wcite.json
-	$(PANDOC) -s -t json wcite.yaml metadata.yaml $(TEXT) references.html \
+	$(PANDOC) -s -t json wcite.yaml metadata.yaml html.yaml $(TEXT) references.html \
 	  | ./adjust-for-html.jq | \
 	$(PANDOC) -f json -F $(PWCITE) -F pandoc-citeproc \
 	   --template template.html -o $@
