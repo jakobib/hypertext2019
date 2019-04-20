@@ -1,0 +1,21 @@
+[
+  {
+    "author": [
+      {
+        "family": "Trask",
+        "given": "Ben"
+      }
+    ],
+    "id": "Trask2016",
+    "issued": {
+      "date-parts": [
+        [
+          2016
+        ]
+      ]
+    },
+    "title": "Hash URI Specification (Initial Draft)",
+    "type": "report",
+    "URL": "https://github.com/hash-uri/hash-uri"
+  }
+]

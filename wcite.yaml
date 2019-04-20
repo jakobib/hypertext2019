@@ -1,5 +1,7 @@
 ---
-bibliography: wcite.json
+bibliography:
+  - wcite.json
+  - additional-references.json
 csl: acm-sig-proceedings.csl
 citekeys:
   Akscyn2015: Q62071521

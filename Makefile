@@ -21,20 +21,20 @@ $(NAME).tex: metadata.yaml latex.yaml $(TEXT) $(BIB)
 		-s -o $@ metadata.yaml latex.yaml $(TEXT)
 
 # TODO: remove following fixes once citation-js has been updated
-$(BIB): wcite.json rawbib.bib
+$(BIB): wcite.json additional-references.json
 	$(WCITE) wcite.yaml -f bibtex | \
-		sed 's/edition=\([^{][^,]\+\),/edition={\1},/' | \
 		sed 's/inproceedings/article/' > $(BIB)
-	cat rawbib.bib >> $(BIB)
+	$(WCITE) additional-references.json -f bibtex >> $(BIB)
 
 $(NAME).pdf: $(NAME).tex
 	@echo pdflatex $@
 	pdflatex $< && bibtex $(basename $<) && pdflatex $<
 
 html/index.html: metadata.yaml $(TEXT) wcite.yaml wcite.json
-	$(PANDOC) -s -o $@ -F $(PWCITE) -F pandoc-citeproc \
-	   --template template.html \
-	   wcite.yaml metadata.yaml $(TEXT) references.html
+	$(PANDOC) -s -t json wcite.yaml metadata.yaml $(TEXT) references.html \
+	  | ./adjust-for-html.jq | \
+	$(PANDOC) -f json -F $(PWCITE) -F pandoc-citeproc \
+	   --template template.html -o $@
 
 .SUFFIXES: .tikz .svg
 .tikz.svg:
