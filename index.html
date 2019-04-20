@@ -99,7 +99,7 @@
           
           <h2 id="introduction">Introduction</h2>
           <p>The original vision of hypertext as proposed by Ted Nelson <span class="citation" data-cites="Q4004427 Q62018774">[12, 20]</span> still waits to be realized. His influence is visible through people who, influenced by his works, shaped the computer world of today, last but not least the Web <span class="citation" data-cites="Q5529815">[15]</span>.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> Nelson’s core idea, a network of visibly connected documents called Xanadu, goes beyond the Web in several aspects. In particular it promises non-breaking links and it uses links to build documents (with versions, quotations, overlay markup…) instead of using documents to build links <span class="citation" data-cites="Q63197724">[14]</span>. The concept of hypertext or more general ‘hypermedia’ has also been used differing from Nelson, both in the literary community (that focused on simple links), and in the hypertext research community (that focused on tools) <span class="citation" data-cites="Q62056726">[28]</span>.</p>
-          <p>This paper tries to get back to the original vision of hypertext by specification of a formal model that puts transcludeable documents at its heart. Apart from Nelson’s works <span class="citation" data-cites="Q4004427 Q62071588 Q5157448 Q15975218 Q55888092 Q62018774">[12, 13, 16–18, 20]</span> this paper draws from research on data format analysis <span class="citation" data-cites="Q22910779 Q62475820">[9, 26]</span>, content-based identifiers <span class="citation" data-cites="Trask2016 Q61974405">[10, 24]</span>, existing transclusion technologies for the Web <span class="citation" data-cites="Q62071521 Q62087940 Q62087795 Q62820096">[1, 2, 6, 23]</span> and hypertext systems beyond link-based models <span class="citation" data-cites="Q62123282">[3]</span>.</p>
+          <p>This paper tries to get back to the original vision of hypertext by specification of a formal model that puts transcludeable documents at its heart. Apart from Nelson’s works <span class="citation" data-cites="Q4004427 Q62071588 Q5157448 Q15975218 Q55888092 Q62018774">[12, 13, 16–18, 20]</span> this paper draws from research on data format analysis <span class="citation" data-cites="Q22910779 Q62475820">[9, 26]</span>, content-based identifiers <span class="citation" data-cites="Q63233029 Q61974405">[10, 24]</span>, existing transclusion technologies for the Web <span class="citation" data-cites="Q62071521 Q62087940 Q62087795 Q62820096">[1, 2, 6, 23]</span> and hypertext systems beyond link-based models <span class="citation" data-cites="Q62123282">[3]</span>.</p>
           <p>Limited by the state of document processing tools and by submission guidelines, this paper is not a demo of hypertext.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> On a closer look however there are traces of transclusion links that have been processed to this paper. See figure  for an overview and <a href="https://github.com/jakobib/hypertext2019" class="uri">https://github.com/jakobib/hypertext2019</a> for details and sources.</p>
           <h2 id="outline">Outline</h2>
           <p>The architecture of an infrastructure-agnostic hypertext system consists of four basic elements and their relations:</p>
@@ -332,7 +332,7 @@
           <div id="ref-Q62087940">
           <p>[23] Tennison, J. 2012. <em>Best Practices for Fragment Identifiers and Media Type Definitions</em>. World Wide Web Consortium.</p>
           </div>
-          <div id="ref-Trask2016">
+          <div id="ref-Q63233029">
           <p>[24] Trask, B. 2016. <em>Hash URI Specification (Initial Draft)</em>.</p>
           </div>
           <div id="ref-Q62847600">
@@ -358,7 +358,7 @@
           <li id="fn4"><p>In practice it’s often unknown whether two data formats actually share the same model, especially if models are only given implicitly by definition of their formats.<a href="#fnref4" class="footnote-back">↩</a></p></li>
           <li id="fn5"><p>Formats may also exist purely implicit in form of sample instances which grammar, model, and ideas must be guessed from by reverse engineering <span class="citation" data-cites="Q22910779">[26]</span>.<a href="#fnref5" class="footnote-back">↩</a></p></li>
           <li id="fn6"><p>A more practical edit list syntax <span class="math inline"><em>E</em></span> could also allow to directly embeded small document instances which SHA-1 hashes can be computed from. If implemented carefully, this could also reconcile transclusion with copy-and-paste.<a href="#fnref6" class="footnote-back">↩</a></p></li>
-          <li id="fn7"><p>New standards such as IPFS Mulihashes and BitTorrent Merkle-Hashes look promising but these types of identifiers are not specified as part of the URI system (yet) <span class="citation" data-cites="Trask2016">[24]</span>.<a href="#fnref7" class="footnote-back">↩</a></p></li>
+          <li id="fn7"><p>New standards such as IPFS Mulihashes and BitTorrent Merkle-Hashes look promising but these types of identifiers are not specified as part of the URI system (yet) <span class="citation" data-cites="Q63233029">[24]</span>.<a href="#fnref7" class="footnote-back">↩</a></p></li>
           <li id="fn8"><p>In particular by search engines and by spammers. A criteria to judge the success of a hypertext system is whether it is popular enough to attract link spam.<a href="#fnref8" class="footnote-back">↩</a></p></li>
           <li id="fn9"><p>Copyright detection was easy to implement with mandatory registration such as partly required in the United States until 1976. Authors might also register documents with cryptographic hashes without making them public in the first place.<a href="#fnref9" class="footnote-back">↩</a></p></li>
           <li id="fn10"><p>Tim Berners-Lee’s first Web browser originally supported editing.<a href="#fnref10" class="footnote-back">↩</a></p></li>
@@ -368,4 +368,24 @@
       </article>
     </main>
   </body>
+<script>(refs => {
+  const base = 'http://www.wikidata.org/entity/'
+  Array.from(refs).filter(e => (e.id || '').match(/^ref-(Q[0-9]+)$/))
+    .forEach(div => {
+      var qid = div.id.substr(4)
+      var a = document.createElement('a')
+      a.className = 'wikidata-link'
+      a.href = base + qid
+      var p = div.firstElementChild
+      p.insertBefore(a, p.firstChild)
+    })
+})(document.getElementById('refs').childNodes || [])
+</script>
+<style type="text/css">a.wikidata-link {
+  background: url(data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMiIgd2lkdGg9IjEwNTAiIGhlaWdodD0iNTkwIj4NCiAgPHBhdGggZD0ibSAxMjAsNTQ1IGggMzAgViA0NSBIIDEyMCBWIDU0NSB6IG0gNjAsMCBoIDkwIFYgNDUgSCAxODAgViA1NDUgeiBNIDMwMCw0NSBWIDU0NSBoIDkwIFYgNDUgaCAtOTAgeiIgc3R5bGU9ImZpbGw6Izk5MDAwMCIgLz4NCiAgPHBhdGggZD0ibSA4NDAsNTQ1IGggMzAgViA0NSBIIDg0MCBWIDU0NSB6IE0gOTAwLDQ1IFYgNTQ1IGggMzAgViA0NSBIIDkwMCB6IE0gNDIwLDU0NSBoIDMwIFYgNDUgSCA0MjAgViA1NDUgeiBNIDQ4MCw0NSBWIDU0NSBoIDMwIFYgNDUgaCAtMzAgeiIgc3R5bGU9ImZpbGw6IzMzOTk2NiIgLz4NCiAgPHBhdGggZD0ibSA1NDAsNTQ1IGggOTAgViA0NSBoIC05MCBWIDU0NSB6IG0gMTIwLDAgaCAzMCBWIDQ1IEggNjYwIFYgNTQ1IHogTSA3MjAsNDUgViA1NDUgaCA5MCBWIDQ1IEggNzIwIHoiIHN0eWxlPSJmaWxsOiMwMDY2OTkiIC8+DQo8L3N2Zz4=) no-repeat;
+  background-size: contain;
+  padding-left: 1.8em;
+  margin-right: 0.2em;
+}
+</style>
 </html>
