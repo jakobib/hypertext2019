@@ -1,5 +1,5 @@
 ---
 csl: acm-sig-proceedings.csl
 link-citations: true
-wikidata-links: true
+link-wikidata-references: true
 ...

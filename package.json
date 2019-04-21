@@ -1,5 +1,10 @@
 {
   "dependencies": {
-    "wcite": "^0.4.0"
-  }
+    "wcite": "^0.4.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jakobib/hypertext2019.git"
+  },
+  "license": "CC-BY-SA-4.0"
 }
