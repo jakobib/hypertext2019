@@ -97,273 +97,273 @@
             </div>
           </section>
           
-          <h2 id="introduction">Introduction</h2>
-          <p>The original vision of hypertext as proposed by Ted Nelson <span class="citation" data-cites="Q4004427 Q62018774">[12, 20]</span> still waits to be realized. His influence is visible through people who, influenced by his works, shaped the computer world of today, last but not least the Web <span class="citation" data-cites="Q5529815">[15]</span>.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> Nelson’s core idea, a network of visibly connected documents called Xanadu, goes beyond the Web in several aspects. In particular it promises non-breaking links and it uses links to build documents (with versions, quotations, overlay markup…) instead of using documents to build links <span class="citation" data-cites="Q63197724">[14]</span>. The concept of hypertext or more general ‘hypermedia’ has also been used differing from Nelson, both in the literary community (that focused on simple links), and in the hypertext research community (that focused on tools) <span class="citation" data-cites="Q62056726">[28]</span>.</p>
-          <p>This paper tries to get back to the original vision of hypertext by specification of a formal model that puts transcludeable documents at its heart. Apart from Nelson’s works <span class="citation" data-cites="Q4004427 Q62071588 Q5157448 Q15975218 Q55888092 Q62018774">[12, 13, 16–18, 20]</span> this paper draws from research on data format analysis <span class="citation" data-cites="Q22910779 Q62475820">[9, 26]</span>, content-based identifiers <span class="citation" data-cites="Q63233029 Q61974405">[10, 24]</span>, existing transclusion technologies for the Web <span class="citation" data-cites="Q62071521 Q62087940 Q62087795 Q62820096">[1, 2, 6, 23]</span> and hypertext systems beyond link-based models <span class="citation" data-cites="Q62123282">[3]</span>.</p>
-          <p>Limited by the state of document processing tools and by submission guidelines, this paper is not a demo of hypertext.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> On a closer look however there are traces of transclusion links that have been processed to this paper. See figure  for an overview and <a href="https://github.com/jakobib/hypertext2019" class="uri">https://github.com/jakobib/hypertext2019</a> for details and sources.</p>
-          <h2 id="outline">Outline</h2>
-          <p>The architecture of an infrastructure-agnostic hypertext system consists of four basic elements and their relations:</p>
-          <ol type="1">
-          <li><p><strong>documents</strong> include all finite, digital objects</p></li>
-          <li><p><strong>document identifiers</strong> reference individual documents</p></li>
-          <li><p><strong>content locators</strong> reference segments within documents</p></li>
-          <li><p><strong>edit list</strong> combine parts of existing document into new ones</p></li>
-          </ol>
-          <p>Instances of each element can further be grouped by <strong>data formats</strong>. The elements and their relations are each described in the following sections after a formal definition.</p>
-          <h3 id="formal-model">Formal model</h3>
-          <p>A hypertext system is a tuple <span class="math inline">⟨<em>D</em>, <em>I</em>, <em>C</em>, <em>E</em>, <em>S</em>, <em>R</em>, <em>U</em>, <em>T</em>, <em>A</em>⟩</span> where:</p>
-          <dl>
-          <dt><span class="math inline"><em>D</em></span></dt>
-          <dd>is a set of documents
-          </dd>
-          <dt><span class="math inline"><em>I</em></span></dt>
-          <dd>is a set of document identifiers with <span class="math inline"><em>I</em> ⊂ <em>D</em></span>
-          </dd>
-          <dt><span class="math inline"><em>C</em></span></dt>
-          <dd>is a set of content locators with <span class="math inline"><em>C</em> ⊂ <em>D</em></span>
-          </dd>
-          <dt><span class="math inline"><em>E</em></span></dt>
-          <dd>is a set of edit lists with <span class="math inline"><em>E</em> ⊂ <em>D</em></span>
-          </dd>
-          <dt><span class="math inline"><em>S</em></span></dt>
-          <dd>is a set of document segments with <span class="math inline"><em>S</em> ⊂ <em>C</em> × <em>D</em></span>
-          </dd>
-          </dl>
-          <p>Document sets can each be grouped into (possibly overlapping) data formats. The hypertext system further consists of:</p>
-          <dl>
-          <dt><span class="math inline"><em>R</em></span></dt>
-          <dd>is a retrieval function with <span class="math inline"><em>R</em>: <em>I</em> → <em>D</em></span>
-          </dd>
-          <dt><span class="math inline"><em>U</em></span></dt>
-          <dd>is a segments usage function <span class="math inline"><em>U</em>: <em>E</em> → 𝒫(<em>S</em>)</span>
-          </dd>
-          <dt><span class="math inline"><em>T</em></span></dt>
-          <dd>is a transclusion function with <span class="math inline"><em>T</em>: <em>S</em> → <em>D</em></span>
-          </dd>
-          <dt><span class="math inline"><em>A</em></span></dt>
-          <dd>is an hypertext assemble function with <span class="math inline"><em>A</em>: <em>E</em> → <em>D</em></span>
-          </dd>
-          </dl>
-          <p>A practical hypertext system needs executable implementations of the functions <span class="math inline"><em>R</em>, <em>U</em>, <em>T</em>, <em>A</em></span> and a method to tell whether a given combination <span class="math inline">⟨<em>c</em>, <em>d</em>⟩ ∈ <em>C</em> × <em>D</em></span> is part of <span class="math inline"><em>S</em></span> to allow its use with <span class="math inline"><em>T</em></span>.</p>
-          <h3 id="documents">Documents</h3>
-          <p>A document is a finite sequence of bytes. This definition roughly equates with the definition of data as documents <span class="citation" data-cites="Q61793433 Q61967951">[8, 27]</span>. The notion of hypertext used in this paper therefore subsumes all kinds of hyperdata (datasets that transclude other datasets). Documents are static by content <span class="citation" data-cites="Q62575936">[22]</span> but they may be processed dynamically. Documents are grouped by non-disjoint data formats such as UTF-8, CSV, SVG, PDF and many many more.</p>
-          <h3 id="document-identifiers">Document identifiers</h3>
-          <p>A document identifier is a relatively short document that refers to another document. Identifiers have properties depending on the particular identifier system they belong to <span class="citation" data-cites="Q61967951">[27]</span>. Identifiers in infrastructure-agnostic hypertext must first be <em>unambiguous</em> (an identifier must reference only one document), <em>persistent</em> (the reference must not change over time), and <em>actionable</em> (hypertext systems should provide methods to retrieve documents via the retrieval function <span class="math inline"><em>R</em></span>). Properties that should be fulfilled at least to some degree include <em>uniqueness</em> (a document should not be referenced by too many identifiers), <em>performance</em> (identifiers should be easy to compute and to validate), and <em>distributedness</em> (identifiers should not require a central institution). The actual choice of an identifier system depends on weighting of specific requirements. A promising choice is the application of content-based identifiers as proposed at least once in the context of hypertext systems <span class="citation" data-cites="Q61974405">[10]</span>.</p>
-          <h3 id="content-locators">Content locators</h3>
-          <p>A content locator is a document that can be used to select parts of another document via transclusion. Nelsons refers to this locators as “reference pointers” <span class="citation" data-cites="Q55888092">[18]</span>, exemplified with spans of bytes or characters in a document. Content locators depend on data formats and document models. For instance locator languages XPath, XPointer, and XQuery act on XML documents, which can be serialized in different forms (therefore it makes no sense to locate parts of an XML document with positions of bytes). Other locator languages apply to tabular data (SQL, RFC 7111), to graphs (SPARQL, GraphQL), or to two-dimensional images (IIIF), to name a few. Whether and how parts of a document can be selected with a content locator language depends on which data format the document is interpreted in. For instance an SVG image file can be processed at least as image, as XML document, or as Unicode string, each with its own methods of locating document segments. Content locators can be extended to all executable programs that reproducibly process some documents into other documents. This generalization can be useful to track data processing pipelines as hyperdata such as discussed for executable papers and reproducible research. Restriction of content locators to less powerful query languages might make sense from a security point of view.</p>
-          <h3 id="edit-lists">Edit Lists</h3>
-          <p>An edit list is a document that describes how to construct a new document from parts of other documents. Edit lists are known as <em>Edit Decision Lists</em> in Xanadu and the idea was borrowed from film making <span class="citation" data-cites="Q62071588">[16]</span>. Simplified forms of edit lists are implemented in version control systems and in collaborative tools such as wikis and real-time editing. Hypertext edit lists go beyond this one-dimensional case by support of multiple source documents and by more flexible methods of document processing in addition to basic operations such as insert, delete, and replace. The actual processing steps tracked by an edit list depend on data formats of transcluded documents. Just like content locators, edit lists could be extended to arbitrary executable programs that implement the hypertext assemble function <span class="math inline"><em>A</em></span> for some subset of edit lists. To ensure reproducibility and reliable transclusion,<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> these programs must not access unstable external information such as documents that may change <span class="citation" data-cites="Q62575936">[22]</span>.</p>
-          <h3 id="data-formats">Data formats</h3>
-          <p>An often neglected fundamental property of digital documents is their grounding in data formats. A data format is a set of documents that share a common data model, also known as their document model, and a common serialization (see fig. ). Models define elements of a document in terms of sets, strings, tuples, graphs or similar structures. These structures are mathematically rigor in theory <span class="citation" data-cites="Q62575936">[22]</span> but more based on descriptive patterns in practice <span class="citation" data-cites="Q22910779">[26]</span>. The meaning of these elements (for instance “words”, “sentences”, and “paragraphs” in a document model) is based on ideas that we at least assume to be consistent among different people.</p>
-          <figure>
-          <img src="levels-of-data-modeling.svg" width="60%"/>
-          <figcaption>levels of data modeling</figcaption>
-          </figure>
-          
-          <p>Data modeling, the act of mapping between ideas, models, and formats is an unsolved problem because ideas can be expressed in many models and models can be interpreted in many ways <span class="citation" data-cites="Q62475820">[9]</span>. Data models can further be expressed in multiple formats although these formats should fully be convertible between each other, at least in theory.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> Formats can further be serialized in multiple forms, which for their part are based on other data models. For instance the RDF model can be serialized in RDF/XML format which is based on the XML model. XML can be serialized XML syntax which is based on the Unicode model, and Unicode can be serialized in UTF-8. At the end of these chains of abstraction eventually all documents can be serialized as sequence of bytes. Serializations are seldom simple mappings as most serialization formats allow insignificant variances such as additional whitespace. To check whether a data object conforms to a serialization, formats are often described with a formal grammar that can also give insights about the format’s model.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> Infrastructure-agnostic hypertext does not impose any limits on possible data formats and their models.</p>
-          <h2 id="example">Example</h2>
-          <p>The following example may illustrate the formal model and its elements. Let <span class="math inline">⟨<em>D</em>, <em>I</em>, <em>C</em>, <em>E</em>, <em>S</em>, <em>R</em>, <em>U</em>, <em>T</em>, <em>A</em>⟩</span> be a hypertext system with <span class="math inline"><em>D</em></span> the set of printable ASCII character strings and some documents:</p>
-          <dl>
-          <dt><span class="math inline"><em>d</em><sub>1</sub></span></dt>
-          <dd>= ‘<code>My name is Alice</code>’
-          </dd>
-          <dt><span class="math inline"><em>d</em><sub>2</sub></span></dt>
-          <dd>= ‘<code>Alice</code>’
-          </dd>
-          <dt><span class="math inline"><em>c</em><sub>1</sub></span></dt>
-          <dd>= ‘<code>char=11,15</code>’
-          </dd>
-          <dt><span class="math inline"><em>d</em><sub>3</sub></span></dt>
-          <dd>= ‘<code>Hello, !</code>’
-          </dd>
-          <dt><span class="math inline"><em>c</em><sub>2</sub></span></dt>
-          <dd>= ‘<code>char=7</code>’
-          </dd>
-          <dt><span class="math inline"><em>d</em><sub>4</sub></span></dt>
-          <dd>= ‘<code>Hello, Alice!</code>’
-          </dd>
-          </dl>
-          <p>If <span class="math inline"><em>c</em><sub>1</sub></span> and <span class="math inline"><em>c</em><sub>2</sub></span> are read in content locator syntax as defined by RFC 5147 so that <span class="math inline"><em>T</em>(⟨<em>c</em><sub>1</sub>, <em>d</em><sub>1</sub>⟩) = <em>d</em><sub>2</sub></span> then <span class="math inline"><em>d</em><sub>4</sub></span> can be constructed by transcluding a document segment of <span class="math inline"><em>d</em><sub>1</sub></span> into <span class="math inline"><em>d</em><sub>3</sub></span> at position <span class="math inline"><em>c</em><sub>2</sub></span>. The corresponding edit list <span class="math inline"><em>e</em><sub>1</sub> ∈ <em>E</em></span> with <span class="math inline"><em>A</em>(<em>e</em><sub>1</sub>) = <em>d</em><sub>4</sub></span> could look like this:</p>
-          <pre><code> take      995f37f2e066b7d8893873ca4d780da5bf017184
-           insert at 48ba94c47b45390b6dd27824cfc0d8468c2cbc71
-           from      fcb59267e2e6641140578235c8cb6d38eaf6abc1
-           segment   c5b794c7ae5d490f52a414d9d19311b9a19f61b3</code></pre>
-          <p>The hexademical values in <span class="math inline"><em>e</em><sub>1</sub></span> are SHA-1 hashes of <span class="math inline"><em>d</em><sub>3</sub></span>, <span class="math inline"><em>c</em><sub>2</sub></span>, <span class="math inline"><em>d</em><sub>1</sub></span>, and <span class="math inline"><em>c</em><sub>1</sub></span> respectively.<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> Retrieval function <span class="math inline"><em>R</em></span> maps them back to strings. Hyperlinks are given by <span class="math inline"><em>U</em>(<em>e</em><sub>1</sub>) = {⟨<em>c</em><sub>2</sub>, <em>d</em><sub>3</sub>⟩, ⟨<em>c</em><sub>1</sub>, <em>d</em><sub>1</sub>⟩}</span>, the first link used for editing <span class="math inline"><em>d</em><sub>3</sub></span> to <span class="math inline"><em>d</em><sub>4</sub></span> (versioning) and the second for referencing of segment of <span class="math inline"><em>d</em><sub>1</sub></span> in <span class="math inline"><em>d</em><sub>4</sub></span> (transclusion).</p>
-          <h2 id="implementations">Implementations</h2>
-          <!--The infrastructure-agnostic model of hypertext helps to analyze hypertext systems
-          but its ultimate goal is guidance to actual xanalogical implementations. -->
-          <p>One of the problems faced by project Xanadu was it long required new developments such as computer networks, document processing, and graphical user interfaces ahead of their time. Today we can build on a many existing technologies:</p>
-          <dl>
-          <dt>networks:</dt>
-          <dd>storage and communication networks are ubiquitous with several protocols (HTTP, IPFS, BitTorrent…).
-          </dd>
-          <dt>identifier systems:</dt>
-          <dd>document identifiers should be part of the URI/IRI identifier system. More specific candidates of relevant identifier systems include URLs and content-based identifiers.
-          </dd>
-          <dt>formats:</dt>
-          <dd>hypertext systems should not be limited to their own document formats (such as the Web’s focus on HTML/DOM) but allow for integration of all kinds of digital objects.
-          </dd>
-          <dt>content locators</dt>
-          <dd>as shown above, several content locator and query formats exist, at least for some document models.
-          </dd>
-          </dl>
-          <p>Access to documents via a retrieval function <span class="math inline"><em>R</em></span> can be implemented with existing network and identifier technologies. The easiest solution would be to build on top of HTTP and URL but these identifiers are far from unambiguous and persistent. Content-based identifiers guarantee to always reference the same document but they require network and storage systems to be actionable.<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a></p>
-          <p>The set of supported data formats is only limited by availability of applications to view and to edit documents. Full integration into a hypertext system however requires appropriate content locator formats to select, transclude, and link to segments from these documents. Existing content locator technologies include URI Fragment Identifiers <span class="citation" data-cites="Q62087940">[23]</span>, patch file formats (JSON Patch, XML Patch, LD Patch…), and domain-specific query languages as long as they can guarantee reproducible builds. Two projects that popularized at least a simple form of transclusion on the Web are hypothes.is with a combination of locator methods <span class="citation" data-cites="Q62820096">[6]</span> and the IIIF Image API with focus on content locators in images <span class="citation" data-cites="Q62087795">[2]</span>.</p>
-          <h3 id="challenges">Challenges</h3>
-          <p>Despite the availability of technologies to build on, creation of a xanalogical hypertext system is challenging for several reasons. The general problems involved with transclusion have been identified <span class="citation" data-cites="Q62071521">[1]</span>. Other or more specific challenges include (ordered by severity):</p>
-          <dl>
-          <dt>storage:</dt>
-          <dd>data storage is cheap, but someone has to pay for it.
-          </dd>
-          <dt>normalization:</dt>
-          <dd>most documents (including identifiers) can be serialized in different forms. To support unique document identifiers, a hypertext system should support normalization of documents to canonical forms.
-          </dd>
-          <dt>link services:</dt>
-          <dd>databases of links have been proposed as central part of Open Hypermedia Systems <span class="citation" data-cites="Q62123282">[3]</span> but they are not available for the Web because of commercial interest.<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a> Links are ideally derived from edit lists with segments usage function <span class="math inline"><em>U</em></span>. Recent development such as Webmention and OpenCitation may help to improve collection of links.
-          </dd>
-          <dt>visualization and navigation:</dt>
-          <dd>this most recognizable element of hypertext has mostly been reduced to simple links while Nelson’s ideas seem to have been forgotten or ignored <span class="citation" data-cites="Q62847600">[25]</span>. Nevertheless the creation of tools for visualization and navigation in hypertext structures is less challenging then getting hold of the underlying documents and hyperlinks.
-          </dd>
-          <dt>edit list formats</dt>
-          <dd>despite edit lists being the very core of the idea of hypertext <span class="citation" data-cites="Q62071588">[16]</span>, they have rarely been implemented in reusable data formats. Proper hypertext implementations therefore require to establish new formats with support of hypertext assemble function <span class="math inline"><em>A</em></span> and segments usage function <span class="math inline"><em>U</em></span>.
-          </dd>
-          <dt>editing tools</dt>
-          <dd>applications to create and modify digital objects track changes dont’t provide this information in form of reusable edit lists, if at all. Hypermedia authoring needs to be integrated into existing editing tools to succed <span class="citation" data-cites="Q61637727">[7]</span>.
-          </dd>
-          <dt>copyright and control:</dt>
-          <dd>who should be allowed to use which documents under which conditions? The answers primarily depend on legal, social, and political requirements.
-          </dd>
-          </dl>
-          <h3 id="differences-to-xanadu">Differences to Xanadu</h3>
-          <p>Project Xanadu promised a comprehensive hypertext system including elements for content (xanadocs), network (servers), rights (micropayment), and interface (viewers) – years before each these concept made it into the computer mainstream. Given the current state of technology, a xanalogical hypertext system does not need to implement all elements. The infrastructure-agnostic model of hypertext tries to capture the core parts of the original vision of hypertext by concentrating on its documents and document formats. For this reason some requirements listed by Xanadu Australia <span class="citation" data-cites="Q62213482">[21]</span> or mentioned by Nelson in other publications are not incorporated explicitly:</p>
-          <ol type="a">
-          <li>identified servers as canonical sources of documents</li>
-          <li>identified users and access control</li>
-          <li>copyright and royalty system via micropayment</li>
-          <li>user interfaces to navigate and edit hypertexts</li>
-          </ol>
-          <p>Meeting these requirements in actual implementations is possible nevertheless. Identified servers (a) and users (b) were part of <em>Tumbler</em> identifers (that combined document identifiers and content locators) <span class="citation" data-cites="Q15975218">[17]</span> but the current OpenXanadu implementation uses plain URLs as part of its <em>Xanadoc</em> edit list format <span class="citation" data-cites="Q63079762">[19]</span>. Canonical sources of documents (a) could also be implemented by blockchains or alternative technology to proof that a specific document existed on a specific server at a specific time. Such knowledge of a document’s first insertion into the hypertext system would also allow for royalty systems (c).<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a> Identification of users and access control (b) could also be implemented in several ways but this feature much more depends on network infrastructures and socio-technical environments, including rules of privacy, intellectual property, and censorship. Last but not least, a hypertext system needs applications to visualize, navigate, and edit hypermedia (d)<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a> Several user interface have been invented in the history of hypertext <span class="citation" data-cites="Q63093195">[11]</span> and there will unlikely be one final application because user interfaces depend on use-cases and file formats.</p>
-          <h2 id="summary-and-conclusion">Summary and conclusion</h2>
-          <p>This paper presents a novel interpretation of the original vision of hypertext <span class="citation" data-cites="Q4004427 Q62071588">[12, 16]</span>. The infrastructure-agnostic model of hypertext does not require or exclude specific data formats or network protocols. Abstract from these ever-changing technologies, the focus is on hypermedia <em>content</em> (documents) and <em>connections</em> (hyperlinks). The basic elements of a hypertext system are identified as documents, document identifiers, content locators, and edit lists with a formal model that defines their relations based on knowledge of data formats and models. It is shown which technologies can be used to implement such a hypertext system integrated into current information infrastructures (in particular the Internet and the Web) and which challenges still exist (in particular support of edit lists in editing tools).</p>
-          <!--
-          Ironically Berners-Lee seems to have aimed at a more Xanalogic
-          hypertext system but he found standardization of hypertext too
-          much focused on "the format for exchangeable media"
-          document formats than on protocols so he created HTTP. [@BernersLee1990]
-          -->
-          <!-- TODO: Image of "windowing" into documents? -->
-          <figure>
-          <img src="this-articles-transclusion.svg" width="60%"/>
-          <figcaption>Proto-transclusion links of this paper</figcaption>
-          </figure>
-          
-          <section id="references">
-          <h2>
-          References
-          </h2>
-          <div id="refs">
-          <!-- references will be placed here -->
-          <div id="ref-Q62071521">
-          <p>[1] Akscyn, R. 2015. The Future of Transclusion. <em>Intertwingled</em>. (2015), 113–122. DOI:<a href="https://doi.org/10.1007/978-3-319-16925-5_15">https://doi.org/10.1007/978-3-319-16925-5_15</a>.</p>
-          </div>
-          <div id="ref-Q62087795">
-          <p>[2] Appleby, M. et al. eds. 2017. <em>IIIF Image API</em>. IIIF Consortium.</p>
-          </div>
-          <div id="ref-Q62123282">
-          <p>[3] Atzenbeck, C. et al. 2017. Revisiting Hypertext Infrastructure. <em>Proceedings of the 28th ACM Conference on Hypertext and Social Media</em> (2017), 35–44.</p>
-          </div>
-          <div id="ref-Q29163691">
-          <p>[4] Berners-Lee, T. 1989. <em>Information Management: A Proposal</em>. CERN.</p>
-          </div>
-          <div id="ref-Q57239536">
-          <p>[5] Capadisli, S. et al. 2015. This “Paper” is a Demo. <em>The Semantic Web: ESWC 2015 Satellite Events</em>. (2015), 26–30. DOI:<a href="https://doi.org/10.1007/978-3-319-25639-9_5">https://doi.org/10.1007/978-3-319-25639-9_5</a>.</p>
-          </div>
-          <div id="ref-Q62820096">
-          <p>[6] Csillag, K. 2013. Fuzzy Anchoring. <em>Hypothesis</em>.</p>
-          </div>
-          <div id="ref-Q61637727">
-          <p>[7] Di Iorio, A. and Vitali, F. 2005. From the writable web to global editability. <em>Proceedings of the sixteenth ACM conference on Hypertext and hypermedia</em>. (2005), 35–45. DOI:<a href="https://doi.org/10.1145/1083356.1083365">https://doi.org/10.1145/1083356.1083365</a>.</p>
-          </div>
-          <div id="ref-Q61793433">
-          <p>[8] Furner, J. 2016. “Data”: The data. <em>Information Cultures in the Digital Age: a Festschrift in honor of Rafael Capurro</em>. (2016), 287–306.</p>
-          </div>
-          <div id="ref-Q62475820">
-          <p>[9] Kent, W. 1988. The Many Forms of a Single Fact. <em>Proceedings of IEEE COMPCON 89</em> (1988), 438–443.</p>
-          </div>
-          <div id="ref-Q61974405">
-          <p>[10] Lukka, T. and Fallenstein, B. 2002. Freenet-like GUIDs for implementing xanalogical hypertext. <em>Proceedings of the thirteenth ACM conference on Hypertext and hypermedia</em>. (2002), 194–195. DOI:<a href="https://doi.org/10.1145/513338.513386">https://doi.org/10.1145/513338.513386</a>.</p>
-          </div>
-          <div id="ref-Q63093195">
-          <p>[11] Müller-Prove, M. 2002. <em>Vision and Reality of Hypertext and Graphical User Interfaces</em>.</p>
-          </div>
-          <div id="ref-Q4004427">
-          <p>[12] Nelson, T. 1965. Complex information processing: a file structure for the complex, the changing and the indeterminate. <em>Proceedings of the 1965 20th national conference</em> (1965), 84–100.</p>
-          </div>
-          <div id="ref-Q5157448">
-          <p>[13] Nelson, T. 1974. <em>Computer Lib / Dream Machines</em>.</p>
-          </div>
-          <div id="ref-Q63197724">
-          <p>[14] Nelson, T. 1997. Embedded Markup Considered Harmful. <em>World Wide Web Journal</em>. 2, 4 (1997), 129–134.</p>
-          </div>
-          <div id="ref-Q5529815">
-          <p>[15] Nelson, T. 2008. <em>Geeks Bearing Gifts</em>. Mindful Press.</p>
-          </div>
-          <div id="ref-Q62071588">
-          <p>[16] Nelson, T. 1967. Getting It Out of Our System. <em>Information Retrieval: A Critical Review</em> (1967), 191–210.</p>
-          </div>
-          <div id="ref-Q15975218">
-          <p>[17] Nelson, T. 1980. <em>Literary Machines</em>. Mindful Press.</p>
-          </div>
-          <div id="ref-Q55888092">
-          <p>[18] Nelson, T. 1999. Xanalogical structure, needed now more than ever: parallel documents, deep links to content, deep versioning, and deep re-use. <em>ACM Computing Surveys</em>. 31, 4es (Dec. 1999). DOI:<a href="https://doi.org/10.1145/345966.346033">https://doi.org/10.1145/345966.346033</a>.</p>
-          </div>
-          <div id="ref-Q63079762">
-          <p>[19] Nelson, T. and Levin, N. 2014. <em>OpenXanadu</em>.</p>
-          </div>
-          <div id="ref-Q62018774">
-          <p>[20] Nelson, T. et al. 2007. Back to the future: hypertext the way it used to be. <em>Proceedings of the eighteenth conference on Hypertext and hypermedia</em> (2007), 227–228.</p>
-          </div>
-          <div id="ref-Q62213482">
-          <p>[21] Pam, A.D. 2002. <em>Xanadu FAQ</em>.</p>
-          </div>
-          <div id="ref-Q62575936">
-          <p>[22] Renear, A.H. et al. 2009. When digital objects change — exactly what changes? <em>Proceedings of the American Society for Information Science and Technology</em>. 45, 1 (Jun. 2009). DOI:<a href="https://doi.org/10.1002/meet.2008.14504503143">https://doi.org/10.1002/meet.2008.14504503143</a>.</p>
-          </div>
-          <div id="ref-Q62087940">
-          <p>[23] Tennison, J. 2012. <em>Best Practices for Fragment Identifiers and Media Type Definitions</em>. World Wide Web Consortium.</p>
-          </div>
-          <div id="ref-Q63233029">
-          <p>[24] Trask, B. 2016. <em>Hash URI Specification (Initial Draft)</em>.</p>
-          </div>
-          <div id="ref-Q62847600">
-          <p>[25] Viégas, F. et al. Studying Cooperation and Conflict between Authors with history flow Visualizations. <em>CHI ’04 Proceedings of the SIGCHI Conference on Human Factors in Computing Systems</em> 575–582.</p>
-          </div>
-          <div id="ref-Q22910779">
-          <p>[26] Voss, J. 2013. <em>Describing Data Patterns</em>.</p>
-          </div>
-          <div id="ref-Q61967951">
-          <p>[27] Voss, J. 2013. Was sind eigentlich Daten? <em>LIBREAS</em>. 23 (2013). DOI:<a href="https://doi.org/10.18452/9038">https://doi.org/10.18452/9038</a>.</p>
-          </div>
-          <div id="ref-Q62056726">
-          <p>[28] Wardrip-Fruin, N. 2004. What hypertext is. <em>Proceedings of the fifteenth ACM conference on Hypertext and hypermedia</em> (2004), 126–127.</p>
-          </div>
-          </div>
-          </section>
-          <section class="footnotes">
-          <hr />
-          <ol>
-          <li id="fn1"><p>Tim Berners-Lee references Nelson both in the proposal that led to the Web <span class="citation" data-cites="Q29163691 Q62071588">[4, 16]</span> and at the early W3C homepage <a href="http://www.w3.org/Xanadu.html" class="uri">http://www.w3.org/Xanadu.html</a> (1992/93) <span class="citation" data-cites="Q15975218">[17]</span>.<a href="#fnref1" class="footnote-back">↩</a></p></li>
-          <li id="fn2"><p>See <span class="citation" data-cites="Q57239536">[5]</span> for a good example of what an actual demo paper might look like.<a href="#fnref2" class="footnote-back">↩</a></p></li>
-          <li id="fn3"><p>If documents models/segments change, locators may not be applicable anymore <span class="citation" data-cites="Q62820096">[6]</span>.<a href="#fnref3" class="footnote-back">↩</a></p></li>
-          <li id="fn4"><p>In practice it’s often unknown whether two data formats actually share the same model, especially if models are only given implicitly by definition of their formats.<a href="#fnref4" class="footnote-back">↩</a></p></li>
-          <li id="fn5"><p>Formats may also exist purely implicit in form of sample instances which grammar, model, and ideas must be guessed from by reverse engineering <span class="citation" data-cites="Q22910779">[26]</span>.<a href="#fnref5" class="footnote-back">↩</a></p></li>
-          <li id="fn6"><p>A more practical edit list syntax <span class="math inline"><em>E</em></span> could also allow to directly embeded small document instances which SHA-1 hashes can be computed from. If implemented carefully, this could also reconcile transclusion with copy-and-paste.<a href="#fnref6" class="footnote-back">↩</a></p></li>
-          <li id="fn7"><p>New standards such as IPFS Mulihashes and BitTorrent Merkle-Hashes look promising but these types of identifiers are not specified as part of the URI system (yet) <span class="citation" data-cites="Q63233029">[24]</span>.<a href="#fnref7" class="footnote-back">↩</a></p></li>
-          <li id="fn8"><p>In particular by search engines and by spammers. A criteria to judge the success of a hypertext system is whether it is popular enough to attract link spam.<a href="#fnref8" class="footnote-back">↩</a></p></li>
-          <li id="fn9"><p>Copyright detection was easy to implement with mandatory registration such as partly required in the United States until 1976. Authors might also register documents with cryptographic hashes without making them public in the first place.<a href="#fnref9" class="footnote-back">↩</a></p></li>
-          <li id="fn10"><p>Tim Berners-Lee’s first Web browser originally supported editing.<a href="#fnref10" class="footnote-back">↩</a></p></li>
-          </ol>
-          </section>
+<h2 id="introduction">Introduction</h2>
+<p>The original vision of hypertext as proposed by Ted Nelson <span class="citation" data-cites="Q4004427 Q62018774">[<a href="#ref-Q4004427">12</a>, <a href="#ref-Q62018774">20</a>]</span> still waits to be realized. His influence is visible through people who, influenced by his works, shaped the computer world of today, last but not least the Web <span class="citation" data-cites="Q5529815">[<a href="#ref-Q5529815">15</a>]</span>.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> Nelson’s core idea, a network of visibly connected documents called Xanadu, goes beyond the Web in several aspects. In particular it promises non-breaking links and it uses links to build documents (with versions, quotations, overlay markup…) instead of using documents to build links <span class="citation" data-cites="Q63197724">[<a href="#ref-Q63197724">14</a>]</span>. The concept of hypertext or more general ‘hypermedia’ has also been used differing from Nelson, both in the literary community (that focused on simple links), and in the hypertext research community (that focused on tools) <span class="citation" data-cites="Q62056726">[<a href="#ref-Q62056726">28</a>]</span>.</p>
+<p>This paper tries to get back to the original vision of hypertext by specification of a formal model that puts transcludeable documents at its heart. Apart from Nelson’s works <span class="citation" data-cites="Q4004427 Q62071588 Q5157448 Q15975218 Q55888092 Q62018774">[<a href="#ref-Q4004427">12</a>, <a href="#ref-Q5157448">13</a>, <a href="#ref-Q62071588">16</a>–<a href="#ref-Q55888092">18</a>, <a href="#ref-Q62018774">20</a>]</span> this paper draws from research on data format analysis <span class="citation" data-cites="Q22910779 Q62475820">[<a href="#ref-Q62475820">9</a>, <a href="#ref-Q22910779">26</a>]</span>, content-based identifiers <span class="citation" data-cites="Q63233029 Q61974405">[<a href="#ref-Q61974405">10</a>, <a href="#ref-Q63233029">24</a>]</span>, existing transclusion technologies for the Web <span class="citation" data-cites="Q62071521 Q62087940 Q62087795 Q62820096">[<a href="#ref-Q62071521">1</a>, <a href="#ref-Q62087795">2</a>, <a href="#ref-Q62820096">6</a>, <a href="#ref-Q62087940">23</a>]</span> and hypertext systems beyond link-based models <span class="citation" data-cites="Q62123282">[<a href="#ref-Q62123282">3</a>]</span>.</p>
+<p>Limited by the state of document processing tools and by submission guidelines, this paper is not a demo of hypertext.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> On a closer look however there are traces of transclusion links that have been processed to this paper. See figure  for an overview and <a href="https://github.com/jakobib/hypertext2019" class="uri">https://github.com/jakobib/hypertext2019</a> for details and sources.</p>
+<h2 id="outline">Outline</h2>
+<p>The architecture of an infrastructure-agnostic hypertext system consists of four basic elements and their relations:</p>
+<ol type="1">
+<li><p><strong>documents</strong> include all finite, digital objects</p></li>
+<li><p><strong>document identifiers</strong> reference individual documents</p></li>
+<li><p><strong>content locators</strong> reference segments within documents</p></li>
+<li><p><strong>edit list</strong> combine parts of existing document into new ones</p></li>
+</ol>
+<p>Instances of each element can further be grouped by <strong>data formats</strong>. The elements and their relations are each described in the following sections after a formal definition.</p>
+<h3 id="formal-model">Formal model</h3>
+<p>A hypertext system is a tuple <span class="math inline">⟨<em>D</em>, <em>I</em>, <em>C</em>, <em>E</em>, <em>S</em>, <em>R</em>, <em>U</em>, <em>T</em>, <em>A</em>⟩</span> where:</p>
+<dl>
+<dt><span class="math inline"><em>D</em></span></dt>
+<dd>is a set of documents
+</dd>
+<dt><span class="math inline"><em>I</em></span></dt>
+<dd>is a set of document identifiers with <span class="math inline"><em>I</em> ⊂ <em>D</em></span>
+</dd>
+<dt><span class="math inline"><em>C</em></span></dt>
+<dd>is a set of content locators with <span class="math inline"><em>C</em> ⊂ <em>D</em></span>
+</dd>
+<dt><span class="math inline"><em>E</em></span></dt>
+<dd>is a set of edit lists with <span class="math inline"><em>E</em> ⊂ <em>D</em></span>
+</dd>
+<dt><span class="math inline"><em>S</em></span></dt>
+<dd>is a set of document segments with <span class="math inline"><em>S</em> ⊂ <em>C</em> × <em>D</em></span>
+</dd>
+</dl>
+<p>Document sets can each be grouped into (possibly overlapping) data formats. The hypertext system further consists of:</p>
+<dl>
+<dt><span class="math inline"><em>R</em></span></dt>
+<dd>is a retrieval function with <span class="math inline"><em>R</em>: <em>I</em> → <em>D</em></span>
+</dd>
+<dt><span class="math inline"><em>U</em></span></dt>
+<dd>is a segments usage function <span class="math inline"><em>U</em>: <em>E</em> → 𝒫(<em>S</em>)</span>
+</dd>
+<dt><span class="math inline"><em>T</em></span></dt>
+<dd>is a transclusion function with <span class="math inline"><em>T</em>: <em>S</em> → <em>D</em></span>
+</dd>
+<dt><span class="math inline"><em>A</em></span></dt>
+<dd>is an hypertext assemble function with <span class="math inline"><em>A</em>: <em>E</em> → <em>D</em></span>
+</dd>
+</dl>
+<p>A practical hypertext system needs executable implementations of the functions <span class="math inline"><em>R</em>, <em>U</em>, <em>T</em>, <em>A</em></span> and a method to tell whether a given combination <span class="math inline">⟨<em>c</em>, <em>d</em>⟩ ∈ <em>C</em> × <em>D</em></span> is part of <span class="math inline"><em>S</em></span> to allow its use with <span class="math inline"><em>T</em></span>.</p>
+<h3 id="documents">Documents</h3>
+<p>A document is a finite sequence of bytes. This definition roughly equates with the definition of data as documents <span class="citation" data-cites="Q61793433 Q61967951">[<a href="#ref-Q61793433">8</a>, <a href="#ref-Q61967951">27</a>]</span>. The notion of hypertext used in this paper therefore subsumes all kinds of hyperdata (datasets that transclude other datasets). Documents are static by content <span class="citation" data-cites="Q62575936">[<a href="#ref-Q62575936">22</a>]</span> but they may be processed dynamically. Documents are grouped by non-disjoint data formats such as UTF-8, CSV, SVG, PDF and many many more.</p>
+<h3 id="document-identifiers">Document identifiers</h3>
+<p>A document identifier is a relatively short document that refers to another document. Identifiers have properties depending on the particular identifier system they belong to <span class="citation" data-cites="Q61967951">[<a href="#ref-Q61967951">27</a>]</span>. Identifiers in infrastructure-agnostic hypertext must first be <em>unambiguous</em> (an identifier must reference only one document), <em>persistent</em> (the reference must not change over time), and <em>actionable</em> (hypertext systems should provide methods to retrieve documents via the retrieval function <span class="math inline"><em>R</em></span>). Properties that should be fulfilled at least to some degree include <em>uniqueness</em> (a document should not be referenced by too many identifiers), <em>performance</em> (identifiers should be easy to compute and to validate), and <em>distributedness</em> (identifiers should not require a central institution). The actual choice of an identifier system depends on weighting of specific requirements. A promising choice is the application of content-based identifiers as proposed at least once in the context of hypertext systems <span class="citation" data-cites="Q61974405">[<a href="#ref-Q61974405">10</a>]</span>.</p>
+<h3 id="content-locators">Content locators</h3>
+<p>A content locator is a document that can be used to select parts of another document via transclusion. Nelsons refers to this locators as “reference pointers” <span class="citation" data-cites="Q55888092">[<a href="#ref-Q55888092">18</a>]</span>, exemplified with spans of bytes or characters in a document. Content locators depend on data formats and document models. For instance locator languages XPath, XPointer, and XQuery act on XML documents, which can be serialized in different forms (therefore it makes no sense to locate parts of an XML document with positions of bytes). Other locator languages apply to tabular data (SQL, RFC 7111), to graphs (SPARQL, GraphQL), or to two-dimensional images (IIIF), to name a few. Whether and how parts of a document can be selected with a content locator language depends on which data format the document is interpreted in. For instance an SVG image file can be processed at least as image, as XML document, or as Unicode string, each with its own methods of locating document segments. Content locators can be extended to all executable programs that reproducibly process some documents into other documents. This generalization can be useful to track data processing pipelines as hyperdata such as discussed for executable papers and reproducible research. Restriction of content locators to less powerful query languages might make sense from a security point of view.</p>
+<h3 id="edit-lists">Edit Lists</h3>
+<p>An edit list is a document that describes how to construct a new document from parts of other documents. Edit lists are known as <em>Edit Decision Lists</em> in Xanadu and the idea was borrowed from film making <span class="citation" data-cites="Q62071588">[<a href="#ref-Q62071588">16</a>]</span>. Simplified forms of edit lists are implemented in version control systems and in collaborative tools such as wikis and real-time editing. Hypertext edit lists go beyond this one-dimensional case by support of multiple source documents and by more flexible methods of document processing in addition to basic operations such as insert, delete, and replace. The actual processing steps tracked by an edit list depend on data formats of transcluded documents. Just like content locators, edit lists could be extended to arbitrary executable programs that implement the hypertext assemble function <span class="math inline"><em>A</em></span> for some subset of edit lists. To ensure reproducibility and reliable transclusion,<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> these programs must not access unstable external information such as documents that may change <span class="citation" data-cites="Q62575936">[<a href="#ref-Q62575936">22</a>]</span>.</p>
+<h3 id="data-formats">Data formats</h3>
+<p>An often neglected fundamental property of digital documents is their grounding in data formats. A data format is a set of documents that share a common data model, also known as their document model, and a common serialization (see fig. ). Models define elements of a document in terms of sets, strings, tuples, graphs or similar structures. These structures are mathematically rigor in theory <span class="citation" data-cites="Q62575936">[<a href="#ref-Q62575936">22</a>]</span> but more based on descriptive patterns in practice <span class="citation" data-cites="Q22910779">[<a href="#ref-Q22910779">26</a>]</span>. The meaning of these elements (for instance “words”, “sentences”, and “paragraphs” in a document model) is based on ideas that we at least assume to be consistent among different people.</p>
+<figure>
+<img src="levels-of-data-modeling.svg" width="60%"/>
+<figcaption>levels of data modeling</figcaption>
+</figure>
+
+<p>Data modeling, the act of mapping between ideas, models, and formats is an unsolved problem because ideas can be expressed in many models and models can be interpreted in many ways <span class="citation" data-cites="Q62475820">[<a href="#ref-Q62475820">9</a>]</span>. Data models can further be expressed in multiple formats although these formats should fully be convertible between each other, at least in theory.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> Formats can further be serialized in multiple forms, which for their part are based on other data models. For instance the RDF model can be serialized in RDF/XML format which is based on the XML model. XML can be serialized XML syntax which is based on the Unicode model, and Unicode can be serialized in UTF-8. At the end of these chains of abstraction eventually all documents can be serialized as sequence of bytes. Serializations are seldom simple mappings as most serialization formats allow insignificant variances such as additional whitespace. To check whether a data object conforms to a serialization, formats are often described with a formal grammar that can also give insights about the format’s model.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> Infrastructure-agnostic hypertext does not impose any limits on possible data formats and their models.</p>
+<h2 id="example">Example</h2>
+<p>The following example may illustrate the formal model and its elements. Let <span class="math inline">⟨<em>D</em>, <em>I</em>, <em>C</em>, <em>E</em>, <em>S</em>, <em>R</em>, <em>U</em>, <em>T</em>, <em>A</em>⟩</span> be a hypertext system with <span class="math inline"><em>D</em></span> the set of printable ASCII character strings and some documents:</p>
+<dl>
+<dt><span class="math inline"><em>d</em><sub>1</sub></span></dt>
+<dd>= ‘<code>My name is Alice</code>’
+</dd>
+<dt><span class="math inline"><em>d</em><sub>2</sub></span></dt>
+<dd>= ‘<code>Alice</code>’
+</dd>
+<dt><span class="math inline"><em>c</em><sub>1</sub></span></dt>
+<dd>= ‘<code>char=11,15</code>’
+</dd>
+<dt><span class="math inline"><em>d</em><sub>3</sub></span></dt>
+<dd>= ‘<code>Hello, !</code>’
+</dd>
+<dt><span class="math inline"><em>c</em><sub>2</sub></span></dt>
+<dd>= ‘<code>char=7</code>’
+</dd>
+<dt><span class="math inline"><em>d</em><sub>4</sub></span></dt>
+<dd>= ‘<code>Hello, Alice!</code>’
+</dd>
+</dl>
+<p>If <span class="math inline"><em>c</em><sub>1</sub></span> and <span class="math inline"><em>c</em><sub>2</sub></span> are read in content locator syntax as defined by RFC 5147 so that <span class="math inline"><em>T</em>(⟨<em>c</em><sub>1</sub>, <em>d</em><sub>1</sub>⟩) = <em>d</em><sub>2</sub></span> then <span class="math inline"><em>d</em><sub>4</sub></span> can be constructed by transcluding a document segment of <span class="math inline"><em>d</em><sub>1</sub></span> into <span class="math inline"><em>d</em><sub>3</sub></span> at position <span class="math inline"><em>c</em><sub>2</sub></span>. The corresponding edit list <span class="math inline"><em>e</em><sub>1</sub> ∈ <em>E</em></span> with <span class="math inline"><em>A</em>(<em>e</em><sub>1</sub>) = <em>d</em><sub>4</sub></span> could look like this:</p>
+<pre><code> take      995f37f2e066b7d8893873ca4d780da5bf017184
+ insert at 48ba94c47b45390b6dd27824cfc0d8468c2cbc71
+ from      fcb59267e2e6641140578235c8cb6d38eaf6abc1
+ segment   c5b794c7ae5d490f52a414d9d19311b9a19f61b3</code></pre>
+<p>The hexademical values in <span class="math inline"><em>e</em><sub>1</sub></span> are SHA-1 hashes of <span class="math inline"><em>d</em><sub>3</sub></span>, <span class="math inline"><em>c</em><sub>2</sub></span>, <span class="math inline"><em>d</em><sub>1</sub></span>, and <span class="math inline"><em>c</em><sub>1</sub></span> respectively.<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> Retrieval function <span class="math inline"><em>R</em></span> maps them back to strings. Hyperlinks are given by <span class="math inline"><em>U</em>(<em>e</em><sub>1</sub>) = {⟨<em>c</em><sub>2</sub>, <em>d</em><sub>3</sub>⟩, ⟨<em>c</em><sub>1</sub>, <em>d</em><sub>1</sub>⟩}</span>, the first link used for editing <span class="math inline"><em>d</em><sub>3</sub></span> to <span class="math inline"><em>d</em><sub>4</sub></span> (versioning) and the second for referencing of segment of <span class="math inline"><em>d</em><sub>1</sub></span> in <span class="math inline"><em>d</em><sub>4</sub></span> (transclusion).</p>
+<h2 id="implementations">Implementations</h2>
+<!--The infrastructure-agnostic model of hypertext helps to analyze hypertext systems
+but its ultimate goal is guidance to actual xanalogical implementations. -->
+<p>One of the problems faced by project Xanadu was it long required new developments such as computer networks, document processing, and graphical user interfaces ahead of their time. Today we can build on a many existing technologies:</p>
+<dl>
+<dt>networks:</dt>
+<dd>storage and communication networks are ubiquitous with several protocols (HTTP, IPFS, BitTorrent…).
+</dd>
+<dt>identifier systems:</dt>
+<dd>document identifiers should be part of the URI/IRI identifier system. More specific candidates of relevant identifier systems include URLs and content-based identifiers.
+</dd>
+<dt>formats:</dt>
+<dd>hypertext systems should not be limited to their own document formats (such as the Web’s focus on HTML/DOM) but allow for integration of all kinds of digital objects.
+</dd>
+<dt>content locators</dt>
+<dd>as shown above, several content locator and query formats exist, at least for some document models.
+</dd>
+</dl>
+<p>Access to documents via a retrieval function <span class="math inline"><em>R</em></span> can be implemented with existing network and identifier technologies. The easiest solution would be to build on top of HTTP and URL but these identifiers are far from unambiguous and persistent. Content-based identifiers guarantee to always reference the same document but they require network and storage systems to be actionable.<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a></p>
+<p>The set of supported data formats is only limited by availability of applications to view and to edit documents. Full integration into a hypertext system however requires appropriate content locator formats to select, transclude, and link to segments from these documents. Existing content locator technologies include URI Fragment Identifiers <span class="citation" data-cites="Q62087940">[<a href="#ref-Q62087940">23</a>]</span>, patch file formats (JSON Patch, XML Patch, LD Patch…), and domain-specific query languages as long as they can guarantee reproducible builds. Two projects that popularized at least a simple form of transclusion on the Web are hypothes.is with a combination of locator methods <span class="citation" data-cites="Q62820096">[<a href="#ref-Q62820096">6</a>]</span> and the IIIF Image API with focus on content locators in images <span class="citation" data-cites="Q62087795">[<a href="#ref-Q62087795">2</a>]</span>.</p>
+<h3 id="challenges">Challenges</h3>
+<p>Despite the availability of technologies to build on, creation of a xanalogical hypertext system is challenging for several reasons. The general problems involved with transclusion have been identified <span class="citation" data-cites="Q62071521">[<a href="#ref-Q62071521">1</a>]</span>. Other or more specific challenges include (ordered by severity):</p>
+<dl>
+<dt>storage:</dt>
+<dd>data storage is cheap, but someone has to pay for it.
+</dd>
+<dt>normalization:</dt>
+<dd>most documents (including identifiers) can be serialized in different forms. To support unique document identifiers, a hypertext system should support normalization of documents to canonical forms.
+</dd>
+<dt>link services:</dt>
+<dd>databases of links have been proposed as central part of Open Hypermedia Systems <span class="citation" data-cites="Q62123282">[<a href="#ref-Q62123282">3</a>]</span> but they are not available for the Web because of commercial interest.<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a> Links are ideally derived from edit lists with segments usage function <span class="math inline"><em>U</em></span>. Recent development such as Webmention and OpenCitation may help to improve collection of links.
+</dd>
+<dt>visualization and navigation:</dt>
+<dd>this most recognizable element of hypertext has mostly been reduced to simple links while Nelson’s ideas seem to have been forgotten or ignored <span class="citation" data-cites="Q62847600">[<a href="#ref-Q62847600">25</a>]</span>. Nevertheless the creation of tools for visualization and navigation in hypertext structures is less challenging then getting hold of the underlying documents and hyperlinks.
+</dd>
+<dt>edit list formats</dt>
+<dd>despite edit lists being the very core of the idea of hypertext <span class="citation" data-cites="Q62071588">[<a href="#ref-Q62071588">16</a>]</span>, they have rarely been implemented in reusable data formats. Proper hypertext implementations therefore require to establish new formats with support of hypertext assemble function <span class="math inline"><em>A</em></span> and segments usage function <span class="math inline"><em>U</em></span>.
+</dd>
+<dt>editing tools</dt>
+<dd>applications to create and modify digital objects track changes dont’t provide this information in form of reusable edit lists, if at all. Hypermedia authoring needs to be integrated into existing editing tools to succed <span class="citation" data-cites="Q61637727">[<a href="#ref-Q61637727">7</a>]</span>.
+</dd>
+<dt>copyright and control:</dt>
+<dd>who should be allowed to use which documents under which conditions? The answers primarily depend on legal, social, and political requirements.
+</dd>
+</dl>
+<h3 id="differences-to-xanadu">Differences to Xanadu</h3>
+<p>Project Xanadu promised a comprehensive hypertext system including elements for content (xanadocs), network (servers), rights (micropayment), and interface (viewers) – years before each these concept made it into the computer mainstream. Given the current state of technology, a xanalogical hypertext system does not need to implement all elements. The infrastructure-agnostic model of hypertext tries to capture the core parts of the original vision of hypertext by concentrating on its documents and document formats. For this reason some requirements listed by Xanadu Australia <span class="citation" data-cites="Q62213482">[<a href="#ref-Q62213482">21</a>]</span> or mentioned by Nelson in other publications are not incorporated explicitly:</p>
+<ol type="a">
+<li>identified servers as canonical sources of documents</li>
+<li>identified users and access control</li>
+<li>copyright and royalty system via micropayment</li>
+<li>user interfaces to navigate and edit hypertexts</li>
+</ol>
+<p>Meeting these requirements in actual implementations is possible nevertheless. Identified servers (a) and users (b) were part of <em>Tumbler</em> identifers (that combined document identifiers and content locators) <span class="citation" data-cites="Q15975218">[<a href="#ref-Q15975218">17</a>]</span> but the current OpenXanadu implementation uses plain URLs as part of its <em>Xanadoc</em> edit list format <span class="citation" data-cites="Q63079762">[<a href="#ref-Q63079762">19</a>]</span>. Canonical sources of documents (a) could also be implemented by blockchains or alternative technology to proof that a specific document existed on a specific server at a specific time. Such knowledge of a document’s first insertion into the hypertext system would also allow for royalty systems (c).<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a> Identification of users and access control (b) could also be implemented in several ways but this feature much more depends on network infrastructures and socio-technical environments, including rules of privacy, intellectual property, and censorship. Last but not least, a hypertext system needs applications to visualize, navigate, and edit hypermedia (d)<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a> Several user interface have been invented in the history of hypertext <span class="citation" data-cites="Q63093195">[<a href="#ref-Q63093195">11</a>]</span> and there will unlikely be one final application because user interfaces depend on use-cases and file formats.</p>
+<h2 id="summary-and-conclusion">Summary and conclusion</h2>
+<p>This paper presents a novel interpretation of the original vision of hypertext <span class="citation" data-cites="Q4004427 Q62071588">[<a href="#ref-Q4004427">12</a>, <a href="#ref-Q62071588">16</a>]</span>. The infrastructure-agnostic model of hypertext does not require or exclude specific data formats or network protocols. Abstract from these ever-changing technologies, the focus is on hypermedia <em>content</em> (documents) and <em>connections</em> (hyperlinks). The basic elements of a hypertext system are identified as documents, document identifiers, content locators, and edit lists with a formal model that defines their relations based on knowledge of data formats and models. It is shown which technologies can be used to implement such a hypertext system integrated into current information infrastructures (in particular the Internet and the Web) and which challenges still exist (in particular support of edit lists in editing tools).</p>
+<!--
+Ironically Berners-Lee seems to have aimed at a more Xanalogic
+hypertext system but he found standardization of hypertext too
+much focused on "the format for exchangeable media"
+document formats than on protocols so he created HTTP. [@BernersLee1990]
+-->
+<!-- TODO: Image of "windowing" into documents? -->
+<figure>
+<img src="this-articles-transclusion.svg" width="60%"/>
+<figcaption>Proto-transclusion links of this paper</figcaption>
+</figure>
+
+<section id="references">
+<h2>
+References
+</h2>
+<div id="refs">
+<!-- references will be placed here -->
+<div id="ref-Q62071521">
+<p>[1] Akscyn, R. 2015. The Future of Transclusion. <em>Intertwingled</em>. (Jan. 2015), 113–122. DOI:<a href="https://doi.org/10.1007/978-3-319-16925-5_15">https://doi.org/10.1007/978-3-319-16925-5_15</a>.</p>
+</div>
+<div id="ref-Q62087795">
+<p>[2] Appleby, M. et al. eds. 2017. <em>IIIF Image API</em>. IIIF Consortium.</p>
+</div>
+<div id="ref-Q62123282">
+<p>[3] Atzenbeck, C. et al. 2017. Revisiting Hypertext Infrastructure. <em>Proceedings of the 28th ACM Conference on Hypertext and Social Media</em> (Jan. 2017), 35–44.</p>
+</div>
+<div id="ref-Q29163691">
+<p>[4] Berners-Lee, T. 1989. <em>Information Management: A Proposal</em>. CERN.</p>
+</div>
+<div id="ref-Q57239536">
+<p>[5] Capadisli, S. et al. 2015. This “Paper” is a Demo. <em>The Semantic Web: ESWC 2015 Satellite Events</em>. (Jan. 2015), 26–30. DOI:<a href="https://doi.org/10.1007/978-3-319-25639-9_5">https://doi.org/10.1007/978-3-319-25639-9_5</a>.</p>
+</div>
+<div id="ref-Q62820096">
+<p>[6] Csillag, K. 2013. Fuzzy Anchoring. <em>Hypothesis</em>.</p>
+</div>
+<div id="ref-Q61637727">
+<p>[7] Di Iorio, A. and Vitali, F. 2005. From the writable web to global editability. <em>Proceedings of the sixteenth ACM conference on Hypertext and hypermedia</em>. (Jan. 2005), 35–45. DOI:<a href="https://doi.org/10.1145/1083356.1083365">https://doi.org/10.1145/1083356.1083365</a>.</p>
+</div>
+<div id="ref-Q61793433">
+<p>[8] Furner, J. 2016. “Data”: The data. <em>Information Cultures in the Digital Age: a Festschrift in honor of Rafael Capurro</em>. (Jan. 2016), 287–306.</p>
+</div>
+<div id="ref-Q62475820">
+<p>[9] Kent, W. 1988. The Many Forms of a Single Fact. <em>Proceedings of IEEE COMPCON 89</em> (Jan. 1988), 438–443.</p>
+</div>
+<div id="ref-Q61974405">
+<p>[10] Lukka, T. and Fallenstein, B. 2002. Freenet-like GUIDs for implementing xanalogical hypertext. <em>Proceedings of the thirteenth ACM conference on Hypertext and hypermedia</em>. (Jan. 2002), 194–195. DOI:<a href="https://doi.org/10.1145/513338.513386">https://doi.org/10.1145/513338.513386</a>.</p>
+</div>
+<div id="ref-Q63093195">
+<p>[11] Müller-Prove, M. 2002. <em>Vision and Reality of Hypertext and Graphical User Interfaces</em>.</p>
+</div>
+<div id="ref-Q4004427">
+<p>[12] Nelson, T. 1965. Complex information processing: a file structure for the complex, the changing and the indeterminate. <em>Proceedings of the 1965 20th national conference</em> (Jan. 1965), 84–100.</p>
+</div>
+<div id="ref-Q5157448">
+<p>[13] Nelson, T. 1974. <em>Computer Lib / Dream Machines</em>.</p>
+</div>
+<div id="ref-Q63197724">
+<p>[14] Nelson, T. 1997. Embedded Markup Considered Harmful. <em>World Wide Web Journal</em>. 2, 4 (Jan. 1997), 129–134.</p>
+</div>
+<div id="ref-Q5529815">
+<p>[15] Nelson, T. 2008. <em>Geeks Bearing Gifts</em>. Mindful Press.</p>
+</div>
+<div id="ref-Q62071588">
+<p>[16] Nelson, T. 1967. Getting It Out of Our System. <em>Information Retrieval: A Critical Review</em> (Jan. 1967), 191–210.</p>
+</div>
+<div id="ref-Q15975218">
+<p>[17] Nelson, T. 1980. <em>Literary Machines</em>. Mindful Press.</p>
+</div>
+<div id="ref-Q55888092">
+<p>[18] Nelson, T. 1999. Xanalogical structure, needed now more than ever: parallel documents, deep links to content, deep versioning, and deep re-use. <em>ACM Computing Surveys</em>. 31, 4es (Dec. 1999). DOI:<a href="https://doi.org/10.1145/345966.346033">https://doi.org/10.1145/345966.346033</a>.</p>
+</div>
+<div id="ref-Q63079762">
+<p>[19] Nelson, T. and Levin, N. 2014. <em>OpenXanadu</em>.</p>
+</div>
+<div id="ref-Q62018774">
+<p>[20] Nelson, T. et al. 2007. Back to the future: hypertext the way it used to be. <em>Proceedings of the eighteenth conference on Hypertext and hypermedia</em> (Jan. 2007), 227–228.</p>
+</div>
+<div id="ref-Q62213482">
+<p>[21] Pam, A.D. 2002. <em>Xanadu FAQ</em>.</p>
+</div>
+<div id="ref-Q62575936">
+<p>[22] Renear, A.H. et al. 2009. When digital objects change — exactly what changes? <em>Proceedings of the American Society for Information Science and Technology</em>. 45, 1 (Jun. 2009). DOI:<a href="https://doi.org/10.1002/meet.2008.14504503143">https://doi.org/10.1002/meet.2008.14504503143</a>.</p>
+</div>
+<div id="ref-Q62087940">
+<p>[23] Tennison, J. 2012. <em>Best Practices for Fragment Identifiers and Media Type Definitions</em>. World Wide Web Consortium.</p>
+</div>
+<div id="ref-Q63233029">
+<p>[24] Trask, B. 2016. <em>Hash URI Specification (Initial Draft)</em>.</p>
+</div>
+<div id="ref-Q62847600">
+<p>[25] Viégas, F. et al. Studying Cooperation and Conflict between Authors with history flow Visualizations. <em>CHI ’04 Proceedings of the SIGCHI Conference on Human Factors in Computing Systems</em> 575–582.</p>
+</div>
+<div id="ref-Q22910779">
+<p>[26] Voss, J. 2013. <em>Describing Data Patterns</em>.</p>
+</div>
+<div id="ref-Q61967951">
+<p>[27] Voss, J. 2013. Was sind eigentlich Daten? <em>LIBREAS</em>. 23 (Jan. 2013). DOI:<a href="https://doi.org/10.18452/9038">https://doi.org/10.18452/9038</a>.</p>
+</div>
+<div id="ref-Q62056726">
+<p>[28] Wardrip-Fruin, N. 2004. What hypertext is. <em>Proceedings of the fifteenth ACM conference on Hypertext and hypermedia</em> (Jan. 2004), 126–127.</p>
+</div>
+</div>
+</section>
+<section class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Tim Berners-Lee references Nelson both in the proposal that led to the Web <span class="citation" data-cites="Q29163691 Q62071588">[<a href="#ref-Q29163691">4</a>, <a href="#ref-Q62071588">16</a>]</span> and at the early W3C homepage <a href="http://www.w3.org/Xanadu.html" class="uri">http://www.w3.org/Xanadu.html</a> (1992/93) <span class="citation" data-cites="Q15975218">[<a href="#ref-Q15975218">17</a>]</span>.<a href="#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p>See <span class="citation" data-cites="Q57239536">[<a href="#ref-Q57239536">5</a>]</span> for a good example of what an actual demo paper might look like.<a href="#fnref2" class="footnote-back">↩</a></p></li>
+<li id="fn3"><p>If documents models/segments change, locators may not be applicable anymore <span class="citation" data-cites="Q62820096">[<a href="#ref-Q62820096">6</a>]</span>.<a href="#fnref3" class="footnote-back">↩</a></p></li>
+<li id="fn4"><p>In practice it’s often unknown whether two data formats actually share the same model, especially if models are only given implicitly by definition of their formats.<a href="#fnref4" class="footnote-back">↩</a></p></li>
+<li id="fn5"><p>Formats may also exist purely implicit in form of sample instances which grammar, model, and ideas must be guessed from by reverse engineering <span class="citation" data-cites="Q22910779">[<a href="#ref-Q22910779">26</a>]</span>.<a href="#fnref5" class="footnote-back">↩</a></p></li>
+<li id="fn6"><p>A more practical edit list syntax <span class="math inline"><em>E</em></span> could also allow to directly embeded small document instances which SHA-1 hashes can be computed from. If implemented carefully, this could also reconcile transclusion with copy-and-paste.<a href="#fnref6" class="footnote-back">↩</a></p></li>
+<li id="fn7"><p>New standards such as IPFS Mulihashes and BitTorrent Merkle-Hashes look promising but these types of identifiers are not specified as part of the URI system (yet) <span class="citation" data-cites="Q63233029">[<a href="#ref-Q63233029">24</a>]</span>.<a href="#fnref7" class="footnote-back">↩</a></p></li>
+<li id="fn8"><p>In particular by search engines and by spammers. A criteria to judge the success of a hypertext system is whether it is popular enough to attract link spam.<a href="#fnref8" class="footnote-back">↩</a></p></li>
+<li id="fn9"><p>Copyright detection was easy to implement with mandatory registration such as partly required in the United States until 1976. Authors might also register documents with cryptographic hashes without making them public in the first place.<a href="#fnref9" class="footnote-back">↩</a></p></li>
+<li id="fn10"><p>Tim Berners-Lee’s first Web browser originally supported editing.<a href="#fnref10" class="footnote-back">↩</a></p></li>
+</ol>
+</section>
         </div>
       </article>
     </main>
