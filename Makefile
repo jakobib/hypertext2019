@@ -14,7 +14,6 @@ svg: $(patsubst %.tikz,%.svg,$(wildcard *.tikz))
 
 wikidata:
 	$(WCITE) wcite.json update
-	jq -f adjust-bibliography.jq wcite.json > tmp.json && mv tmp.json wcite.json
 
 $(NAME).tex: metadata.yaml latex.yaml $(TEXT) $(BIB)
 	pandoc --template template.tex --natbib --bibliography $(BIB) \

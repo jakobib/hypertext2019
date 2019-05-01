@@ -10,9 +10,7 @@
     "issued": {
       "date-parts": [
         [
-          1980,
-          1,
-          1
+          1980
         ]
       ]
     },
@@ -22,6 +20,7 @@
   },
   {
     "ISBN": "978-1-4909-3186-9",
+    "URL": "http://aboutdata.org/",
     "author": [
       {
         "family": "Voss",
@@ -32,9 +31,7 @@
     "issued": {
       "date-parts": [
         [
-          2013,
-          1,
-          1
+          2013
         ]
       ]
     },
@@ -54,8 +51,7 @@
       "date-parts": [
         [
           1989,
-          3,
-          1
+          3
         ]
       ]
     },
@@ -77,9 +73,7 @@
     "issued": {
       "date-parts": [
         [
-          1965,
-          1,
-          1
+          1965
         ]
       ]
     },
@@ -98,9 +92,7 @@
     "issued": {
       "date-parts": [
         [
-          1974,
-          1,
-          1
+          1974
         ]
       ]
     },
@@ -119,9 +111,7 @@
     "issued": {
       "date-parts": [
         [
-          2008,
-          1,
-          1
+          2008
         ]
       ]
     },
@@ -144,8 +134,7 @@
       "date-parts": [
         [
           1999,
-          12,
-          1
+          12
         ]
       ]
     },
@@ -155,6 +144,7 @@
   },
   {
     "DOI": "10.1007/978-3-319-25639-9_5",
+    "URL": "http://csarven.ca/this-paper-is-a-demo",
     "author": [
       {
         "family": "Capadisli",
@@ -174,9 +164,7 @@
     "issued": {
       "date-parts": [
         [
-          2015,
-          1,
-          1
+          2015
         ]
       ]
     },
@@ -201,9 +189,7 @@
     "issued": {
       "date-parts": [
         [
-          2005,
-          1,
-          1
+          2005
         ]
       ]
     },
@@ -224,9 +210,7 @@
     "issued": {
       "date-parts": [
         [
-          2016,
-          1,
-          1
+          2016
         ]
       ]
     },
@@ -249,9 +233,7 @@
     "issued": {
       "date-parts": [
         [
-          2013,
-          1,
-          1
+          2013
         ]
       ]
     },
@@ -275,9 +257,7 @@
     "issued": {
       "date-parts": [
         [
-          2002,
-          1,
-          1
+          2002
         ]
       ]
     },
@@ -306,9 +286,7 @@
     "issued": {
       "date-parts": [
         [
-          2007,
-          1,
-          1
+          2007
         ]
       ]
     },
@@ -329,9 +307,7 @@
     "issued": {
       "date-parts": [
         [
-          2004,
-          1,
-          1
+          2004
         ]
       ]
     },
@@ -352,8 +328,7 @@
       "date-parts": [
         [
           1969,
-          10,
-          1
+          10
         ]
       ]
     },
@@ -375,9 +350,7 @@
     "issued": {
       "date-parts": [
         [
-          2015,
-          1,
-          1
+          2015
         ]
       ]
     },
@@ -397,9 +370,7 @@
     "issued": {
       "date-parts": [
         [
-          1967,
-          1,
-          1
+          1967
         ]
       ]
     },
@@ -408,6 +379,7 @@
     "type": "paper-conference"
   },
   {
+    "URL": "https://iiif.io/api/image/",
     "edition": "2.1.1",
     "editor": [
       {
@@ -435,9 +407,7 @@
     "issued": {
       "date-parts": [
         [
-          2017,
-          1,
-          1
+          2017
         ]
       ]
     },
@@ -446,6 +416,7 @@
     "type": "book"
   },
   {
+    "URL": "http://www.w3.org/TR/fragid-best-practices/",
     "author": [
       {
         "family": "Tennison",
@@ -495,9 +466,7 @@
     "issued": {
       "date-parts": [
         [
-          2017,
-          1,
-          1
+          2017
         ]
       ]
     },
@@ -506,6 +475,7 @@
     "type": "paper-conference"
   },
   {
+    "URL": "http://www.aus.xanadu.com/xanadu/faq.html",
     "author": [
       {
         "family": "Pam",
@@ -539,9 +509,7 @@
     "issued": {
       "date-parts": [
         [
-          1988,
-          1,
-          1
+          1988
         ]
       ]
     },
@@ -582,6 +550,7 @@
     "volume": "45"
   },
   {
+    "URL": "https://web.hypothes.is/blog/fuzzy-anchoring/",
     "author": [
       {
         "family": "Csillag",
@@ -625,6 +594,7 @@
     "type": "paper-conference"
   },
   {
+    "URL": "http://xanadu.com/xanademos/MoeJusteOrigins.html",
     "author": [
       {
         "family": "Nelson",
@@ -639,9 +609,7 @@
     "issued": {
       "date-parts": [
         [
-          2014,
-          1,
-          1
+          2014
         ]
       ]
     },
@@ -649,6 +617,7 @@
     "type": "book"
   },
   {
+    "URL": "https://mprove.de/visionreality/",
     "author": [
       {
         "family": "Müller-Prove",
@@ -659,9 +628,7 @@
     "issued": {
       "date-parts": [
         [
-          2002,
-          1,
-          1
+          2002
         ]
       ]
     },
@@ -681,9 +648,7 @@
     "issued": {
       "date-parts": [
         [
-          1997,
-          1,
-          1
+          1997
         ]
       ]
     },
@@ -693,6 +658,7 @@
     "volume": "2"
   },
   {
+    "URL": "https://github.com/hash-uri/hash-uri",
     "author": [
       {
         "family": "Trask",
@@ -703,9 +669,7 @@
     "issued": {
       "date-parts": [
         [
-          2016,
-          1,
-          1
+          2016
         ]
       ]
     },
