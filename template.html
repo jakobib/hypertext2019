@@ -65,6 +65,15 @@
         </dl>
         $endif$
 
+        $if(feedback)$
+        <dl id="document-feedback">
+          <dt>Feedback</dt>
+          $for(feedback)$
+          <dd><a href="$feedback.url$">$feedback.title$</a></dd>
+          $endfor$
+        </dl>
+        $endif$
+
         <div id="content">
 
           $if(abstract)$
@@ -83,7 +92,7 @@
               <ul>
                $for(ccsdesc)$
                 <li>
-                  <!-- TODO: add link to classes and format according to relevance -->
+                 <a href="$ccsdesc.url$">CCS</a>
                  $ccsdesc.class$ 
                 </li>
                $endfor$

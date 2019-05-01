@@ -2,4 +2,9 @@
 csl: acm-sig-proceedings.csl
 link-citations: true
 link-wikidata-references: true
+feedback:
+- title: Annotate via hypothes.is
+  url: https://via.hypothes.is/https://jakobib.github.io/hypertext2019/
+- title: Open a GitHub issue
+  url: https://github.com/jakobib/hypertext2019/issues
 ...
