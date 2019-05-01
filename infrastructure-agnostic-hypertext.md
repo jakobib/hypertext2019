@@ -237,14 +237,14 @@ The corresponding edit list $e_1 \in E$ with $A(e_1)=d_4$ could look like this:
  segment   c5b794c7ae5d490f52a414d9d19311b9a19f61b3
 ~~~
 
-The hexademical values in $e_1$ are SHA-1 hashes of $d_3$, $c_2$, $d_1$, and
-$c_1$ respectively.^[A more practical edit list syntax $E$ could also allow to
+The values in $e_1$ are SHA-1 hashes of $d_3$, $c_2$, $d_1$, and $c_1$
+respectively.^[A more practical edit list syntax $E$ could also allow to
 directly embeded small document instances which SHA-1 hashes can be computed
 from. If implemented carefully, this could also reconcile transclusion with
 copy-and-paste.] Retrieval function $R$ maps them back to strings. Hyperlinks
-are given by $U(e_1) = \{ \langle c_2,d_3 \rangle,  \langle c_1,d_1 \rangle
-\}$, the first link used for editing $d_3$ to $d_4$ (versioning) and the second
-for referencing of segment of $d_1$ in $d_4$ (transclusion).
+are given by $U(e_1) = \{ \langle c_2,d_3 \rangle,  \langle c_1,d_1 \rangle \}$
+used for editing $d_3$ to $d_4$ (versioning) and for referencing of segment of
+$d_1$ in $d_4$ (transclusion).
 
 # Implementations
 
@@ -273,24 +273,23 @@ content locators
     least for some document models.
 
 Access to documents via a retrieval function $R$ can be implemented with
-existing network and identifier technologies. The easiest solution would be to
-build on top of HTTP and URL but these identifiers are far from unambiguous and
-persistent. Content-based identifiers guarantee to always reference the same
-document but they require network and storage systems to be actionable.^[New
-standards such as IPFS Mulihashes and BitTorrent Merkle-Hashes look promising
-but these types of identifiers are not specified as part of the URI system
-(yet) [@Trask2016].]
-
+existing network and identifier technologies. Obvious solutions build on top of
+HTTP and URL but these identifiers are far from unambiguous and persistent.
+Content-based identifiers guarantee to always reference the same document but
+they require network and storage systems to be actionable.^[New standards such
+as IPFS Mulihashes and BitTorrent Merkle-Hashes look promising but these types
+of identifiers are not specified as part of the URI system (yet) [@Trask2016].]
 The set of supported data formats is only limited by availability of
 applications to view and to edit documents. Full integration into a hypertext
 system however requires appropriate content locator formats to select,
 transclude, and link to segments from these documents. Existing content locator
-technologies include URI Fragment Identifiers [@Tennison2011], patch file
+technologies include URI Fragment Identifiers [@Tennison2011], patch
 formats (JSON Patch, XML Patch, LD Patch...), and domain-specific query
-languages as long as they can guarantee reproducible builds.  Two projects that
-popularized at least a simple form of transclusion on the Web are hypothes.is
-with a combination of locator methods [@Csillag2013] and the IIIF Image API
-with focus on content locators in images [@IIIFImageAPI].
+languages as long as they can guarantee reproducible builds.  The IIIF Image API,
+with focus on content locators in images [@IIIFImageAPI], and hypothes.is,
+with a combination of locator methods [@Csillag2013],
+popularized at least simple forms of transclusion on the Web.
+
 
 ## Challenges
 
@@ -348,12 +347,12 @@ copyright and control:
 Project Xanadu promised a comprehensive hypertext system including elements for
 content (xanadocs), network (servers), rights (micropayment), and interface
 (viewers) -- years before each these concept made it into the computer
-mainstream.  Given the current state of technology, a xanalogical hypertext
-system does not need to implement all elements. The infrastructure-agnostic
-model of hypertext tries to capture the core parts of the original vision of
-hypertext by concentrating on its documents and document formats. For this
-reason some requirements listed by Xanadu Australia [@Pam2002] or mentioned by
-Nelson in other publications are not incorporated explicitly:
+mainstream.  Today a xanalogical hypertext system can more build on existing
+technologies. The infrastructure-agnostic model of hypertext tries to capture
+the core parts of the original vision of hypertext by concentrating on its
+documents and document formats. For this reason some requirements listed by
+Xanadu Australia [@Pam2002] or mentioned by Nelson in other publications are
+not incorporated explicitly:
 
 a) identified servers as canonical sources of documents
 b) identified users and access control
@@ -384,17 +383,16 @@ application because user interfaces depend on use-cases and file formats.
 # Summary and conclusion
 
 This paper presents a novel interpretation of the original vision of hypertext
-[@Nelson1965;@Nelson1967]. The infrastructure-agnostic model of hypertext does
-not require or exclude specific data formats or network protocols. Abstract
-from these ever-changing technologies, the focus is on hypermedia *content*
-(documents) and *connections* (hyperlinks). The basic elements of a hypertext
-system are identified as documents, document identifiers, content locators, and
-edit lists with a formal model that defines their relations based on knowledge
-of data formats and models. It is shown which
-technologies can be used to implement such a hypertext system integrated into
-current information infrastructures (in particular the Internet and the Web)
-and which challenges still exist (in particular support of edit lists in
-editing tools). 
+[@Nelson1965;@Nelson1967]. Its infrastructure-agnostic model does not require
+or exclude specific data formats or network protocols. Abstract from these
+ever-changing technologies, the focus is on hypermedia *content* (documents)
+and *connections* (hyperlinks). Core elements of hypertext systems are
+identified as documents, document identifiers, content locators, and edit
+lists.  A formal model defines their relations based on knowledge of data
+formats and models. It is shown which technologies can be used to implement
+such a hypertext system integrated into current information infrastructures
+(especially the Internet and the Web) and which challenges still exist (in
+particular support of edit lists in editing tools). 
 
 <!--
 Ironically Berners-Lee seems to have aimed at a more Xanalogic
