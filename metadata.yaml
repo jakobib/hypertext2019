@@ -5,7 +5,7 @@ author:
   email: jakob.voss@gbv.de
   orcid: 0000-0002-7613-4123
   affiliation: Verbundzentrale des GBV (VZG)
-date: 2019-04-17
+date: 2019-05-02
 
 abstract: |
     This paper presents a novel and formal interpretation of the original vision
@@ -23,12 +23,13 @@ keywords:
 ccsdesc:
   - relevance: 500
     class: Information systems\ Hypertext languages
+    url: https://dlnext.acm.org/topic/ccs2012/10011007.10011006.10011050.10010512.10011143
   - relevance: 300
     class: Information systems\ Document representation
+    url: https://dlnext.acm.org/topic/ccs2012/10002951.10003317.10003318
   - relevance: 100
     class: Human-centered computing\ Hypertext / hypermedia
-  - relevance: 100
-    class: Software and its engineering\ Hypertext languages
+    url: https://dlnext.acm.org/topic/ccs2012/10003120.10003121.10003124.10003254
 
 status: "Submitted to HT'2019: ACM Conference on Hypertext and Social Media, September 17--20, 2019, Hof"
 repository: https://github.com/jakobib/hypertext2019/
