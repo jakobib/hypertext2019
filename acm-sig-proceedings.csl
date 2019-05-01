@@ -124,6 +124,7 @@
             <text variable="title" font-style="italic"/>
             <text variable="archive_location" prefix="Doctoral Thesis #"/>
             <text variable="publisher"/>
+            <text variable="URL"/>
           </group>
         </else-if>
         <else-if type="report">
@@ -131,6 +132,7 @@
             <text variable="title" font-style="italic"/>
             <text variable="number" prefix="Technical Report #"/>
             <text variable="publisher"/>
+            <text variable="URL"/>
           </group>
         </else-if>
         <else-if type="webpage">

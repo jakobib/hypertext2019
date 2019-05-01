@@ -10,7 +10,7 @@ The article is written in Pandoc Markdown syntax. Bibliographic reference data h
 | `metadata.yaml` | YAML | article metadata
 | `wcite.json` | CSL JSON | bibliographic data extracted from Wikidata
 | `wcite.yaml` | YAML | mapping of citation keys to Wikidata identifiers and additional bibliographic data
-| `acm-sig-proceedings.csl` | Citation Style Language | Bibliographic citation style provided by ACM
+| `acm-sig-proceedings.csl` | Citation Style Language | Bibliographic citation style provided by ACM (extened by URL field)
 | `ACM-Reference-Format.bst` | BibTeX Style Document | Bibliographic citation style provided by ACM
 | `acmart.cls` | LaTeX document style  | provided by ACM
 | `Makefile` | Makefile | rules how to process files
