@@ -33,4 +33,8 @@ Required steps to process the document from sources:
 
 * [install pandoc](https://pandoc.org/installing), at least version 2.0
 
+* install [jq](https://stedolan.github.io/jq/)
+
+   `sudo apt-get install jq`
+
 * ...
