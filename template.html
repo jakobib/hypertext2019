@@ -44,6 +44,13 @@
         </div>
         $endif$
 
+        $if(created)$
+        <dl id="document-created">
+          <dt>Published</dt>
+          <dd>$created$</dd>
+        </dl>
+        $endif$
+
         $if(date)$
         <dl id="document-date">
           <dt>Modified</dt>
@@ -73,6 +80,14 @@
           $endfor$
         </dl>
         $endif$
+
+        $if(license)$
+        <dl id="document-license">
+          <dt>License</dt>
+          <dd><a href="$license.uri$">$license.label$</a></dd>
+        </dl>
+        $endif$
+
 
         <div id="content">
 
@@ -107,8 +122,9 @@
             <div>
               <ul rel="schema:about">
                $for(keywords)$
-                <!-- TODO: support keyword uri and label -->
-                <li>$keywords$</li>
+                <li>$if(keywords.uri)$
+                  <a class="wikidata-link" href="$keywords.uri$">$keywords.label$</a>
+                  $else$$keywords$$endif$</li>
                $endfor$
               </ul>
             </div>

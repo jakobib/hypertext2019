@@ -6,6 +6,10 @@ author:
   orcid: 0000-0002-7613-4123
   affiliation: Verbundzentrale des GBV (VZG)
 date: 2019-05-02
+created: 2019-04-17
+license:
+  label: CC BY 4.0
+  uri: https://creativecommons.org/licenses/by/4.0/
 
 abstract: |
     This paper presents a novel and formal interpretation of the original vision
@@ -16,10 +20,15 @@ abstract: |
     as the Internet.
 
 keywords:
-  - Xanadu
-  - hypertext
-  - transclusion
-  - documents
+  - label: Xanadu
+    uri: http://www.wikidata.org/entity/Q785345
+  - label: hypermedia
+    uri: http://www.wikidata.org/entity/Q837900
+  - label: transclusion
+    uri: http://www.wikidata.org/entity/Q1207412
+  - label: documents
+    uri: http://www.wikidata.org/entity/Q49848
+
 ccsdesc:
   - relevance: 500
     class: Information systems\ Hypertext languages

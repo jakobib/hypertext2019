@@ -206,7 +206,7 @@ $if(author-meta)$
   pdfauthor={$author-meta$},
 $endif$
 $if(keywords)$
-  pdfkeywords={$for(keywords)$$keywords$$sep$, $endfor$},
+  pdfkeywords={$for(keywords)$$if(keywords.label)$$keywords.label$$else$$keywords$$endif$$sep$, $endfor$},
 $endif$
 $if(colorlinks)$
   colorlinks=true,
@@ -404,7 +404,7 @@ $for(ccsdesc)$
 \ccsdesc[$ccsdesc.relevance$]{$ccsdesc.class$}
 $endfor$
 $if(keywords)$
-\keywords{$for(keywords)$$keywords$$sep$, $endfor$}
+\keywords{$for(keywords)$$if(keywords.label)$$keywords.label$$else$$keywords$$endif$$sep$, $endfor$}
 $endif$
 
 
