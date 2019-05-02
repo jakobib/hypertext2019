@@ -19,6 +19,8 @@ The article is written in Pandoc Markdown syntax. Bibliographic reference data h
 | `tex.yaml` | YAML | Pandoc metadata for LaTeX conversion
 | `template.html` | Pandoc HTML template | HTML file which document content is inserted into
 
+[![Build Status](https://travis-ci.org/jakobib/hypertext2019.svg?branch=master)](https://travis-ci.org/jakobib/hypertext2019)
+
 ## Requirements
 
 Required steps to process the document from sources:

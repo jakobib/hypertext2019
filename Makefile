@@ -19,16 +19,14 @@ $(NAME).tex: metadata.yaml latex.yaml $(TEXT) $(BIB)
 	pandoc --template template.tex --natbib --bibliography $(BIB) \
 		-s -o $@ metadata.yaml latex.yaml $(TEXT)
 
-# TODO: remove following fix once citation-js has been updated
 $(BIB): wcite.json
-	$(WCITE) wcite.yaml -f bibtex | \
-		sed 's/inproceedings/article/' > $(BIB)
+	$(WCITE) wcite.yaml -f bibtex > $(BIB)
 
 $(NAME).pdf: $(NAME).tex
 	@echo pdflatex $@
 	pdflatex $< && bibtex $(basename $<) && pdflatex $<
 
-html/index.html: metadata.yaml $(TEXT) wcite.yaml wcite.json
+html/index.html: metadata.yaml $(TEXT) wcite.yaml wcite.json svg
 	mkdir -p html
 	$(PANDOC) -s -t json wcite.yaml metadata.yaml html.yaml $(TEXT) references.html \
 	  | ./adjust-for-html.jq | \
@@ -38,4 +36,4 @@ html/index.html: metadata.yaml $(TEXT) wcite.yaml wcite.json
 .SUFFIXES: .tikz .svg
 .tikz.svg:
 	./tikz2svg.sh $<
-	cp *.svg html
+	mkdir -p html && cp *.svg html

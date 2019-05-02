@@ -7,7 +7,7 @@ if [[ ! -e "$TIKZ" ]]; then
 fi
 
 NAME=$(basename "${TIKZ%.*}")
-DIR=$(realpath $(dirname "$TIKZ"))
+DIR=$(readlink -f $(dirname "$TIKZ"))
 
 TMPDIR=`mktemp -d 2>/dev/null || mktemp -d -t 'tikztmp'` # also works on OSX
 TEX="$TMPDIR/$NAME.tex"
