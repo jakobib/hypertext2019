@@ -106,6 +106,7 @@
               </group>
               <text variable="page"/>
             </group>
+            <text variable="URL"/>
           </group>
         </else-if>
         <else-if type="patent">
@@ -158,6 +159,7 @@
           <group delimiter=". ">
             <text variable="title" font-style="italic"/>
             <text variable="publisher"/>
+            <text variable="URL"/>
           </group>
         </else-if>
         <else>
@@ -165,6 +167,7 @@
             <text variable="title"/>
             <text variable="container-title" font-style="italic"/>
             <text variable="publisher"/>
+            <text variable="URL"/>
           </group>
         </else>
       </choose>
