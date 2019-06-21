@@ -11,7 +11,7 @@ called Xanadu, goes beyond the Web in several aspects. In particular it
 promises non-breaking links and it uses links to build documents (with
 versions, quotations, overlay markup...) instead of using documents to build
 links [@Nelson1997]. The concept of hypertext or more general 'hypermedia' has
-also been used differing from Nelson, both in the literary community (that
+also been used differently from Nelson, both in the literary community (that
 focused on simple links), and in the hypertext research community (that focused
 on tools) [@WardripFruin2004].
 
@@ -115,7 +115,7 @@ hypertext systems [@Lukka2002].
 ## Content locators
 
 A content locator is a document that can be used to select parts of another
-document via transclusion. Nelsons refers to this locators as "reference
+document via transclusion. Nelsons refers to these locators as "reference
 pointers" [@Nelson1999], exemplified with spans of bytes or characters in a
 document. Content locators depend on data formats and document models.  For
 instance locator languages XPath, XPointer, and XQuery act on XML documents,
@@ -158,7 +158,7 @@ in data formats.  A data format is a set of documents that share a common data
 model, also known as their document model, and a common serialization (see
 fig.\ \ref{fig:datamodeling}).  Models define elements of a document in terms
 of sets, strings, tuples, graphs or similar structures. These structures are
-mathematically rigor in theory [@Renear2009] but more based on descriptive
+mathematically rigorous in theory [@Renear2009] but more based on descriptive
 patterns in practice [@Voss2013a].  The meaning of these elements (for instance
 "words", "sentences", and "paragraphs" in a document model) is based on ideas
 that we at least assume to be consistent among different people.
@@ -238,8 +238,8 @@ The corresponding edit list $e_1 \in E$ with $A(e_1)=d_4$ could look like this:
 ~~~
 
 The values in $e_1$ are SHA-1 hashes of $d_3$, $c_2$, $d_1$, and $c_1$
-respectively.^[A more practical edit list syntax $E$ could also allow to
-directly embeded small document instances which SHA-1 hashes can be computed
+respectively.^[A more practical edit list syntax $E$ could also allow the direct
+embedding of small document instances which SHA-1 hashes can be computed
 from. If implemented carefully, this could also reconcile transclusion with
 copy-and-paste.] Retrieval function $R$ maps them back to strings. Hyperlinks
 are given by $U(e_1) = \{ \langle c_2,d_3 \rangle,  \langle c_1,d_1 \rangle \}$
@@ -275,7 +275,7 @@ content locators
 Access to documents via a retrieval function $R$ can be implemented with
 existing network and identifier technologies. Obvious solutions build on top of
 HTTP and URL but these identifiers are far from unambiguous and persistent.
-Content-based identifiers guarantee to always reference the same document but
+Content-based identifiers are guaranteed to always reference the same document but
 they require network and storage systems to be actionable.^[New standards such
 as IPFS Mulihashes and BitTorrent Merkle-Hashes look promising but these types
 of identifiers are not specified as part of the URI system (yet) [@Trask2016].]
@@ -312,7 +312,7 @@ link services:
     Open Hypermedia Systems [@Atzenbeck2017] but they are not
     available for the Web because of commercial interest.^[In
     particular by search engines and by spammers. A 
-    criteria to judge the success of a hypertext system is
+    criterion to judge the success of a hypertext system is
     whether it is popular enough to attract link spam.]
     Links are ideally derived from edit lists with segments
     usage function $U$.  Recent development such as Webmention
@@ -334,7 +334,7 @@ edit list formats
  
 editing tools
   : applications to create and modify digital objects track changes
-    dont't provide this information in form of reusable edit lists,
+    don't provide this information in form of reusable edit lists,
     if at all. Hypermedia authoring needs to be integrated into
     existing editing tools to succed [@DiIorio2005].
 
@@ -345,7 +345,7 @@ copyright and control:
 ## Differences to Xanadu
 
 Project Xanadu promised a comprehensive hypertext system including elements for
-content (xanadocs), network (servers), rights (micropayment), and interface
+content (xanadocs), network (servers), rights (micropayment), and interfaces
 (viewers) -- years before each these concept made it into the computer
 mainstream.  Today a xanalogical hypertext system can more build on existing
 technologies. The infrastructure-agnostic model of hypertext tries to capture
@@ -364,7 +364,7 @@ Identified servers (a) and users (b) were part of *Tumbler* identifers (that
 combined document identifiers and content locators) [@Nelson1980] but the
 current OpenXanadu implementation uses plain URLs as part of its *Xanadoc* edit
 list format [@Nelson2014]. Canonical sources of documents (a) could also be
-implemented by blockchains or alternative technology to proof that a specific
+implemented by blockchains or alternative technology to prove that a specific
 document existed on a specific server at a specific time. Such knowledge of a
 document's first insertion into the hypertext system would also allow for
 royalty systems (c).^[Copyright detection was easy to implement with mandatory
