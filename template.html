@@ -7,6 +7,9 @@
     <link href="css/dokieli.css" rel="stylesheet" media="all" />
     <link href="css/index.css" rel="stylesheet" media="all" />
     <meta name="generator" content="pandoc" />
+    $if(canonical)$
+    <link rel="canonical" href="$canonical$" />
+    $endif$
   </head>
 
   <body about="" prefix="rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# schema: http://schema.org/" typeof="schema:CreativeWork">
@@ -27,7 +30,13 @@
             <dd>
              $for(author)$
               <span about="" rel="schema:creator schema:publisher schema:author">
-                <a about="https://orcid.org/$author.orcid$" typeof="schema:Person" rel="schema:url" property="schema:name" href="">$author.name$</a></span>
+                <a about="https://orcid.org/$author.orcid$" typeof="schema:Person" rel="schema:url" property="schema:name" href="">$author.name$</a>
+                $if(author.orcid)$
+                  <a about="https://orcid.org/$author.orcid$">
+                    <img alt="ORCID iD" src="orcid.svg" style="height:16px; margin-left:4px; margin-right:4px; width:16px">
+                  </a>
+                $endif$
+              </span>
              $endfor$
             </dd>
           </dl>
@@ -54,7 +63,13 @@
         $if(date)$
         <dl id="document-date">
           <dt>Modified</dt>
-          <dd>$date$</dd>
+          <dd>
+            $date$
+            $if(version)$ (version $version$)$endif$
+            $if(canonical)$
+            <a href="$canonical$" id="link-to-canonical">see current version!</a>
+            $endif$
+          </dd>
         </dl>
         $endif$
 
@@ -133,8 +148,25 @@
 
 $body$
         </div>
-      </article>
+      </article>      
     </main>
+
+    <section id="changelog">
+      <h2>Changelog</h2>
+      <p>See <a href="$repository$">source code repository</a> for detailed changes.</p>
+      <dl>
+        <dt>$version$ ($date$)</dt> 
+        <dd>$status$</dd>
+      $for(changelog)$
+        <dt>
+          <a href="$changelog.version$.html">$changelog.version$</a>
+          ($changelog.date$) 
+        </dt>
+        <dd>$changelog.status$</dd>
+      $endfor$
+      </dl>
+    </section>
+
   </body>
 $for(include-after)$
 $include-after$
