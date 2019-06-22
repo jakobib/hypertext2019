@@ -2,3 +2,4 @@ figcaption { font-weight: bold; }
 a, a[href^="http"].wikidata-link { border-bottom: none; }
 a[href^="http"] { border-bottom: 2px solid #333; }
 a.wikidata-link { padding-left: 2.2em !important; }
+#link-to-canonical { font-weight: bold; }
