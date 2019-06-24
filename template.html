@@ -32,7 +32,7 @@
               <span about="" rel="schema:creator schema:publisher schema:author">
                 <a about="https://orcid.org/$author.orcid$" typeof="schema:Person" rel="schema:url" property="schema:name" href="">$author.name$</a>
                 $if(author.orcid)$
-                  <a about="https://orcid.org/$author.orcid$">
+                  <a href="https://orcid.org/$author.orcid$">
                     <img alt="ORCID iD" src="orcid.svg" style="height:16px; margin-left:4px; margin-right:4px; width:16px">
                   </a>
                 $endif$
@@ -147,6 +147,7 @@
           $endif$
 
 $body$
+
         </div>
       </article>      
     </main>
@@ -166,6 +167,49 @@ $body$
       $endfor$
       </dl>
     </section>
+
+    $if(interactions)$
+    <section id="document-interactions">
+      <h2>Interactions</h2>
+      <div>
+        $for(interactions)$
+        $if(interactions.id)$
+        <article id="i-$interactions.id$" rel="sioc:has_reply" typeof="oa:Annotation as:Note">
+          <h3 property="schema:name">
+            $for(interactions.author)$
+            <span rel="schema:creator oa:annotatedBy as:actor">
+              $if(interactions.author.uri)$
+              <span about="$interactions.author.uri$" typeof="schema:Person">
+                <a rel="schema:url" href="$author.uri$">
+                  <span about="$interactions.author.uri$" property="schema:name">$interactions.author.name$</span>
+                </a>
+              </span>
+              $else$
+              <span typeof="schema:Person">
+                <span property="schema:name">$interactions.author$</span>
+              </span>
+              $endif$
+            </span>
+            $endfor$
+            <a rel="oa:hasTarget as:inReplyTo" href="#">
+              <span about="#i-$interactions.id$" rel="oa:motivatedBy" resource="oa:replying">replied</span>
+            </a>
+            $if(interactions.date)$
+            on
+            <a href="#i-$interactions.id$">
+              <time property="oa:annotatedAt as:published schema:datePublished" datatype="xsd:dateTime" content="$interactions.date$" datetime="$interactions.date$">$interactions.date$</time>
+            </a>
+            $endif$
+          </h3>
+          <div datatype="rdf:HTML" property="as:content schema:description" rel="oa:hasBody"><div datatype="rdf:HTML" property="rdf:value" resource="#note-$interactions.id$" typeof="oa:TextualBody">
+          $interactions.content$
+          </div>
+        </article>
+        $endif$
+        $endfor$
+      </div>
+    </section>
+    $endif$
 
   </body>
 $for(include-after)$

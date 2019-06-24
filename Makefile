@@ -26,11 +26,12 @@ $(NAME).pdf: $(NAME).tex
 	@echo pdflatex $@
 	pdflatex $< && bibtex $(basename $<) && pdflatex $<
 
-html/index.html: metadata.yaml $(TEXT) wcite.yaml wcite.json svg
+html/index.html: metadata.yaml interactions.yaml $(TEXT) wcite.yaml wcite.json svg
 	mkdir -p html
-	$(PANDOC) -s -t json wcite.yaml metadata.yaml html.yaml $(TEXT) references.html \
+	$(PANDOC) -s -t json \
+		wcite.yaml metadata.yaml interactions.yaml html.yaml $(TEXT) references.html \
 	  | ./adjust-for-html.jq | \
-	$(PANDOC) -f json -F $(PWCITE) -F pandoc-citeproc \
+	$(PANDOC) -f json -F $(PWCITE) -F pandoc-citeproc --section-divs \
 	   --template template.html -o $@
 
 .SUFFIXES: .tikz .svg

@@ -1,0 +1,66 @@
+---
+interactions:
+- id: review-1
+  author: anonymous reviewer 1
+  date: 2019-06
+  content: |
+    The author proposes and briefly describes a post-Xanadu hypertext model (as a high-level formalism) to run on any network infrastructure. The author re-introduces Ted Nelson’s idea of transclusion as the main mode of linking (as opposed to the current html notion of embedded span-to-doc links), and brings it forward into the current networked environment (e.g. the distributed web). The author provides a high level definition of the basic elements of the model, and identifies a handful of challenges (some of which might represent a career’s worth of research like ownership and control, hypertext visualization, user interfaces).
+    
+    It’s great to see someone take Ted Nelson’s ideas and run with them, especially to examine which are practical in the current setting, and which are not. Yet I came away from the paper unsure about its contribution (in other words, the author claims novelty of vision, but I’m not quite sure where the novelty lies). It might be best for the author to focus on what they feel is the most important contribution of the work, and to go deeper on what is specifically new, and—most importantly—justify  it with use (in other words, what aspects of current stakeholder behavior motive this formalism). That’s the problem with models: it’s fun to noodle around, and come up with more expressive notions of hypertext. It’s also easy to say, ‘we can slap a UI on it, implement the right services around it, and it’ll take off like a rocket.’ What will drive this change?
+    
+    Before the Web dominated the hypertext field, there were a number of different models that contributed to OHS specs. Particularly, there were a number of different views on how links should work: how they should be represented and stored (multi-headed links, links as relations, links as full-fledged objects on par with documents, computed links, etc.), how links should fail gracefully, how ownership should figure in, and so on. How something *should* work can be a dangerous way of talking about systems in the absence of constraints derived from practice. E.g., one look at copyright, and you’ll see a place where practice and law have gone asunder; technology, by itself, probably won’t be able to span the growing chasm. That’s why so many communities insist on some form of study, evaluation, simulation, or careful analysis.
+    
+    But—I'll ease up!—this is a short paper. I don’t see intrinsic harm in proposing new models in abbreviated form; I’m just not sure where to look for the novelty here. Perhaps the author could offer a tighter focus, and justify parts of the model with observed phenomenon.
+
+- id: review-3
+  author: anonymous reviewer 2
+  date: 2019-06
+  content: |
+    The paper purports to present a novel and formal interpretation of Nelson's view of hypertext.  There are several reasonable ideas here.  That said, I feel the paper tries to do too much, and consequently doesn't treat any of its subjects to more than a cursory examination.
+
+    The paper begins with a formal model of a hypertext system.  In general, I often find formal models to be unmotivated. There are oodles of existing models for hypertext systems already -- how does this further the field?  What was either unexpressable or only awkwardly expressable previously that now has an elegant representation?  Furthermore, I think the converse is quite clear: the model presented is static.  A document as byte stream is wholly incompatible with the bulk of OHS work in which most elements were (at least in theory) computable.  (This implies that a document is a function f that maps some input and some world state [e.g., current time] to some output.)
+
+    The section on data formats was puzzling.  Isn't the whole point that we don't care about data formats?  I don't see what this section contributes to the paper, other than the straightforward observation that the model "does not impose any limits on possible data formats".  This statement seems sufficient on its own.
+
+    I feel like there are some nice ideas here, and I realize this is a short paper, but the paper as currently constructed doesn't seem to make any compelling point well.  My recommendation is that you focus on one aspect (perhaps the model) and really explore this.  How does this compare to Dexter, or Groenbaek & Trigg's '96 work?  What does the model do for us?  As it stands, the model feels insufficient for dynamic data and structure, and is essentially a restatement of Dexter.
+
+- id: review-3
+  author: anonymous reviewer 3
+  date: 2019-06
+  content: |
+    This paper presents an agnostic infrastructure model for hypertext and uses the Xanadu model/system and its capabilities as a reference for discussion. 
+
+    It would be interesting for the paper to discuss (even if only briefly) how the proposed formal interpretation/model compares to other models that have been proposed for hypertext/hypermedia.
+
+- id: answer-to-reviews-1
+  author:
+    uri: https://orcid.org/0000-0002-7613-4123
+    name: Jakob Voß
+  date: 2019-06-24
+  content: |
+    Thanks for the reviews. I tried to squeeze the whole idea into a short paper
+    of two pages (PDF version) which turned out to be too dense. The reviews point
+    out that "the paper tries to do too much" and the authors should
+    "focus on what they feel is the most important contribution of the work".
+    Ironically a similar lack of focus, partly caused by the extend of his vision,
+    can also found in Ted Nelson’s works. Anyway my paper needs to be extended:
+    
+    * The model should be compared with existing hypertext models, in particular
+      the Dexter Hypertext Reference Model (there is another irony in the timing
+      of creation of this model and creation of the WWW, but that's another story).
+
+    * The novelty of the vision of infrastructure agnostic hypertext must be presented
+      more convincingly. The model alone is of little interest indeed, it must be
+      justified with benefits compared to existing hypertext system. Nelson tried
+      decades to argue for transclusion and non-breaking links.
+    
+    * The role of data formats needs to be explained more clearly. Data formats are
+      crucial to understand documents and we don't want to limit hypertext to a specific
+      hypertext document format. All kinds of data should be transcludeable
+      persistently instead.
+
+    * The examples need to be presented in more detail. The edit list introduces hashes
+      as document identifiers too early, better separate description of edit lists and
+      (content-based) document identifiers. The paper might get more focus by explicitly
+      choosing content-based identifiers as best approach.
+
