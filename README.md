@@ -1,4 +1,4 @@
-This git-repository contains the article **Infrastructure-Agnostic Hypertext** submitted to the [ACM Conference on Hypertext and Social Media](https://ht.acm.org/ht2019/) (HT' 2019).
+This git-repository contains the article **Infrastructure-Agnostic Hypertext**.  It was originally submitted to the [ACM Conference on Hypertext and Social Media](https://ht.acm.org/ht2019/) (HT' 2019) and is being revised after having been rejected.
 
 ## Source files
 
@@ -8,6 +8,7 @@ The article is written in Pandoc Markdown syntax. Bibliographic reference data h
 |-----------|--------|-------------|
 | `infrastructure-agnostic-hypertext.md` | Pandoc Markdown | the article text
 | `metadata.yaml` | YAML | article metadata
+| `interactions.yaml` | YAML | comments published with the article
 | `wcite.json` | CSL JSON | bibliographic data extracted from Wikidata
 | `wcite.yaml` | YAML | mapping of citation keys to Wikidata identifiers and additional bibliographic data
 | `acm-sig-proceedings.csl` | Citation Style Language | Bibliographic citation style provided by ACM (extened by URL field)
@@ -20,6 +21,8 @@ The article is written in Pandoc Markdown syntax. Bibliographic reference data h
 | `template.html` | Pandoc HTML template | HTML file which document content is inserted into
 
 [![Build Status](https://travis-ci.org/jakobib/hypertext2019.svg?branch=master)](https://travis-ci.org/jakobib/hypertext2019)
+
+![Proto-transclusion links of this paper](https://jakobib.github.io/hypertext2019/this-articles-transclusion.svg)
 
 ## Requirements
 
