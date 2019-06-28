@@ -380,6 +380,18 @@ originally supported editing.] Several user interface have been invented in the
 history of hypertext [@MProve2002] and there will unlikely be one final
 application because user interfaces depend on use-cases and file formats.
 
+## Differences to other hypertext models
+
+The focus of models from the hypertext research community [@Atzenbeck2017] is
+more on services and tools than on Nelson's requirements [@WardripFruin2004].
+This paper rather looks at the neglected "within-component layer"^["It would be
+folly to attempt a generic model covering all of these data types."
+[@Halasz1990]] of the Dexter Hypertext Reference Model [@Halasz1990] than on
+issues of storage, presentation and interaction with a hypertext system.
+Extension with content locators ("locSpecs" in [@Gronbaeck1996]) could more
+align Dexter with infrastructure agnostic hypertext but existing models rarely
+put traceable edit-lists and transclusion into their core.
+
 # Summary and conclusion
 
 This paper presents a novel interpretation of the original vision of hypertext
@@ -413,7 +425,7 @@ document formats than on protocols so he created HTTP. [@BernersLee1990]
 ~~~{=latex}
 \begin{figure}
 \Description{Several data formats connected by arrows}
-\input{this-articles-transclusion.tikz}
+\scalebox{0.9}{\input{this-articles-transclusion.tikz}}
 \caption{Proto-transclusion links of this paper}
 \label{fig:demopaper}
 \end{figure}

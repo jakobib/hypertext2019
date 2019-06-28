@@ -13,11 +13,14 @@ license:
   label: CC BY 4.0
   uri: https://creativecommons.org/licenses/by/4.0/
 
-version: 0.1.1
-date: 2019-06-24
-status: "Rejected from HT'2019 (anonymous reviews and spelling corrections included)"
+version: 0.2.0
+date: 2019-06-28
+status: "Added section on other hypertext models"
 
 changelog:
+- version: 0.1.1
+  date: 2019-06-24
+  status: "Rejected from HT'2019 (anonymous reviews and spelling corrections included)"
 - version: 0.1.0
   date: 2019-05-02
   status: "Submitted to HT'2019: ACM Conference on Hypertext and Social Media"

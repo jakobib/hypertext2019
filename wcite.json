@@ -675,5 +675,51 @@
     },
     "title": "Hash URI Specification (Initial Draft)",
     "type": "report"
+  },
+  {
+    "author": [
+      {
+        "family": "Halasz",
+        "given": "Frank G."
+      },
+      {
+        "family": "Schwartz",
+        "given": "Mayer D."
+      }
+    ],
+    "id": "Q64854247",
+    "issued": {
+      "date-parts": [
+        [
+          1990
+        ]
+      ]
+    },
+    "title": "The Dexter Hypertext Reference Model",
+    "type": "report"
+  },
+  {
+    "author": [
+      {
+        "family": "Grønbæk",
+        "given": "Kaj"
+      },
+      {
+        "family": "Trigg",
+        "given": "Randall H."
+      }
+    ],
+    "container-title": "Proceedings of the the seventh ACM conference on Hypertext",
+    "id": "Q64859552",
+    "issued": {
+      "date-parts": [
+        [
+          1996
+        ]
+      ]
+    },
+    "page": "149-160",
+    "title": "Toward a Dexter-based model for open hypermedia: Unifying embedded references and link objects",
+    "type": "paper-conference"
   }
 ]
