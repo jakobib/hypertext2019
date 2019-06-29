@@ -38,11 +38,11 @@ basic elements and their relations:
 
 1) **documents** include all finite, digital objects
 
-1) **document identifiers** reference individual documents
+2) **document identifiers** reference individual documents
 
-2) **content locators** reference segments within documents
+3) **content locators** reference segments within documents
 
-3) **edit list** combine parts of existing document into new ones
+4) **edit list** combine parts of existing document into new ones
 
 Instances of each element can further be grouped by **data formats**.  The
 elements and their relations are each described in the following sections after
