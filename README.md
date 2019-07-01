@@ -24,6 +24,8 @@ The article is written in Pandoc Markdown syntax. Bibliographic reference data h
 
 ![Proto-transclusion links of this paper](https://jakobib.github.io/hypertext2019/this-articles-transclusion.svg)
 
+An additional short version of the article is included in subdirectory `short-version/`.
+
 ## Requirements
 
 Required steps to process the document from sources:

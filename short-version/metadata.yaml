@@ -20,11 +20,11 @@ status: Short version as poster abstract
 canonical: https://jakobib.github.io/hypertext2019/
 
 abstract: |
-    This abstract summarizes a new 
+    This short paper summarizes a new 
     interpretation of the original vision
     of hypertext: infrastructure-agnostic hypertext is independent from
     specific formats and protocols. References to existing
-    technologies for possible implementations are included nevertheless.
+    technologies for implementations are included nevertheless.
 
 keywords:
   - label: Xanadu

@@ -59,7 +59,7 @@ often not given explicitly [@Kent1989; @Voss2013a].
 ~~~{=latex}
 \begin{figure}
 \Description{Three icons labeled `ideas`, `model`, `format`, and `serialization`, respectively}
-\input{levels-of-data-modeling.tikz}
+\input{../levels-of-data-modeling.tikz}
 \caption{levels of data modeling}
 \label{fig:datamodeling}
 \end{figure}
