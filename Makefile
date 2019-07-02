@@ -24,7 +24,7 @@ $(BIB): wcite.json
 
 $(NAME).pdf: $(NAME).tex
 	@echo pdflatex $@
-	pdflatex $< && bibtex $(basename $<) && pdflatex $<
+	pdflatex $< && bibtex $(basename $<) && pdflatex $< && pdflatex $<
 
 html/index.html: metadata.yaml interactions.yaml $(TEXT) wcite.yaml wcite.json svg
 	mkdir -p html

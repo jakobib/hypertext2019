@@ -66,9 +66,18 @@
           <dd>
             $date$
             $if(version)$ (version $version$)$endif$
-            $if(canonical)$
-            <a href="$canonical$" id="link-to-canonical">see current version!</a>
-            $endif$
+          </dd>
+        </dl>
+        $endif$
+
+        $if(identifier)$
+        <dl id="document-identifier">
+          <dt>Identifier</dt>
+          <dd>
+          $for(identifier)$
+            <a href="$identifier$">$identifier$</a>
+            $sep$,
+          $endfor$
           </dd>
         </dl>
         $endif$

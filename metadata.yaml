@@ -1,5 +1,5 @@
 ---
-title: An Infrastructure-Agnostic Model of Hypertext
+title: Infrastructure-Agnostic Hypertext
 author:
 - name: Jakob Voß
   email: jakob.voss@gbv.de
@@ -8,23 +8,33 @@ author:
 
 repository: https://github.com/jakobib/hypertext2019/
 
-created: 2019-06-29
+created: 2019-04-17
 license:
   label: CC BY 4.0
   uri: https://creativecommons.org/licenses/by/4.0/
 
-version: 0.3.0
-date: 2019-06-28
-status: Short version as poster abstract
+version: 1.0.0
+date: 2019-06-29
+status: "Published rejected manuscript with minor changes at arXiv.org"
+
+changelog:
+- version: 0.1.0
+  date: 2019-05-02
+  status: "Submitted to HT'2019: ACM Conference on Hypertext and Social Media"
+
+identifier:
+- https://arxiv.org/abs/1907.00259
+- https://jakobib.github.io/hypertext2019/
 
 canonical: https://jakobib.github.io/hypertext2019/
 
 abstract: |
-    This abstract summarizes a new 
-    interpretation of the original vision
+    This paper presents a novel and formal interpretation of the original vision
     of hypertext: infrastructure-agnostic hypertext is independent from
-    specific formats and protocols. References to existing
-    technologies for possible implementations are included nevertheless.
+    specific standards such as data formats and network protocols. Its model is
+    illustrated with examples and references to existing technologies that allow
+    for implementation and integration in current information infrastructures such
+    as the Internet.
 
 keywords:
   - label: Xanadu
