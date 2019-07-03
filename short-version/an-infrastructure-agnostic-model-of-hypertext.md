@@ -6,7 +6,10 @@ hypermedia and hyperdata) has also been understood differently both in the
 literary community (that focused on simple links), and in the hypertext
 research community (that focused on tools) [@WardripFruin2004]. Infrastructure
 agnostic hypertext is an attempt to recover the core parts of original
-hypertext by concentrating on documents and their connections.
+hypertext by concentrating on documents and their connections.^[An earlier and
+more detailled version of this publication (4 pages) is available at
+<https://arxiv.org/abs/1907.00259> (PDF) and
+<https://jakobib.github.io/hypertext2019/> (HTML).]
 
 # Outline of Hypertext
 

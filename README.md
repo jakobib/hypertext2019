@@ -1,6 +1,6 @@
 This git-repository contains the article **Infrastructure-Agnostic Hypertext** and related publications.  The paper (4 pages) was originally submitted to the [ACM Conference on Hypertext and Social Media](https://ht.acm.org/ht2019/) (HT' 2019) and rejected for reasons listed in the reviews. A minor revised version has been published at **<https://arxiv.org/abs/1907.00259>**. The HTML version of this version is available at **<https://jakobib.github.io/hypertext2019/>**.
 
-Another shortened version of the article will be included in the proceedings as poster abstract (see subdirectory `short-version`), the poster will be added to this repository as well.
+Another shortened version of the article will be included in the proceedings as poster abstract (see subdirectory `short-version` and HTML version at <https://jakobib.github.io/hypertext2019/short-version.html>), the poster will be added to this repository as well.
 
 ## Source files
 

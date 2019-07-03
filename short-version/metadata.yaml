@@ -8,16 +8,17 @@ author:
 
 repository: https://github.com/jakobib/hypertext2019/
 
-created: 2019-06-29
+created: 2019-07-01
 license:
   label: CC BY 4.0
   uri: https://creativecommons.org/licenses/by/4.0/
 
-version: 0.3.0
-date: 2019-06-28
+version: 2.0.0
+date: 2019-07-01
 status: Short version as poster abstract
 
-canonical: https://jakobib.github.io/hypertext2019/
+identifier:
+- https://jakobib.github.io/hypertext2019/short-version.html
 
 abstract: |
     This short paper summarizes a new 
