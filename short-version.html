@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <title>An Infrastructure-Agnostic Model of Hypertext</title>
+    <link href="css/basic.css" media="all" rel="stylesheet" />
+    <link href="css/dokieli.css" rel="stylesheet" media="all" />
+    <link href="css/index.css" rel="stylesheet" media="all" />
+    <meta name="generator" content="pandoc" />
+      </head>
+
+  <body about="" prefix="rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# schema: http://schema.org/" typeof="schema:CreativeWork">
+
+    <main>
+      <article about="" typeof="schema:ScholarlyArticle">
+        
+        <h1 property="schema:name">An Infrastructure-Agnostic Model of Hypertext</h1>
+
+        
+                <div id="authors">
+          <dl id="author-name">
+            <dt>Authors</dt>
+            <dd>
+                           <span about="" rel="schema:creator schema:publisher schema:author">
+                <a about="https://orcid.org/0000-0002-7613-4123" typeof="schema:Person" rel="schema:url" property="schema:name" href="">Jakob Voß</a>
+                                  <a href="https://orcid.org/0000-0002-7613-4123">
+                    <img alt="ORCID iD" src="orcid.svg" style="height:16px; margin-left:4px; margin-right:4px; width:16px">
+                  </a>
+                              </span>
+                         </dd>
+          </dl>
+          <ul id="author-org">
+                       <li>Verbundzentrale des GBV (VZG)</li>
+                     </ul>
+          <ul id="author-email">
+                       <li><a about="https://orcid.org/0000-0002-7613-4123" rel="schema:email" href="mailto:jakob.voss@gbv.de">jakob.voss@gbv.de</a></li>
+                     </ul>
+        </div>
+        
+                <dl id="document-created">
+          <dt>Published</dt>
+          <dd>2019-07-01</dd>
+        </dl>
+        
+                <dl id="document-date">
+          <dt>Modified</dt>
+          <dd>
+            2019-07-01
+             (version 2.0.0)
+          </dd>
+        </dl>
+        
+                <dl id="document-identifier">
+          <dt>Identifier</dt>
+          <dd>
+                      <a href="https://jakobib.github.io/hypertext2019/short-version.html">https://jakobib.github.io/hypertext2019/short-version.html</a>
+                      </dd>
+        </dl>
+        
+                <dl id="document-status">
+          <dt>Status</dt>
+          <dd>Short version as poster abstract</dd>
+        </dl>
+        
+                <dl id="document-repository">
+          <dt>Repository</dt>
+          <dd><a href="https://github.com/jakobib/hypertext2019/">https://github.com/jakobib/hypertext2019/</a></dd>
+        </dl>
+        
+                <dl id="document-feedback">
+          <dt>Feedback</dt>
+                    <dd><a href="https://via.hypothes.is/https://jakobib.github.io/hypertext2019/">Annotate via hypothes.is</a></dd>
+                    <dd><a href="https://github.com/jakobib/hypertext2019/issues">Open a GitHub issue</a></dd>
+                  </dl>
+        
+                <dl id="document-license">
+          <dt>License</dt>
+          <dd><a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></dd>
+        </dl>
+        
+
+        <div id="content">
+
+                    <section id="abstract">
+            <h2>Abstract</h2>
+            <div datatype="rdf:HTML" property="schema:abstract">
+              This short paper summarizes a new interpretation of the original vision of hypertext: infrastructure-agnostic hypertext is independent from specific formats and protocols. References to existing technologies for implementations are included nevertheless.
+            </div>
+          </section>
+          
+                    <section id="categories-and-subject-descriptors">
+            <h2>Categories and Subject Descriptors</h2>
+            <div>
+              <ul>
+                               <li>
+                 <a href="https://dlnext.acm.org/topic/ccs2012/10011007.10011006.10011050.10010512.10011143">CCS</a>
+                 Information systems → Hypertext languages 
+                </li>
+                               <li>
+                 <a href="https://dlnext.acm.org/topic/ccs2012/10002951.10003317.10003318">CCS</a>
+                 Information systems → Document representation 
+                </li>
+                               <li>
+                 <a href="https://dlnext.acm.org/topic/ccs2012/10003120.10003121.10003124.10003254">CCS</a>
+                 Human-centered computing → Hypertext / hypermedia 
+                </li>
+                             </ul>
+            </div>
+          </section>
+          
+                    <section id="keywords">
+            <h2>Keywords</h2>
+            <div>
+              <ul rel="schema:about">
+                               <li>                  <a class="wikidata-link" href="http://www.wikidata.org/entity/Q785345">Xanadu</a>
+                  </li>
+                               <li>                  <a class="wikidata-link" href="http://www.wikidata.org/entity/Q837900">hypermedia</a>
+                  </li>
+                               <li>                  <a class="wikidata-link" href="http://www.wikidata.org/entity/Q1207412">transclusion</a>
+                  </li>
+                               <li>                  <a class="wikidata-link" href="http://www.wikidata.org/entity/Q49848">documents</a>
+                  </li>
+                             </ul>
+            </div>
+          </section>
+          
+<section id="introduction" class="level2">
+<h2>Introduction</h2>
+<p>The original vision of hypertext as proposed by Ted Nelson <span class="citation" data-cites="Q4004427 Q62018774">[<a href="#ref-Q4004427">6</a>, <a href="#ref-Q62018774">11</a>]</span> still waits to be realized. Hypertext (subsuming hypermedia and hyperdata) has also been understood differently both in the literary community (that focused on simple links), and in the hypertext research community (that focused on tools) <span class="citation" data-cites="Q62056726">[<a href="#ref-Q62056726">14</a>]</span>. Infrastructure agnostic hypertext is an attempt to recover the core parts of original hypertext by concentrating on documents and their connections.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
+</section>
+<section id="outline-of-hypertext" class="level2">
+<h2>Outline of Hypertext</h2>
+<p><strong>Documents</strong> (<span class="math inline"><em>D</em></span>) are all finite sequences of bytes, including</p>
+<ul>
+<li><p><strong>document identifiers</strong> (<span class="math inline"><em>I</em></span>) to reference individual documents,</p></li>
+<li><p><strong>content locators</strong> (<span class="math inline"><em>C</em></span>) to reference segments within documents,</p></li>
+<li><p><strong>edit lists</strong> (<span class="math inline"><em>E</em></span>) to combine (parts of) document into new ones,</p></li>
+<li><p>and <strong>document segments</strong> with <span class="math inline"><em>S</em> ⊂ <em>C</em> × <em>D</em></span>.</p></li>
+</ul>
+<p>Documents are further grouped by a plethora of non-disjoint <strong>data formats</strong>, such as UTF-8, CSV, and SVG. A hypertext system needs</p>
+<ul>
+<li><p>a retrieval function <span class="math inline"><em>R</em>: <em>I</em> → <em>D</em></span> to get documents,</p></li>
+<li><p>a transclusion function <span class="math inline"><em>T</em>: <em>S</em> → <em>D</em></span> to get document segments,</p></li>
+<li><p>an assemble function <span class="math inline"><em>A</em>: <em>E</em> → <em>D</em></span> to execute edit lists,</p></li>
+<li><p>a segments usage function <span class="math inline"><em>U</em>: <em>E</em> → 𝒫(<em>S</em>)</span> for backlinks,</p></li>
+</ul>
+<p>and practical methods to tell which content locators can be used with which documents to form an actual document segment. The core elements of hypertext, except from the simple parts documents and document identifiers, require some explanation.</p>
+<section id="data-formats" class="level3">
+<h3>Data formats</h3>
+<p>A data format is a set of documents that share a common data/document model, and a common serialization (see fig. ). The Dexter Hypertext Reference Model assigned formats to the “within-component” layer without further analysis because “it would be folly to attempt a generic model covering all of these data types” <span class="citation" data-cites="Q64854247">[<a href="#ref-Q64854247">3</a>]</span>. Infrastructure-agnostic hypertext however requires knowledge of data formats and models to support integration of any kind of document. The challenge that hypertext systems need to address is the unsolved problem of data modeling: ideas can be expressed in many models, models can be interpreted in many ways, models and formats are often not given explicitly <span class="citation" data-cites="Q62475820 Q22910779">[<a href="#ref-Q62475820">4</a>, <a href="#ref-Q22910779">13</a>]</span>.</p>
+<figure>
+<img src="levels-of-data-modeling.svg" width="60%"/>
+<figcaption>levels of data modeling</figcaption>
+</figure>
+
+</section>
+<section id="content-locators" class="level3">
+<h3>Content locators</h3>
+<p>Hypertext documents are primarily grounded in content locators for transclusion of document segments and in edit lists to create new documents. A content locator is a document that can be used to select parts of another document via transclusion. Nelsons refers to these locators as “reference pointers” <span class="citation" data-cites="Q55888092">[<a href="#ref-Q55888092">9</a>]</span>, exemplified with spans of bytes or characters in a document. Whether and how parts of a document can be selected with a content locator language depends on which data format the document is interpreted in. For instance a SVG document can at least be seen as two-dimensional image, as XML tree, and as sequence of Unicode characters. Possible locator languages include IIIF for the first data format and XPath, XPointer, and XQuery for the second. Other locator languages apply for instance to tabular data (SQL, RFC 7111) or to graphs (SPARQL, GraphQL). Existing locator technologies further include URI Fragment Identifiers, patch formats (JSON Patch, XML Patch, LD Patch), and domain-specific query languages: content locators can be extended to all executable programs that reproducibly transform documents into other documents. This generalization can be useful to track data processing pipelines as hyperdata such as discussed for executable papers and reproducible research.</p>
+</section>
+<section id="edit-lists" class="level3">
+<h3>Edit Lists</h3>
+<p>Edit lists, known as <em>Edit Decision Lists</em> in Xanadu and borrowed from film making <span class="citation" data-cites="Q62071588">[<a href="#ref-Q62071588">7</a>]</span>, are documents consisting of references to document segments and rules how to combine them into new documents. Several applications to create and modify digital objects track changes but this information is not provided in form of reusable edit lists, if at all. Hypermedia authoring should be integrated into existing editing tools <span class="citation" data-cites="Q61637727">[<a href="#ref-Q61637727">2</a>]</span> and their changelogs. Simplified forms of edit lists are implemented in version control systems and in collaborative editing tools. Hypertext edit lists go beyond this one-dimensional case by support of multiple source documents and by more flexible methods of document processing (in addition to basic operations such as insert, delete, and replace). The actual processing steps tracked by an edit list depend on data formats of transcluded documents. Just like content locators, edit lists can be extended to arbitrary executable programs that reproducibly emit documents.</p>
+</section>
+<section id="link-services" class="level3">
+<h3>Link services</h3>
+<p>Links services have been proposed as central part of Open Hypermedia Systems <span class="citation" data-cites="Q62123282">[<a href="#ref-Q62123282">1</a>]</span>. On the Web they are not available openly because of commercial interest.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> Hypertext systems can derive links from edit lists, but the challenge is to establish link services that collect and share these links. Recent development such as Webmention and OpenCitation may help here.</p>
+</section>
+<section id="document-retrieval" class="level3">
+<h3>Document retrieval</h3>
+<p>Access to documents via a retrieval function <span class="math inline"><em>R</em></span> can be implemented with existing network and identifier technologies (basically HTTP and URL) as done in OpenXanadu <span class="citation" data-cites="Q63079762">[<a href="#ref-Q63079762">10</a>]</span> but content-based identifiers better guarantee to always reference the same document <span class="citation" data-cites="Q61974405">[<a href="#ref-Q61974405">5</a>]</span>. Promising technologies for implementation include IPFS Mulihashes and BitTorrent Merkle-Hashes. The challenge of hypertext systems is less the technical infrastructure to retrieve documents but normalization of documents to canonical forms to support content-based identifiers.</p>
+</section>
+</section>
+<section id="summary-and-conclusion" class="level2">
+<h2>Summary and conclusion</h2>
+<p>Infrastructure-agnostic hypertext focuses on hypermedia <em>content</em> (documents) and <em>connections</em> (hyperlinks). Its model allows for integration of all kinds of data. The agnosticism to ever changing technologies excludes only some Xanadu requirements <span class="citation" data-cites="Q62213482">[<a href="#ref-Q62213482">12</a>]</span>:</p>
+<ol type="a">
+<li>identified servers as canonical sources of documents and</li>
+<li>identified users and access control were part of <em>Tumblers</em> <span class="citation" data-cites="Q15975218">[<a href="#ref-Q15975218">8</a>]</span></li>
+<li>copyright and royalty system via micropayment</li>
+<li>user interfaces to navigate and edit hypertexts</li>
+</ol>
+<p>With documents as primary elements, document identifiers are a preferred over servers and users.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> Canonical sources of documents (authorship) could be implemented with blockchain or other trusted logfiles. User interfaces highly depend on use-cases and data formats anyway. What’s needed for xanalogical hypertext systems are efforts to understand, normalize and process file formats in order to implement and popularize an ecosystem of content locators and edit lists. References to existing technologies show that hypertext as envisioned by Ted Nelson can be integrated into current information infrastructures, especially the Internet and the Web.</p>
+<!-- TODO: link to traces of transclusion links that have been processed to
+this paper. See <https://github.com/jakobib/hypertext2019> and XXX for details
+and sources.  -->
+<section id="references">
+<h2>
+References
+</h2>
+<div id="refs">
+<!-- references will be placed here -->
+<div id="ref-Q62123282">
+<p>[1] Atzenbeck, C. et al. 2017. Revisiting Hypertext Infrastructure. <em>Proceedings of the 28th ACM Conference on Hypertext and Social Media</em> (2017), 35–44.</p>
+</div>
+<div id="ref-Q61637727">
+<p>[2] Di Iorio, A. and Vitali, F. 2005. From the writable web to global editability. <em>Proceedings of the sixteenth ACM conference on Hypertext and hypermedia</em>. (2005), 35–45. DOI:<a href="https://doi.org/10.1145/1083356.1083365">https://doi.org/10.1145/1083356.1083365</a>.</p>
+</div>
+<div id="ref-Q64854247">
+<p>[3] Halasz, F.G. and Schwartz, M.D. 1990. <em>The Dexter Hypertext Reference Model</em>.</p>
+</div>
+<div id="ref-Q62475820">
+<p>[4] Kent, W. 1988. The Many Forms of a Single Fact. <em>Proceedings of IEEE COMPCON 89</em> (1988), 438–443.</p>
+</div>
+<div id="ref-Q61974405">
+<p>[5] Lukka, T. and Fallenstein, B. 2002. Freenet-like GUIDs for implementing xanalogical hypertext. <em>Proceedings of the thirteenth ACM conference on Hypertext and hypermedia</em>. (2002), 194–195. DOI:<a href="https://doi.org/10.1145/513338.513386">https://doi.org/10.1145/513338.513386</a>.</p>
+</div>
+<div id="ref-Q4004427">
+<p>[6] Nelson, T. 1965. Complex information processing: a file structure for the complex, the changing and the indeterminate. <em>Proceedings of the 1965 20th national conference</em> (1965), 84–100.</p>
+</div>
+<div id="ref-Q62071588">
+<p>[7] Nelson, T. 1967. Getting It Out of Our System. <em>Information Retrieval: A Critical Review</em> (1967), 191–210.</p>
+</div>
+<div id="ref-Q15975218">
+<p>[8] Nelson, T. 1980. <em>Literary Machines</em>. Mindful Press.</p>
+</div>
+<div id="ref-Q55888092">
+<p>[9] Nelson, T. 1999. Xanalogical structure, needed now more than ever: parallel documents, deep links to content, deep versioning, and deep re-use. <em>ACM Computing Surveys</em>. 31, 4es (Dec. 1999). DOI:<a href="https://doi.org/10.1145/345966.346033">https://doi.org/10.1145/345966.346033</a>.</p>
+</div>
+<div id="ref-Q63079762">
+<p>[10] Nelson, T. and Levin, N. 2014. <em>OpenXanadu</em>. <a href="http://xanadu.com/xanademos/MoeJusteOrigins.html">http://xanadu.com/xanademos/MoeJusteOrigins.html</a>.</p>
+</div>
+<div id="ref-Q62018774">
+<p>[11] Nelson, T. et al. 2007. Back to the future: hypertext the way it used to be. <em>Proceedings of the eighteenth conference on Hypertext and hypermedia</em> (2007), 227–228.</p>
+</div>
+<div id="ref-Q62213482">
+<p>[12] Pam, A.D. 2002. <em>Xanadu FAQ</em>. <a href="http://www.aus.xanadu.com/xanadu/faq.html">http://www.aus.xanadu.com/xanadu/faq.html</a>.</p>
+</div>
+<div id="ref-Q22910779">
+<p>[13] Voss, J. 2013. <em>Describing Data Patterns</em>. <a href="http://aboutdata.org/">http://aboutdata.org/</a>.</p>
+</div>
+<div id="ref-Q62056726">
+<p>[14] Wardrip-Fruin, N. 2004. What hypertext is. <em>Proceedings of the fifteenth ACM conference on Hypertext and hypermedia</em> (2004), 126–127.</p>
+</div>
+</div>
+</section>
+</section>
+<section class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>An earlier and more detailled version of this publication (4 pages) is available at <a href="https://arxiv.org/abs/1907.00259" class="uri">https://arxiv.org/abs/1907.00259</a> (PDF) and <a href="https://jakobib.github.io/hypertext2019/" class="uri">https://jakobib.github.io/hypertext2019/</a> (HTML).<a href="#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p>By search engines and by spammers. A criterion to judge the success of a hypertext system may be whether it is popular enough to attract link spam.<a href="#fnref2" class="footnote-back">↩</a></p></li>
+<li id="fn3"><p>OpenXanadu also uses plain URLs as part if its edit list format <span class="citation" data-cites="Q63079762">[<a href="#ref-Q63079762">10</a>]</span>.<a href="#fnref3" class="footnote-back">↩</a></p></li>
+</ol>
+</section>
+
+        </div>
+      </article>      
+    </main>
+
+    <section id="changelog">
+      <h2>Changelog</h2>
+      <p>See <a href="https://github.com/jakobib/hypertext2019/">source code repository</a> for detailed changes.</p>
+      <dl>
+        <dt>2.0.0 (2019-07-01)</dt> 
+        <dd>Short version as poster abstract</dd>
+            </dl>
+    </section>
+
+    
+  </body>
+<script>(refs => {
+  const base = 'http://www.wikidata.org/entity/'
+  Array.from(refs).filter(e => (e.id || '').match(/^ref-(Q[0-9]+)$/))
+    .forEach(div => {
+      var qid = div.id.substr(4)
+      var a = document.createElement('a')
+      a.className = 'wikidata-link'
+      a.href = base + qid
+      var p = div.firstElementChild
+      p.insertBefore(a, p.firstChild)
+    })
+})(document.getElementById('refs').childNodes || [])
+</script>
+<style type="text/css">a.wikidata-link {
+  background: url(data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMiIgd2lkdGg9IjEwNTAiIGhlaWdodD0iNTkwIj4NCiAgPHBhdGggZD0ibSAxMjAsNTQ1IGggMzAgViA0NSBIIDEyMCBWIDU0NSB6IG0gNjAsMCBoIDkwIFYgNDUgSCAxODAgViA1NDUgeiBNIDMwMCw0NSBWIDU0NSBoIDkwIFYgNDUgaCAtOTAgeiIgc3R5bGU9ImZpbGw6Izk5MDAwMCIgLz4NCiAgPHBhdGggZD0ibSA4NDAsNTQ1IGggMzAgViA0NSBIIDg0MCBWIDU0NSB6IE0gOTAwLDQ1IFYgNTQ1IGggMzAgViA0NSBIIDkwMCB6IE0gNDIwLDU0NSBoIDMwIFYgNDUgSCA0MjAgViA1NDUgeiBNIDQ4MCw0NSBWIDU0NSBoIDMwIFYgNDUgaCAtMzAgeiIgc3R5bGU9ImZpbGw6IzMzOTk2NiIgLz4NCiAgPHBhdGggZD0ibSA1NDAsNTQ1IGggOTAgViA0NSBoIC05MCBWIDU0NSB6IG0gMTIwLDAgaCAzMCBWIDQ1IEggNjYwIFYgNTQ1IHogTSA3MjAsNDUgViA1NDUgaCA5MCBWIDQ1IEggNzIwIHoiIHN0eWxlPSJmaWxsOiMwMDY2OTkiIC8+DQo8L3N2Zz4=) no-repeat;
+  background-size: contain;
+  padding-left: 1.8em;
+  margin-right: 0.2em;
+}
+</style>
+</html>
