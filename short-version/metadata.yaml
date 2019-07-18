@@ -13,9 +13,14 @@ license:
   label: CC BY 4.0
   uri: https://creativecommons.org/licenses/by/4.0/
 
-version: 2.0.0
-date: 2019-07-01
-status: Short version as poster abstract
+version: 2.1.0
+date: 2019-07-18
+status: Camery-ready version (<https://doi.org/10.1145/3342220.3344922>)
+
+changelog:
+- version: 2.0.0
+  date: 2019-07-01
+  status: Short version as poster abstract
 
 identifier:
 - https://jakobib.github.io/hypertext2019/short-version.html
@@ -32,6 +37,8 @@ keywords:
     uri: http://www.wikidata.org/entity/Q785345
   - label: hypermedia
     uri: http://www.wikidata.org/entity/Q837900
+  - label: hyperdata
+    uri: http://www.wikidata.org/entity/Q12200340
   - label: transclusion
     uri: http://www.wikidata.org/entity/Q1207412
   - label: documents

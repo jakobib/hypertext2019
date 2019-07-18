@@ -1,15 +1,12 @@
 # Introduction
 
 The original vision of hypertext as proposed by Ted Nelson
-[@Nelson1965;@Nelson2007] still waits to be realized.  Hypertext (subsuming
-hypermedia and hyperdata) has also been understood differently both in the
-literary community (that focused on simple links), and in the hypertext
+[@Nelson1965;@Nelson1999;@Nelson2007] still waits to be realized.  Hypertext
+(subsuming hypermedia and hyperdata) has also been understood differently both
+in the literary community (that focused on simple links), and in the hypertext
 research community (that focused on tools) [@WardripFruin2004]. Infrastructure
 agnostic hypertext is an attempt to recover the core parts of original
-hypertext by concentrating on documents and their connections.^[An earlier and
-more detailled version of this publication (4 pages) is available at
-<https://arxiv.org/abs/1907.00259> (PDF) and
-<https://jakobib.github.io/hypertext2019/> (HTML).]
+hypertext by concentrating on documents and their connections.
 
 # Outline of Hypertext
 
@@ -37,7 +34,10 @@ such as UTF-8, CSV, and SVG. A hypertext system needs
 and practical methods to tell which content locators can be used with which
 documents to form an actual document segment. The core elements of hypertext,
 except from the simple parts documents and document identifiers, require some
-explanation.
+explanation.^[An earlier and more detailled version of this publication (4
+pages) is available at <https://arxiv.org/abs/1907.00259> (PDF) and
+<https://jakobib.github.io/hypertext2019/> (HTML). The illustrating poster
+will be published in September at <https://doi.org/10.5281/zenodo.3339295>.]
 
 ## Data formats
 
@@ -120,11 +120,12 @@ Recent development such as Webmention and OpenCitation may help here.
 Access to documents via a retrieval function $R$ can be implemented with
 existing network and identifier technologies (basically HTTP and URL) as done
 in OpenXanadu [@Nelson2014] but content-based identifiers better guarantee to
-always reference the same document [@Lukka2002]. Promising technologies for
-implementation include IPFS Mulihashes and BitTorrent Merkle-Hashes. The
-challenge of hypertext systems is less the technical infrastructure to retrieve
-documents but normalization of documents to canonical forms to support
-content-based identifiers.
+always reference the same document [@Lukka2002]. The "global address space"
+[@Nelson1999] could directly be derived by hash functions from the space of all
+digital content. Promising technologies for implementation include IPFS
+Mulihashes and BitTorrent Merkle-Hashes. The challenge of hypertext systems is
+less the technical infrastructure to retrieve documents but normalization of
+documents to canonical forms to support content-based identifiers.
 
 # Summary and conclusion
 
@@ -139,15 +140,15 @@ c) copyright and royalty system via micropayment
 d) user interfaces to navigate and edit hypertexts
 
 With documents as primary elements, document identifiers are a preferred over
-servers and users.^[OpenXanadu also uses plain URLs as part if its edit list
-format [@Nelson2014].] Canonical sources of documents (authorship) could be
-implemented with blockchain or other trusted logfiles. User interfaces highly
-depend on use-cases and data formats anyway. What's needed for xanalogical
-hypertext systems are efforts to understand, normalize and process file formats
-in order to implement and popularize an ecosystem of content locators and edit
-lists.  References to existing technologies show that hypertext as envisioned
-by Ted Nelson can be integrated into current information infrastructures,
-especially the Internet and the Web.
+servers and users (OpenXanadu uses plain URLs as part if its edit list format
+but these links may break [@Nelson2014]). Canonical sources of documents
+(authorship) could be implemented with blockchain or other trusted logfiles.
+User interfaces highly depend on use-cases and data formats anyway. What's
+needed for xanalogical hypertext systems are efforts to understand, normalize
+and process file formats in order to implement and popularize an ecosystem of
+content locators and edit lists.  References to existing technologies show that
+hypertext as envisioned by Ted Nelson can be integrated into current
+information infrastructures, especially the Internet and the Web.
  
 <!-- TODO: link to traces of transclusion links that have been processed to
 this paper. See <https://github.com/jakobib/hypertext2019> and XXX for details

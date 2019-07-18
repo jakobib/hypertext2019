@@ -2,17 +2,19 @@
 documentclass: acmart
 classoption:
   - format=sigconf
+remove-headers: true
 biblio-style: ACM-Reference-Format
 fontfamily: amsmath # prevent lmodern to be loaded
 header-includes: |
   \copyrightyear{2019}
   \acmYear{2019}
   \setcopyright{rightsretained}
-  \acmConference[HT 2019]{HT 2019: ACM Conference on Hypertext and Social Media}{September 17--20, 2019}{Hof}
-  \acmBooktitle{HT 2019: ACM Conference on Hypertext and Social Media, September 17--20, 2019, Hof}
-  \acmPrice{}
-  \acmDOI{}
-  \acmISBN{}
+  \acmPrice{15.00}
+  \acmConference[HT '19] {30th ACM Conference on Hypertext \& Social Media}{September 17--20, 2019}{Hof, Germany}
+  \acmBooktitle{30th ACM Conference on Hypertext \& Social Media (HT '19), September 17--20, 2019, Hof, Germany}
+  \acmDOI{10.1145/3342220.3344922}
+  \acmISBN{978-1-4503-6885-8/19/09}
+  \settopmatter{printacmref=true}
   \usepackage{tikz}
   \usetikzlibrary{shapes}
   \usetikzlibrary{positioning}
