@@ -4,6 +4,8 @@ Another shortened version of the article will be included in the proceedings as 
 
 The poster **We were promised Xanadu! An Infrastructure-Agnostic Model of Hypertext** has been published at <https://doi.org/10.5281/zenodo.3339295>.
 
+[![](poster.png)](https://doi.org/10.5281/zenodo.3339295)
+
 ## Source files
 
 The article is written in Pandoc Markdown syntax. Bibliographic reference data has been entered into Wikidata.
