@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "For referencing this work, please cite it as below."
+authors:
+- family-names: "Voß"
+  given-names: "Jakob"
+  orcid: "https://orcid.org/0000-0002-7613-4123"
+title: "hypertext2019"
+doi: 10.1145/3342220.3344922
+date-released: 2019-06-29
+url: "https://jakobib.github.io/hypertext2019/"
